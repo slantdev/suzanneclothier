@@ -1,0 +1,36 @@
+{
+  "name": "suzanneclothier",
+  "version": "0.0.1",
+  "description": "Boilerplate WordPress theme with TailwindCSS.",
+  "author": "Georgius Fransnico",
+  "repository": {
+    "type": "git",
+    "url": "https://developer_slant@bitbucket.org/developer_slant/suzanneclothier.git"
+  },
+  "theme_uri": "https://developer_slant@bitbucket.org/developer_slant/suzanneclothier.git",
+  "author_uri": "https://gfransnico.com",
+  "text_domain": "twp",
+  "license": "GPL-2.0",
+  "scripts": {
+    "development": "mix",
+    "dev": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production",
+    "prod": "mix --production"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.2",
+    "browser-sync": "^2.27.5",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "cross-env": "^7.0.3",
+    "laravel-mix": "^6.0.28",
+    "postcss": "^8.3.6",
+    "postcss-import": "^14.0.2",
+    "postcss-nested": "^5.0.6",
+    "postcss-nested-ancestors": "^2.0.0",
+    "resolve-url-loader": "^4.0.0",
+    "tailwindcss": "^2.2.7"
+  }
+}
