@@ -116,7 +116,7 @@ function learning_path_item($background, $title, $text, $url)
   </section>
 
   <section id="learning-path" class="bg-secondary-light">
-    <div class="container pb-14">
+    <div class="container pb-20">
       <div class="text-center">
         <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
         <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
@@ -128,89 +128,58 @@ function learning_path_item($background, $title, $text, $url)
         $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-01.jpg';
         $title = 'Behavior';
         $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '#';
+        $url = '/learning_paths/behavior';
         echo learning_path_item($background, $title, $text, $url);
         ?>
         <?php
         $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-02.jpg';
         $title = 'Training';
         $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '#';
+        $url = '/learning_paths/training';
         echo learning_path_item($background, $title, $text, $url);
         ?>
         <?php
         $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-03.jpg';
         $title = 'Relationship';
         $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '#';
+        $url = '/learning_paths/relationship';
         echo learning_path_item($background, $title, $text, $url);
         ?>
         <?php
         $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-04.jpg';
         $title = 'Performance';
         $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '#';
+        $url = '/learning_paths/performance';
         echo learning_path_item($background, $title, $text, $url);
         ?>
         <?php
         $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-05.jpg';
         $title = 'Professional';
         $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '#';
+        $url = '/learning_paths/professional';
         echo learning_path_item($background, $title, $text, $url);
         ?>
         <?php
         $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-06.jpg';
         $title = 'Rescue';
         $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '#';
+        $url = '/learning_paths/rescue';
         echo learning_path_item($background, $title, $text, $url);
         ?>
         <?php
         $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-07.jpg';
         $title = 'Breeding';
         $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '#';
+        $url = '/learning_paths/breeding';
         echo learning_path_item($background, $title, $text, $url);
         ?>
         <?php
         $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-08.jpg';
         $title = 'Need Help In Choosing Your Learning Path?';
         $text = '';
-        $url = '#';
+        $url = '/contact-us';
         echo learning_path_item($background, $title, $text, $url);
         ?>
-      </div>
-    </div>
-  </section>
-
-  <section id="learning-path-quiz" class="bg-secondary-light">
-    <div class="container pb-14">
-      <div class="text-center">
-        <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
-        <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-sans">Not sure which learning path applies to you?</h3>
-        <h4 class="text-2xl">We can help you choose one</h4>
-        <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
-        <div class="max-w-2xl mx-auto text-sm">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.</p>
-        </div>
-      </div>
-      <div class="max-w-2xl mx-auto mt-8">
-        <div class="learning-path-quiz--progress-bar mt-24 mb-16">
-          <div class="learning-path-quiz--progress">
-            <div class="learning-path-quiz--tooltip">20%</div>
-          </div>
-        </div>
-        <div class="text-3xl text-center font-semibold">Do you have a dog?</div>
-        <div class="flex items-center justify-center gap-4 mt-12">
-          <button type="button" class="inline-flex items-center justify-between leading-none py-1 pl-6 pr-2 rounded-full bg-white text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-8">Yes</span>
-            <ion-icon name="arrow-forward-circle" class="text-4xl leading-none"></ion-icon>
-          </button>
-          <button type="button" class="inline-flex items-center justify-between leading-none py-1 pl-6 pr-2 rounded-full bg-white text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-8">No</span>
-            <ion-icon name="arrow-forward-circle" class="text-4xl leading-none"></ion-icon>
-          </button>
-        </div>
       </div>
     </div>
   </section>
