@@ -1,28 +1,31 @@
-<?php get_header(); ?>
+<?php
 
-	<div class="container my-8 mx-auto">
+add_filter('body_class', 'sc_body_classes');
+function sc_body_classes($classes)
+{
+  $classes[] = 'header-semi-transparent';
+  return $classes;
+}
 
-	<?php if ( have_posts() ) : ?>
+get_header();
+?>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-			?>
+<main class="page-single">
 
-			<?php get_template_part( 'template-parts/content', 'single' ); ?>
+  <?php if (have_posts()) : ?>
 
-			<?php
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-			?>
+    <?php
+    while (have_posts()) :
+      the_post();
+    ?>
 
-		<?php endwhile; ?>
+      <?php get_template_part('template-parts/content', 'single'); ?>
 
-	<?php endif; ?>
+    <?php endwhile; ?>
 
-	</div>
+  <?php endif; ?>
+
+</main>
 
 <?php
 get_footer();

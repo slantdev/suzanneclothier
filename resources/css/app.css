@@ -1,5 +1,8 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@import "custom.css";
+@import './partials/global.css';
+@import './partials/forms.css';
+@import './partials/woocommerce.css';
+@import './partials/megamenu.css';

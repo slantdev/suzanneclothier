@@ -1,25 +1,90 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+$post_id = get_the_ID();
+$thumbnail_full = get_the_post_thumbnail_url($post_id, 'full');
+//echo $thumbnail_full;
+$thumbnail_medium = get_the_post_thumbnail_url($post_id, 'medium')
+?>
+<section class="hero flex flex-col items-center bg-cover bg-center bg-primary bg-opacity-30" style="background-image: url(<?php echo $thumbnail_full; ?>)">
+  <div class="container pt-32 pb-8 z-10">
+    <div class="flex">
+      <div class="w-2/3 pb-20">
+        <h1 class="text-6xl font-sans mb-5 text-white"><?php the_title(); ?></h1>
+      </div>
+    </div>
+  </div>
+  <div class="w-full bg-white bg-opacity-90 z-10">
+    <div class="container h-12 flex items-center">
+      <div class="breadcrumb -mx-1">
+        <span class="inline-block px-1"><a href="/">Home</a></span>
+        <span class="inline-block px-1"> / </span>
+        <span class="inline-block px-1"><a href="/">Blog</a></span>
+        <span class="inline-block px-1"> / </span>
+        <span class="font-semibold inline-block px-1"><?php the_title(); ?></span>
+      </div>
+    </div>
+  </div>
+</section>
 
-	<header class="entry-header mb-4">
-		<?php the_title( sprintf( '<h1 class="entry-title text-2xl lg:text-5xl font-extrabold leading-tight mb-1"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
-		<time datetime="<?php echo get_the_date( 'c' ); ?>" itemprop="datePublished" class="text-sm text-gray-700"><?php echo get_the_date(); ?></time>
-	</header>
+<section class="bg-white">
+  <div class="container pt-20 pb-28">
+    <div class="flex gap-20">
+      <div class="w-2/3">
+        <div class="entry-content">
+          <article id="post-<?php the_ID(); ?>" <?php post_class('prose xl:prose-lg font-sans'); ?>>
 
-	<div class="entry-content">
-		<?php the_content(); ?>
+            <?php the_content(); ?>
 
-		<?php
-			wp_link_pages(
-				array(
-					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twp' ) . '</span>',
-					'after'       => '</div>',
-					'link_before' => '<span>',
-					'link_after'  => '</span>',
-					'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twp' ) . ' </span>%',
-					'separator'   => '<span class="screen-reader-text">, </span>',
-				)
-			);
-		?>
-	</div>
+          </article>
+        </div>
+      </div>
+      <div class="w-1/3">
+        <div class="px-8">
+          <?php
+          if ($thumbnail_medium) {
+          ?>
+            <div class="mb-12">
+              <div class="aspect-w-1 aspect-h-1">
+                <img src="<?php echo $thumbnail_medium ?>" class="w-full h-full object-cover object-center rounded-full">
+              </div>
+            </div>
+          <?php
+          }
+          ?>
+          <div class="mb-12">
+            <h4 class="text-primary mb-4 text-3xl font-sans">Search the site</h4>
+            <form class="flex bg-gray-50 shadow-md rounded-full inline-form-pill">
+              <input type="text" class="w-full px-6 bg-transparent rounded-full focus:outline-none">
+              <button class="py-3 px-5 text-sm rounded-full bg-primary font-semibold text-white uppercase">Search</button>
+            </form>
+          </div>
+          <div>
+            <h4 class="text-primary mb-4 text-3xl font-sans">Latest Posts</h4>
+            <?php
+            $args = array(
+              'post_type' => 'post',
+              'posts_per_page' => 8
+            );
+            $posts_query = new WP_Query($args);
 
-</article>
+            if ($posts_query->have_posts()) {
+              echo '<ul class="flex flex-col divide-y divide-black divide-opacity-10">';
+              while ($posts_query->have_posts()) {
+                $posts_query->the_post();
+            ?>
+                <li class="py-3"><a href="<?php echo get_the_permalink(); ?>" class="font-semibold"><?php echo get_the_title(); ?></a></li>
+              <?php
+              }
+              echo '</ul>';
+            } else {
+              ?>
+              <div class="text-center text-xl">Sorry, there's no post in this category.</div>
+            <?php
+            }
+            wp_reset_postdata();
+            ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

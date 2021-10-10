@@ -1,0 +1,24 @@
+#mega-menu-wrap-primary
+  #mega-menu-primary
+  > li.mega-menu-item
+  > a.mega-menu-link {
+  @apply font-semibold;
+  &:hover {
+    @apply font-semibold;
+  }
+}
+
+#mega-menu-wrap-primary
+  #mega-menu-primary
+  > li.mega-menu-item.mega-current-menu-item
+  > a.mega-menu-link,
+#mega-menu-wrap-primary
+  #mega-menu-primary
+  > li.mega-menu-item.mega-current-menu-ancestor
+  > a.mega-menu-link,
+#mega-menu-wrap-primary
+  #mega-menu-primary
+  > li.mega-menu-item.mega-current-page-ancestor
+  > a.mega-menu-link {
+  @apply border-b-2 border-secondary-dark border-solid;
+}
