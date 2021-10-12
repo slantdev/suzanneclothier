@@ -32,10 +32,10 @@ if ($background_image_desktop) {
     <?php if ($background_overlay) {
       echo '<div class="absolute inset-0" style="background-color: ' . $background_overlay . '"></div>';
     } ?>
-    <div class="container pt-32 pb-8 z-10">
+    <div class="container pt-32 pb-8 z-10 mx-auto max-w-7xl">
       <div class="flex">
-        <div class="w-1/2 pb-20 text-white">
-          <h2 class="text-6xl font-sans mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
+        <div class="w-2/5 pb-20 text-white">
+          <h2 class="text-6xl font-quincy mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
           <?php if ($hero_description) {
             echo '<div>';
             echo $hero_description;
@@ -45,7 +45,7 @@ if ($background_image_desktop) {
       </div>
     </div>
     <div class="w-full bg-white bg-opacity-90 z-10">
-      <div class="container h-12 flex items-center">
+      <div class="container h-12 flex items-center mx-auto max-w-7xl">
         <div class="breadcrumb -mx-1">
           <span class="inline-block px-1"><a href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Blog</span>
         </div>
@@ -54,11 +54,11 @@ if ($background_image_desktop) {
   </section>
 
   <section class="bg-white">
-    <div class="container">
+    <div class="container mx-auto max-w-7xl">
       <div class="text-center">
         <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
         <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-sans">Suzanne Clothier’s Blog</h3>
+        <h3 class="text-4xl my-6 text-primary font-quincy">Suzanne Clothier’s Blog</h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>
       <div class="max-w-lg mx-auto my-12">

@@ -4,16 +4,16 @@ $thumbnail_full = get_the_post_thumbnail_url($post_id, 'full');
 //echo $thumbnail_full;
 $thumbnail_medium = get_the_post_thumbnail_url($post_id, 'medium')
 ?>
-<section class="hero flex flex-col items-center bg-cover bg-center bg-primary bg-opacity-30" style="background-image: url(<?php echo $thumbnail_full; ?>)">
-  <div class="container pt-32 pb-8 z-10">
+<section class="hero flex flex-col items-center bg-cover bg-center bg-primary bg-opacity-30">
+  <div class="container pt-32 pb-8 z-10 max-w-7xl mx-auto">
     <div class="flex">
-      <div class="w-2/3 pb-20">
-        <h1 class="text-6xl font-sans mb-5 text-white"><?php the_title(); ?></h1>
+      <div class="w-2/3 pb-14">
+        <h1 class="text-6xl font-quincy mb-5 text-primary"><?php the_title(); ?></h1>
       </div>
     </div>
   </div>
   <div class="w-full bg-white bg-opacity-90 z-10">
-    <div class="container h-12 flex items-center">
+    <div class="container h-12 flex items-center max-w-7xl mx-auto">
       <div class="breadcrumb -mx-1">
         <span class="inline-block px-1"><a href="/">Home</a></span>
         <span class="inline-block px-1"> / </span>
@@ -26,8 +26,8 @@ $thumbnail_medium = get_the_post_thumbnail_url($post_id, 'medium')
 </section>
 
 <section class="bg-white">
-  <div class="container pt-20 pb-28">
-    <div class="flex gap-20">
+  <div class="container pt-20 pb-28 max-w-7xl mx-auto">
+    <div class="flex gap-16">
       <div class="w-2/3">
         <div class="entry-content">
           <article id="post-<?php the_ID(); ?>" <?php post_class('prose xl:prose-lg font-sans'); ?>>

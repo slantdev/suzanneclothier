@@ -16,16 +16,16 @@ get_header();
 <main class="page-about">
 
   <section class="hero flex flex-col items-center" style="background-image: url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/hero/hero-about.jpg)">
-    <div class="container pt-32 pb-8">
+    <div class="container pt-32 pb-8 mx-auto max-w-7xl">
       <div class="flex">
-        <div class="w-1/2 pb-20">
-          <h2 class="text-6xl text-primary font-sans mb-5">About Us</h2>
+        <div class="w-2/5 pb-20">
+          <h2 class="text-6xl text-primary font-quincy mb-5">About Us</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.</p>
         </div>
       </div>
     </div>
     <div class="w-full bg-white bg-opacity-50">
-      <div class="container h-12 flex items-center">
+      <div class="container h-12 flex items-center mx-auto max-w-7xl">
         <div class="breadcrumb -mx-1">
           <span class="inline-block px-1"><a href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">About Us</span>
         </div>
@@ -34,11 +34,11 @@ get_header();
   </section>
 
   <section id="about-suzanne" class="bg-secondary-light">
-    <div class="container">
+    <div class="container mx-auto max-w-7xl">
       <div class="text-center">
         <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
         <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-sans">About Suzanne</h3>
+        <h3 class="text-4xl my-6 text-primary font-quincy">About Suzanne</h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>
       <div class="flex pt-14 pb-20 gap-12">
@@ -85,11 +85,11 @@ get_header();
   </section>
 
   <section id="testimonial" class="pb-28 bg-primary-light bg-opacity-10">
-    <div class="container">
+    <div class="container mx-auto max-w-7xl">
       <div class="h-10 w-px bg-black bg-opacity-20 mx-auto"></div>
       <div class="text-center mb-8">
         <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-sans">What our customers say about us</h3>
+        <h3 class="text-4xl my-6 text-primary font-quincy">What our customers say about us</h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>
       <div class="max-w-3xl mx-auto text-sm">

@@ -20,6 +20,13 @@ if (!defined('ABSPATH')) {
   exit; // Exit if accessed directly.
 }
 
+add_filter('body_class', 'sc_body_classes');
+function sc_body_classes($classes)
+{
+  $classes[] = 'header-semi-transparent';
+  return $classes;
+}
+
 get_header('shop');
 
 /**
@@ -42,11 +49,11 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
   <?php if ($hero_overlay) {
     echo '<div class="absolute inset-0" style="background-color: ' . $hero_overlay . '"></div>';
   } ?>
-  <div class="container pt-32 pb-8 z-10">
+  <div class="container pt-36 pb-20 z-10 mx-auto max-w-7xl">
     <div class="flex">
-      <div class="w-1/2 pb-20 text-white">
+      <div class="w-2/5">
         <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-          <h1 class="woocommerce-products-header__title page-title text-6xl font-sans mb-5 text-white"><?php woocommerce_page_title(); ?></h1>
+          <h1 class="woocommerce-products-header__title page-title text-6xl font-quincy mb-5 text-primary"><?php woocommerce_page_title(); ?></h1>
         <?php endif; ?>
         <?php
         /**
@@ -61,7 +68,7 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
     </div>
   </div>
   <div class="w-full bg-white bg-opacity-90 z-10">
-    <div class="container h-12 flex items-center">
+    <div class="container h-12 flex items-center mx-auto max-w-7xl">
       <?php woocommerce_breadcrumb(); ?>
     </div>
   </div>
@@ -126,10 +133,10 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
 
     if (!empty($categories)) {
       echo '<ul class="flex bg-primary overflow-x-auto items-center">';
-      echo '<li class="px-8 py-3 bg-secondary text-primary font-bold font-sans">' . $queried_object->name . '</li>';
+      echo '<li class="px-8 py-3 bg-secondary text-primary font-bold font-quincy text-xl">' . $queried_object->name . '</li>';
       foreach ($categories as $key => $category) {
         echo '<li>';
-        echo '<a href="#' . $category->slug . '" class="block text-white font-bold font-sans px-8 py-3 whitespace-nowrap">';
+        echo '<a href="#' . $category->slug . '" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">';
         echo $category->name;
         echo '</a>';
         echo '</li>';
@@ -191,10 +198,10 @@ if (!empty($product_categories)) {
       echo '<div id="' . $category->slug . '" class="section-anchor ' . (++$count % 2 ? "" : " bg-secondary-light") . '">';
       echo '<div class="container">';
 
-      echo '<div class="text-center mb-10">
-        <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
+      echo '<div class="text-center mb-20">
+        <div class="h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
         <div class="my-8"><img src="' . get_stylesheet_directory_uri() . '/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-sans">' . $category->name . '</h3>
+        <h3 class="text-4_25xl my-6 text-primary font-quincy">' . $category->name . '</h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>';
 
@@ -221,7 +228,7 @@ if (!empty($product_categories)) {
       // echo '</div>';
 
       echo '<div class="text-center mt-16">
-        <div class="h-12 w-px bg-primary bg-opacity-50 mx-auto"></div>
+        <div class="h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
       </div>';
 
       echo '</div>';

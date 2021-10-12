@@ -2,6 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import './partials/fonts.css';
 @import './partials/global.css';
 @import './partials/forms.css';
 @import './partials/woocommerce.css';

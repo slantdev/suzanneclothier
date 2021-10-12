@@ -25766,13 +25766,22 @@ select {
   font-family: Montserrat, sans-serif;
 }
 
+.font-quincy {
+  font-family: Quincy CF, serif;
+}
+
 .text-xs {
-  font-size: 0.75rem;
+  font-size: .75rem;
   line-height: 1rem;
 }
 
 .text-sm {
-  font-size: 0.875rem;
+  font-size: .875rem;
+  line-height: 1.25rem;
+}
+
+.text-tiny {
+  font-size: .875rem;
   line-height: 1.25rem;
 }
 
@@ -25806,28 +25815,23 @@ select {
   line-height: 2.5rem;
 }
 
+.text-4_25xl {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
 }
 
 .text-6xl {
-  font-size: 3.75rem;
+  font-size: 4rem;
   line-height: 1;
 }
 
 .text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.text-8xl {
-  font-size: 6rem;
-  line-height: 1;
-}
-
-.text-9xl {
-  font-size: 8rem;
+  font-size: 5rem;
   line-height: 1;
 }
 
@@ -36898,7 +36902,7 @@ select {
 }
 
 .wp-caption-text {
-  font-size: 0.875rem;
+  font-size: .875rem;
   color: #525252;
 }
 
@@ -36946,6 +36950,19 @@ select {
 
 .line-clamp-none {
   -webkit-line-clamp: unset;
+}
+
+@font-face {
+  font-family: 'Quincy CF';
+
+  src: url('/wp-content/themes/suzanneclothier/assets/fonts/QuincyCF-Regular.woff2')
+    format('woff2');
+
+  font-weight: 400;
+
+  font-style: normal;
+
+  font-display: swap;
 }
 
 html {
@@ -37120,101 +37137,6 @@ body {
 
 .section-anchor {
   scroll-margin-top: 48px;
-}
-
-.ubermenu-submenu {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-.ubermenu-skin-minimal .ubermenu-submenu.ubermenu-submenu-drop {
-  border-width: 0px;
-}
-
-.ubermenu-skin-minimal.ubermenu-horizontal
-  .ubermenu-item-level-0
-  > .ubermenu-submenu-drop {
-  border-top-width: 0px;
-}
-
-.ubermenu-main
-  .ubermenu-submenu-type-flyout
-  > .ubermenu-item-normal
-  > .ubermenu-target {
-  white-space: nowrap;
-}
-
-.ubermenu
-  .ubermenu-submenu-type-stack
-  > .ubermenu-item-normal
-  > .ubermenu-target {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.ubermenu-skin-minimal
-  .ubermenu-submenu
-  .ubermenu-item-header
-  > .ubermenu-target {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.ubermenu
-  .ubermenu-tab-layout-left
-  > .ubermenu-tabs-group
-  > .ubermenu-tab
-  > .ubermenu-tab-content-panel {
-  --tw-bg-opacity: 1;
-  background-color: rgba(243, 237, 228, var(--tw-bg-opacity));
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.ubermenu-skin-minimal
-  .ubermenu-submenu
-  .ubermenu-item-header.ubermenu-has-submenu-stack
-  > .ubermenu-target {
-  border-bottom-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgba(212, 212, 212, var(--tw-border-opacity));
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
-.ubermenu .ubermenu-tab .ubermenu-tab-content-panel, .ubermenu .ubermenu-tab > .ubermenu-target {
-  border-bottom-width: 1px;
-  border-style: solid;
-  --tw-border-opacity: 1;
-  border-color: rgba(212, 212, 212, var(--tw-border-opacity));
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.ubermenu
-  .ubermenu-tab
-  .ubermenu-tab-content-panel
-  .ubermenu-submenu-type-stack
-  > .ubermenu-item-normal
-  > .ubermenu-target {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
-.ubermenu-nojs.ubermenu-skin-minimal
-  .ubermenu-submenu
-  .ubermenu-tabs
-  .ubermenu-tab:hover
-  > .ubermenu-target, .ubermenu-skin-minimal
-  .ubermenu-submenu
-  .ubermenu-tab.ubermenu-active
-  > .ubermenu-target {
-  --tw-bg-opacity: 1;
-  background-color: rgba(228, 186, 124, var(--tw-bg-opacity));
-}
-
-.ubermenu .ubermenu-nav .ubermenu-column-1-5 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 /* Default */
@@ -37439,7 +37361,7 @@ input[type='checkbox']:focus {
     padding-right: 1.25rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    font-size: 0.875rem;
+    font-size: .875rem;
     line-height: 1.25rem;
     --tw-text-opacity: 1;
     color: rgba(255, 255, 255, var(--tw-text-opacity));
@@ -37575,7 +37497,7 @@ input[type='checkbox']:focus {
 .woocommerce .product .product-card .price {
         margin-bottom: 0.125rem;
         display: block;
-        font-size: 0.875rem;
+        font-size: .875rem;
         line-height: 1.25rem;
         line-height: 1.25;
       }
@@ -37598,7 +37520,7 @@ input[type='checkbox']:focus {
         display: block;
         padding-top: 0.25rem;
         text-align: right;
-        font-size: 0.875rem;
+        font-size: .875rem;
         line-height: 1.25rem;
         --tw-text-opacity: 1;
         color: rgba(104, 139, 138, var(--tw-text-opacity));
@@ -37615,7 +37537,7 @@ input[type='checkbox']:focus {
 
 .woocommerce .product .product-card .star-rating {
         height: 1rem;
-        font-size: 0.75rem;
+        font-size: .75rem;
         line-height: 1rem;
         --tw-text-opacity: 1;
         color: rgba(245, 158, 11, var(--tw-text-opacity));
@@ -37826,7 +37748,7 @@ input[type='checkbox']:focus {
           }
 
 .woocommerce div.product form.cart.variations_form .reset_variations {
-          font-size: 0.75rem;
+          font-size: .75rem;
           line-height: 1rem;
         }
 
@@ -37858,7 +37780,7 @@ input[type='checkbox']:focus {
       }
 
 .woocommerce div.product p.stock {
-      font-size: 0.875rem;
+      font-size: .875rem;
       line-height: 1.25rem;
       --tw-text-opacity: 1;
       color: rgba(13, 148, 136, var(--tw-text-opacity));
@@ -38117,7 +38039,7 @@ input[type='checkbox']:focus {
 .woocommerce form.checkout .form-row label {
         margin-bottom: 0.25rem;
         display: inline-block;
-        font-size: 0.875rem;
+        font-size: .875rem;
         line-height: 1.25rem;
         font-weight: 600;
         line-height: 1.5;
@@ -38204,7 +38126,7 @@ input[type='checkbox']:focus {
       }
 
 .woocommerce form.checkout .woocommerce-checkout-review-order {
-      font-size: 0.875rem;
+      font-size: .875rem;
       line-height: 1.25rem;
     }
 
@@ -38228,7 +38150,7 @@ input[type='checkbox']:focus {
 
 .woocommerce form.checkout .woocommerce-privacy-policy-text {
       margin-bottom: 1rem;
-      font-size: 0.75rem;
+      font-size: .75rem;
       line-height: 1rem;
     }
 
@@ -38330,6 +38252,153 @@ input[type='checkbox']:focus {
   --tw-border-opacity: 1;
   border-color: rgba(186, 127, 38, var(--tw-border-opacity));
 }
+
+.ubermenu-submenu {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.ubermenu-skin-minimal .ubermenu-submenu.ubermenu-submenu-drop {
+  border-width: 0px;
+}
+
+.ubermenu-skin-minimal.ubermenu-horizontal
+  .ubermenu-item-level-0
+  > .ubermenu-submenu-drop {
+  border-top-width: 0px;
+}
+
+.ubermenu-main
+  .ubermenu-submenu-type-flyout
+  > .ubermenu-item-normal
+  > .ubermenu-target {
+  white-space: nowrap;
+}
+
+.ubermenu
+  .ubermenu-submenu-type-stack
+  > .ubermenu-item-normal
+  > .ubermenu-target {
+  font-size: .875rem;
+  line-height: 1.25rem;
+}
+
+.ubermenu-skin-minimal
+  .ubermenu-submenu
+  .ubermenu-item-header
+  > .ubermenu-target {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.ubermenu
+  .ubermenu-tab-layout-left
+  > .ubermenu-tabs-group
+  > .ubermenu-tab
+  > .ubermenu-tab-content-panel {
+  --tw-bg-opacity: 1;
+  background-color: rgba(243, 237, 228, var(--tw-bg-opacity));
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.ubermenu-skin-minimal
+  .ubermenu-submenu
+  .ubermenu-item-header.ubermenu-has-submenu-stack
+  > .ubermenu-target {
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgba(212, 212, 212, var(--tw-border-opacity));
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.ubermenu .ubermenu-tab .ubermenu-tab-content-panel, .ubermenu .ubermenu-tab > .ubermenu-target {
+  border-bottom-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgba(212, 212, 212, var(--tw-border-opacity));
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.ubermenu
+  .ubermenu-tab
+  .ubermenu-tab-content-panel
+  .ubermenu-submenu-type-stack
+  > .ubermenu-item-normal
+  > .ubermenu-target {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.ubermenu-nojs.ubermenu-skin-minimal
+  .ubermenu-submenu
+  .ubermenu-tabs
+  .ubermenu-tab:hover
+  > .ubermenu-target, .ubermenu-skin-minimal
+  .ubermenu-submenu
+  .ubermenu-tab.ubermenu-active
+  > .ubermenu-target {
+  --tw-bg-opacity: 1;
+  background-color: rgba(228, 186, 124, var(--tw-bg-opacity));
+}
+
+.ubermenu .ubermenu-nav .ubermenu-column-1-5 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@media (min-width: 1536px) {
+  .ubermenu-main .ubermenu-item-level-0 > .ubermenu-target {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .ubermenu-main.ubermenu-sub-indicators
+    .ubermenu-item-level-0.ubermenu-has-submenu-drop
+    > .ubermenu-target:not(.ubermenu-noindicator) {
+    padding-right: 24px !important;
+  }
+}
+
+.swiper {
+  width: 100%;
+  //height: 578px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+  opacity: 0.7;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    opacity: 1;
+  }
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left: 30px;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: 30px;
+}
+
+#testimonials .swiper-button-next, #testimonials .swiper-button-prev {
+    --tw-text-opacity: 1;
+    color: rgba(21, 81, 99, var(--tw-text-opacity));
+  }
+
+#testimonials .swiper-button-next,
+  #testimonials .swiper-button-prev {
+    opacity: 0.7;
+  }
+
+#testimonials .swiper-button-next:hover, #testimonials .swiper-button-prev:hover {
+      opacity: 1;
+    }
 
 @media (min-width: 640px) {
   .sm\:container {
@@ -63305,13 +63374,22 @@ input[type='checkbox']:focus {
     font-family: Montserrat, sans-serif;
   }
 
+  .sm\:font-quincy {
+    font-family: Quincy CF, serif;
+  }
+
   .sm\:text-xs {
-    font-size: 0.75rem;
+    font-size: .75rem;
     line-height: 1rem;
   }
 
   .sm\:text-sm {
-    font-size: 0.875rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
+
+  .sm\:text-tiny {
+    font-size: .875rem;
     line-height: 1.25rem;
   }
 
@@ -63345,28 +63423,23 @@ input[type='checkbox']:focus {
     line-height: 2.5rem;
   }
 
+  .sm\:text-4_25xl {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
   .sm\:text-5xl {
     font-size: 3rem;
     line-height: 1;
   }
 
   .sm\:text-6xl {
-    font-size: 3.75rem;
+    font-size: 4rem;
     line-height: 1;
   }
 
   .sm\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
-  }
-
-  .sm\:text-8xl {
-    font-size: 6rem;
-    line-height: 1;
-  }
-
-  .sm\:text-9xl {
-    font-size: 8rem;
+    font-size: 5rem;
     line-height: 1;
   }
 
@@ -99338,13 +99411,22 @@ input[type='checkbox']:focus {
     font-family: Montserrat, sans-serif;
   }
 
+  .md\:font-quincy {
+    font-family: Quincy CF, serif;
+  }
+
   .md\:text-xs {
-    font-size: 0.75rem;
+    font-size: .75rem;
     line-height: 1rem;
   }
 
   .md\:text-sm {
-    font-size: 0.875rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
+
+  .md\:text-tiny {
+    font-size: .875rem;
     line-height: 1.25rem;
   }
 
@@ -99378,28 +99460,23 @@ input[type='checkbox']:focus {
     line-height: 2.5rem;
   }
 
+  .md\:text-4_25xl {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
   }
 
   .md\:text-6xl {
-    font-size: 3.75rem;
+    font-size: 4rem;
     line-height: 1;
   }
 
   .md\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
-  }
-
-  .md\:text-8xl {
-    font-size: 6rem;
-    line-height: 1;
-  }
-
-  .md\:text-9xl {
-    font-size: 8rem;
+    font-size: 5rem;
     line-height: 1;
   }
 
@@ -135371,13 +135448,22 @@ input[type='checkbox']:focus {
     font-family: Montserrat, sans-serif;
   }
 
+  .lg\:font-quincy {
+    font-family: Quincy CF, serif;
+  }
+
   .lg\:text-xs {
-    font-size: 0.75rem;
+    font-size: .75rem;
     line-height: 1rem;
   }
 
   .lg\:text-sm {
-    font-size: 0.875rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
+
+  .lg\:text-tiny {
+    font-size: .875rem;
     line-height: 1.25rem;
   }
 
@@ -135411,28 +135497,23 @@ input[type='checkbox']:focus {
     line-height: 2.5rem;
   }
 
+  .lg\:text-4_25xl {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
   .lg\:text-5xl {
     font-size: 3rem;
     line-height: 1;
   }
 
   .lg\:text-6xl {
-    font-size: 3.75rem;
+    font-size: 4rem;
     line-height: 1;
   }
 
   .lg\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
-  }
-
-  .lg\:text-8xl {
-    font-size: 6rem;
-    line-height: 1;
-  }
-
-  .lg\:text-9xl {
-    font-size: 8rem;
+    font-size: 5rem;
     line-height: 1;
   }
 
@@ -171404,13 +171485,22 @@ input[type='checkbox']:focus {
     font-family: Montserrat, sans-serif;
   }
 
+  .xl\:font-quincy {
+    font-family: Quincy CF, serif;
+  }
+
   .xl\:text-xs {
-    font-size: 0.75rem;
+    font-size: .75rem;
     line-height: 1rem;
   }
 
   .xl\:text-sm {
-    font-size: 0.875rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
+
+  .xl\:text-tiny {
+    font-size: .875rem;
     line-height: 1.25rem;
   }
 
@@ -171444,28 +171534,23 @@ input[type='checkbox']:focus {
     line-height: 2.5rem;
   }
 
+  .xl\:text-4_25xl {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
   .xl\:text-5xl {
     font-size: 3rem;
     line-height: 1;
   }
 
   .xl\:text-6xl {
-    font-size: 3.75rem;
+    font-size: 4rem;
     line-height: 1;
   }
 
   .xl\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
-  }
-
-  .xl\:text-8xl {
-    font-size: 6rem;
-    line-height: 1;
-  }
-
-  .xl\:text-9xl {
-    font-size: 8rem;
+    font-size: 5rem;
     line-height: 1;
   }
 
@@ -207437,13 +207522,22 @@ input[type='checkbox']:focus {
     font-family: Montserrat, sans-serif;
   }
 
+  .\32xl\:font-quincy {
+    font-family: Quincy CF, serif;
+  }
+
   .\32xl\:text-xs {
-    font-size: 0.75rem;
+    font-size: .75rem;
     line-height: 1rem;
   }
 
   .\32xl\:text-sm {
-    font-size: 0.875rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
+
+  .\32xl\:text-tiny {
+    font-size: .875rem;
     line-height: 1.25rem;
   }
 
@@ -207477,28 +207571,23 @@ input[type='checkbox']:focus {
     line-height: 2.5rem;
   }
 
+  .\32xl\:text-4_25xl {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
   .\32xl\:text-5xl {
     font-size: 3rem;
     line-height: 1;
   }
 
   .\32xl\:text-6xl {
-    font-size: 3.75rem;
+    font-size: 4rem;
     line-height: 1;
   }
 
   .\32xl\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
-  }
-
-  .\32xl\:text-8xl {
-    font-size: 6rem;
-    line-height: 1;
-  }
-
-  .\32xl\:text-9xl {
-    font-size: 8rem;
+    font-size: 5rem;
     line-height: 1;
   }
 

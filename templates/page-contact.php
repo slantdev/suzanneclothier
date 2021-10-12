@@ -19,16 +19,16 @@ get_header();
 
   <section class="hero flex flex-col items-center" style="background-image: url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/hero/hero-contact.jpg)">
     <div class="absolute bg-black bg-opacity-30 inset-0"></div>
-    <div class="container pt-32 pb-8 z-10">
+    <div class="container pt-32 pb-8 z-10 max-w-7xl mx-auto">
       <div class="flex">
-        <div class="w-1/2 pb-20 text-white">
-          <h2 class="text-6xl font-sans mb-5">Contact Us</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.</p>
+        <div class="w-2/5 pb-20 text-white">
+          <h2 class="text-6xl font-quincy mb-5">Contact Us</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus.</p>
         </div>
       </div>
     </div>
     <div class="w-full bg-white bg-opacity-90 z-10">
-      <div class="container h-12 flex items-center">
+      <div class="container h-12 flex items-center max-w-7xl mx-auto">
         <div class="breadcrumb -mx-1">
           <span class="inline-block px-1"><a href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Contact Us</span>
         </div>
@@ -37,17 +37,17 @@ get_header();
   </section>
 
   <section id="customer-service" class="bg-white">
-    <div class="container">
+    <div class="container max-w-7xl mx-auto">
       <div class="text-center">
         <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
         <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-sans">Customer Service</h3>
+        <h3 class="text-4xl my-6 text-primary font-quincy">Customer Service</h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>
       <div class="flex pt-14 pb-20 gap-12">
         <div class="w-1/2">
           <div class="px-14">
-            <div class="mb-8"><img src="https://source.unsplash.com/collection/9718726/600x600" class="rounded-full mx-auto" /></div>
+            <div class="mb-8"><img src="/wp-content/themes/suzanneclothier/assets/images/learning-path/learningpath-intro.jpg" class="rounded-full mx-auto" /></div>
           </div>
         </div>
         <div class="w-1/2">
@@ -71,7 +71,7 @@ get_header();
       <div class="flex pb-28">
         <div class="w-1/2">
           <div class="px-14">
-            <h3 class="mb-8 text-4xl text-primary font-sans">Our Details</h3>
+            <h3 class="mb-8 text-4xl text-primary font-quincy">Our Details</h3>
             <div>
               <ul class="list-none flex flex-col gap-4 leading-none">
                 <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
@@ -91,7 +91,7 @@ get_header();
           </div>
         </div>
         <div class="w-1/2">
-          <h3 class="mb-8 text-4xl text-primary font-sans">Drop us a line</h3>
+          <h3 class="mb-8 text-4xl text-primary font-quincy">Drop us a line</h3>
           <div>
             <form>
               <div class="grid grid-cols-2 gap-4">

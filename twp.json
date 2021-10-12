@@ -31,6 +31,10 @@
     "montserrat": [
       "Montserrat",
       "sans-serif"
+    ],
+    "quincy": [
+      "Quincy CF",
+      "serif"
     ]
   },
   "maxWidth": {

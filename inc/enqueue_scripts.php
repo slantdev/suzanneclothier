@@ -9,6 +9,8 @@ function twp_enqueue_scripts()
 
   wp_enqueue_script('jquery');
 
+  wp_enqueue_style('swiper', 'https://unpkg.com/swiper@7/swiper-bundle.min.css', array(), $theme->get('Version'));
+  wp_enqueue_script('swiper', 'https://unpkg.com/swiper@7/swiper-bundle.min.js', array(), $theme->get('Version'));
   wp_enqueue_style('twp', twp_get_mix_compiled_asset_url('assets/css/app.css'), array(), $theme->get('Version'));
   wp_enqueue_script('twp', twp_get_mix_compiled_asset_url('assets/js/app.js'), array('jquery'), $theme->get('Version'));
 }
