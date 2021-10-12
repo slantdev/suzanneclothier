@@ -57,7 +57,7 @@
   > .ubermenu-tabs-group
   > .ubermenu-tab
   > .ubermenu-tab-content-panel {
-  @apply bg-secondary-light px-3;
+  @apply bg-secondary-light;
 }
 .ubermenu-skin-minimal
   .ubermenu-submenu

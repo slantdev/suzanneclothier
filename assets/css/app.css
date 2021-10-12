@@ -38297,8 +38297,6 @@ input[type='checkbox']:focus {
   > .ubermenu-tab-content-panel {
   --tw-bg-opacity: 1;
   background-color: rgba(243, 237, 228, var(--tw-bg-opacity));
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
 }
 
 .ubermenu-skin-minimal
