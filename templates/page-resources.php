@@ -73,14 +73,16 @@ if ($background_image_desktop) {
       </div>
 
       <?php
+      $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
       $args = array(
         'post_type' => 'post',
-        'posts_per_page' => 8
+        'posts_per_page' => 9,
+        'paged' => $paged,
       );
       $posts_query = new WP_Query($args);
 
       if ($posts_query->have_posts()) {
-        echo '<div class="grid grid-cols-3 pb-24 gap-8">';
+        echo '<div class="grid grid-cols-3 pb-12 gap-8">';
         while ($posts_query->have_posts()) {
           $posts_query->the_post();
       ?>
@@ -114,6 +116,10 @@ if ($background_image_desktop) {
         <?php
         }
         echo '</div>';
+
+        echo '<div class="pb-24">';
+        echo pagination($posts_query->max_num_pages);
+        echo '</div>';
       } else {
         ?>
         <div class="text-center text-3xl">Sorry, there's no post in this category.</div>
@@ -121,6 +127,8 @@ if ($background_image_desktop) {
       }
       wp_reset_postdata();
       ?>
+
+
 
       <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
 

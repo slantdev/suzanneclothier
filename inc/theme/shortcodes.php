@@ -89,6 +89,8 @@ function sc_pathmenu_func($atts)
         $output .= '</ul>';
 
         $output .= '<a class="text-xs px-1 mt-1 text-secondary-dark hover:text-secondary flex gap-1" href="' . get_term_link($category->slug, 'product_cat') . '"><ion-icon name="arrow-forward-circle-outline" class="text-base"></ion-icon> <span class="inline-block">VIEW ALL</span></a>';
+
+        wp_reset_postdata();
       }
 
       $output .= '</div>';

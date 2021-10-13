@@ -34,7 +34,7 @@
             "clone": [
                 "group_61388a5d994e1"
             ],
-            "display": "seamless",
+            "display": "group",
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
@@ -57,5 +57,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631096011
+    "modified": 1634100149
 }
