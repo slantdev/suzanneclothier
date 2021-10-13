@@ -85,27 +85,64 @@ get_header();
   </section>
 
   <section id="testimonial" class="pb-28 bg-primary-light bg-opacity-10">
-    <div class="container mx-auto max-w-7xl">
+    <div class="container">
       <div class="h-10 w-px bg-black bg-opacity-20 mx-auto"></div>
       <div class="text-center mb-8">
         <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
         <h3 class="text-4xl my-6 text-primary font-quincy">What our customers say about us</h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>
-      <div class="max-w-3xl mx-auto text-sm">
-        <div class="bg-white flex py-10 px-10 gap-10 rounded-2xl shadow-md">
-          <div class="w-1/5">
-            <div class="rounded-full overflow-hidden mb-4">
-              <img src="https://source.unsplash.com/random/100x100" class="object-cover object-center w-full h-full">
+      <?php
+      $args = array(
+        'post_type' => 'testimonial',
+        'posts_per_page' => 3
+      );
+      $the_query = new WP_Query($args);
+
+      // The Loop
+      if ($the_query->have_posts()) {
+        echo '<div id="testimonials" class="swiper"><div class="swiper-wrapper">';
+        while ($the_query->have_posts()) {
+          $the_query->the_post();
+      ?>
+          <div class="swiper-slide">
+            <div class="max-w-3xl mx-auto text-sm bg-white rounded-2xl shadow-md mb-4">
+              <div class="w-full flex py-10 px-10 gap-10">
+                <div class="w-1/5">
+                  <div class="rounded-full overflow-hidden mb-4 w-32 h-32 mx-auto">
+                    <img src="<?php the_post_thumbnail_url() ?>" class="object-cover object-center w-full h-full">
+                  </div>
+                  <h4 class="text-2xl text-primary font-semibold text-center"><?php the_title() ?></h4>
+                </div>
+                <div class="w-4/5">
+                  <?php the_content() ?>
+                </div>
+              </div>
             </div>
-            <h4 class="text-2xl text-primary font-semibold text-center">Kip</h4>
           </div>
-          <div class="w-4/5">
-            <p>I attended Suzanne’s seminar on adolescent dog behavior and problems. My dog, Kip, was chosen to participate. Kip was a rescue who had had very little handling and his arousal was over the top. He was VERY destructive at home having torn up the couch, loveseat and multiple other things. At the seminar Kip came in the building in full arousal and I was almost in tears. Suzanne taught me how to work with Kip so he could learn to control his arousal on his own. By the end of the seminar he was walking nicely on leash and not jumping all over us. More important - at home he started learning self control. Kip is now a super dog and I compete in nosework. We go to trials and he is a perfect gentleman around other dogs. It was a long process - because I had to learn as well. Suzanne gave me the tools I needed to work with Kip and not feel overwhelmed.</p>
-          </div>
-        </div>
-      </div>
+      <?php
+        }
+        echo '</div>';
+        echo '<div class="swiper-button-prev"></div>';
+        echo '<div class="swiper-button-next"></div>';
+
+        echo '</div></div>';
+      }
+      wp_reset_postdata();
+
+      ?>
+
     </div>
+    <script>
+      const testimonialSwiper = new Swiper('#testimonials', {
+        direction: 'horizontal',
+        loop: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
   </section>
 
 </main>
