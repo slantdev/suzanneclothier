@@ -103,3 +103,15 @@ function sc_move_checkout_email_field($address_fields)
   $address_fields['billing_email']['priority'] = 1;
   return $address_fields;
 }
+
+function sc_add_opc_template($templates)
+{
+
+  $templates['sc-membership-pricing'] = array(
+    'label'       => __('SC Pricing Table', 'sc'),
+    'description' => __("Display a sophisticated and colourful pricing table with each product's attributes, but not weight or dimensions.", 'sc'),
+  );
+
+  return $templates;
+}
+add_filter('wcopc_templates', 'sc_add_opc_template');

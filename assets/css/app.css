@@ -38223,6 +38223,75 @@ input[type='checkbox']:focus {
       line-height: 1.75rem;
     }
 
+#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box {
+  --tw-bg-opacity: 1;
+  background-color: rgba(245, 245, 245, var(--tw-bg-opacity));
+}
+
+#add_payment_method #payment div.payment_box::before, .woocommerce-cart #payment div.payment_box::before, .woocommerce-checkout #payment div.payment_box::before {
+  --tw-border-opacity: 1;
+  border-color: rgba(245, 245, 245, var(--tw-border-opacity));
+}
+
+#add_payment_method #payment div.payment_box::before,
+.woocommerce-cart #payment div.payment_box::before,
+.woocommerce-checkout #payment div.payment_box::before {
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+
+.woocommerce form.checkout #payment .wc-credit-card-form div.form-row {
+  padding: 0px;
+}
+
+.woocommerce-form-register .woocommerce-privacy-policy-text {
+    margin-bottom: 1rem;
+    font-size: .75rem;
+    line-height: 1rem;
+  }
+
+.page-membership .checkout {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    max-width: 64rem;
+  }
+
+.page-membership .opc_order_review table.shop_table {
+      --tw-bg-opacity: 1;
+      background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+    }
+
+.page-membership .button.checkout-quantity {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    --tw-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.1), 0 2px 4px 0px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+.page-membership .opc-complete-order {
+    margin-top: 0.5rem;
+  }
+
+.page-membership .opc-pricing-table-wrapper .opc-pricing-table-bg {
+      background-image: url(/wp-content/themes/suzanneclothier/assets/images/logo-icon-white.svg);
+      background-repeat: no-repeat;
+      background-position: center top;
+      //background-size: 600px;
+      background-size: contain;
+    }
+
+.page-membership .opc-pricing-table-wrapper .opc-pricing-table-product:nth-child(2) {
+      --tw-bg-opacity: 1;
+      background-color: rgba(228, 186, 124, var(--tw-bg-opacity));
+      --tw-bg-opacity: 1;
+    }
+
 #mega-menu-wrap-primary
   #mega-menu-primary
   > li.mega-menu-item

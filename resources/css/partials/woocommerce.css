@@ -493,3 +493,56 @@
     }
   }
 }
+
+#add_payment_method #payment div.payment_box,
+.woocommerce-cart #payment div.payment_box,
+.woocommerce-checkout #payment div.payment_box {
+  @apply bg-gray-100;
+}
+#add_payment_method #payment div.payment_box::before,
+.woocommerce-cart #payment div.payment_box::before,
+.woocommerce-checkout #payment div.payment_box::before {
+  @apply border-gray-100;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+
+.woocommerce form.checkout #payment .wc-credit-card-form div.form-row {
+  @apply p-0;
+}
+
+.woocommerce-form-register {
+  .woocommerce-privacy-policy-text {
+    @apply text-xs mb-4;
+  }
+}
+
+.page-membership {
+  .checkout {
+    @apply max-w-5xl mx-auto mt-16;
+  }
+  .opc_order_review {
+    table.shop_table {
+      @apply bg-white;
+    }
+  }
+  .button.checkout-quantity {
+    @apply py-3 px-8 text-xl shadow-md;
+  }
+  .opc-complete-order {
+    @apply mt-2;
+  }
+  .opc-pricing-table-wrapper {
+    .opc-pricing-table-bg {
+      background-image: url(/wp-content/themes/suzanneclothier/assets/images/logo-icon-white.svg);
+      background-repeat: no-repeat;
+      background-position: center top;
+      //background-size: 600px;
+      @apply bg-contain;
+    }
+    .opc-pricing-table-product:nth-child(2) {
+      @apply bg-secondary bg-opacity-100;
+    }
+  }
+}

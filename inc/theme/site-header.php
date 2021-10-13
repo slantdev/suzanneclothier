@@ -35,7 +35,7 @@ function site_header_bottom()
     <div class="relative container py-4">
       <div class="flex justify-between items-center">
         <div class="max-w-1/5 pr-5">
-          <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-suzanneclothier.svg" class="site-logo" />
+          <a href="/"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-suzanneclothier.svg" class="site-logo" /></a>
         </div>
         <div class="flex items-center">
           <?php echo site_navigation(); ?>
@@ -79,7 +79,7 @@ function site_header_buttons()
 { ?>
   <ul class="flex text-sm font-semibold border-r border-primary-light pr-2 mr-2">
     <li class="px-1"><a href="/membership" class="whitespace-nowrap rounded-full px-4 py-3 inline-block bg-primary text-white">Become a Member</a></li>
-    <li class="px-1"><a href="#" class="whitespace-nowrap rounded-full px-4 py-3 inline-block bg-secondary text-primary">Member Login</a></li>
+    <li class="px-1"><a href="/my-account" class="whitespace-nowrap rounded-full px-4 py-3 inline-block bg-secondary text-primary">Member Login</a></li>
   </ul>
 <?php
 }

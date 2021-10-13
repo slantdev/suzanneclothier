@@ -29,7 +29,7 @@ if (post_password_required()) {
   <div class="container pt-20 pb-12 z-10">
     <div class="flex">
       <div class="w-2/3">
-        <h1 class="text-6xl font-sans mb-5 text-primary"><?php the_title(); ?></h1>
+        <h1 class="text-6xl font-quincy mb-5 text-primary"><?php the_title(); ?></h1>
       </div>
     </div>
   </div>
