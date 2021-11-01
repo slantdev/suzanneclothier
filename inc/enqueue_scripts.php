@@ -14,7 +14,7 @@ function twp_enqueue_scripts()
   wp_enqueue_style('twp', twp_get_mix_compiled_asset_url('assets/css/app.css'), array(), $theme->get('Version'));
   wp_enqueue_script('twp', twp_get_mix_compiled_asset_url('assets/js/app.js'), array('jquery'), $theme->get('Version'));
 }
-add_action('wp_enqueue_scripts', 'twp_enqueue_scripts', 999);
+add_action('wp_enqueue_scripts', 'twp_enqueue_scripts', 9999);
 
 function twp_google_fonts()
 {

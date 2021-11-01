@@ -1,6 +1,7 @@
 {
   "colors": {
     "primary": {
+      "lighter": "#BACED0",
       "light": "#2489A8",
       "DEFAULT": "#155163",
       "dark": "#0B2932"

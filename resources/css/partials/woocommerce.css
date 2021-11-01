@@ -2,6 +2,11 @@
   .site-header-bottom {
     @apply bg-opacity-90;
   }
+  .member-price-compare {
+    a {
+      @apply no-underline;
+    }
+  }
 }
 .page-cart {
   .site-header-bottom {
@@ -183,15 +188,11 @@
     form.cart {
       @apply my-6 flex;
       div.quantity {
-        /* @apply float-none m-0 border border-gray-400 rounded-md overflow-hidden mr-2; */
         @apply float-none m-0 mr-3;
         .qty {
           line-height: 54px;
           @apply text-center w-24 font-semibold py-0;
         }
-      }
-      .button {
-        @apply float-none shadow-md px-8 py-4 rounded-full text-white text-base bg-primary hover:bg-primary-light;
       }
       &.variations_form {
         @apply flex-col;
@@ -214,6 +215,10 @@
         }
       }
     }
+    .single_add_to_cart_button.button {
+      @apply float-none shadow-md px-8 py-4 rounded-full text-white text-base bg-primary hover:bg-primary-light;
+    }
+
     .woocommerce-product-rating {
       @apply mb-6 leading-none;
       .star-rating {
@@ -515,34 +520,5 @@
 .woocommerce-form-register {
   .woocommerce-privacy-policy-text {
     @apply text-xs mb-4;
-  }
-}
-
-.page-membership {
-  .checkout {
-    @apply max-w-5xl mx-auto mt-16;
-  }
-  .opc_order_review {
-    table.shop_table {
-      @apply bg-white;
-    }
-  }
-  .button.checkout-quantity {
-    @apply py-3 px-8 text-xl shadow-md;
-  }
-  .opc-complete-order {
-    @apply mt-2;
-  }
-  .opc-pricing-table-wrapper {
-    .opc-pricing-table-bg {
-      background-image: url(/wp-content/themes/suzanneclothier/assets/images/logo-icon-white.svg);
-      background-repeat: no-repeat;
-      background-position: center top;
-      //background-size: 600px;
-      @apply bg-contain;
-    }
-    .opc-pricing-table-product:nth-child(2) {
-      @apply bg-secondary bg-opacity-100;
-    }
   }
 }

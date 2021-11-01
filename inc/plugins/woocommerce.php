@@ -35,6 +35,122 @@ add_action('woocommerce_single_product_summary', 'woocommerce_template_single_pr
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 add_action('woocommerce_before_single_product_summary', 'woocommerce_template_single_meta', 25);
 
+//* Add Member Coupon Code
+add_action('woocommerce_single_product_summary', 'sc_add_rcp_member_coupon_code', 25);
+function sc_add_rcp_member_coupon_code()
+{
+  $included_for_member = get_field('included_for_member');
+  $rcp_customer_membership = rcp_get_customer_membership_level_ids();
+  if (in_array(1, $rcp_customer_membership)) {
+    if (in_array(1, $included_for_member)) {
+      echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your membership plan. Please use <strong>SILVERFREE</strong> coupon code to watch it for free.</div>';
+    } else {
+      echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Silver Member, please use <strong>SILVERCODE</strong> coupon code to get 5% discount upon checkout</div>';
+    }
+  } else if (in_array(2, $rcp_customer_membership)) {
+    if (in_array(2, $included_for_member)) {
+      echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your membership plan. Please use <strong>GOLDFREE</strong> coupon code to watch it for free.</div>';
+    } else {
+      echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Gold Member, please use <strong>GOLDCODE</strong> coupon code to get 5% discount upon checkout</div>';
+    }
+  }
+}
+
+//* Add Discounted Price Info for Member
+//* Shown to non member only
+add_action('woocommerce_single_product_summary', 'sc_add_discounted_price', 35);
+function sc_add_discounted_price()
+{
+  if (!rcp_user_has_active_membership()) {
+    $this_product = wc_get_product(get_the_ID());
+    $this_price = $this_product->get_price();
+    $silver_disc_percent = 5 / 100;
+    $silver_disc_amount = $this_price * $silver_disc_percent;
+    $silver_disc_price = $this_price - $silver_disc_amount;
+    $gold_disc_percent = 10 / 100;
+    $gold_disc_amount = $this_price * $gold_disc_percent;
+    $gold_disc_price = $this_price - $gold_disc_amount;
+
+    echo '<div class="pt-12 mt-12 border-t border-solid border-gray-300">
+    <div class="member-price-compare flex gap-4">
+      <div class="inline-flex bg-gray-100 border border-solid border-gray-200 rounded-lg shadow-md">
+        <div class="py-6 px-6 text-left">
+          <div class="font-quincy text-primary font-bold text-2xl">Silver</div>
+          <div class="mt-2 mb-4 bg-secondary w-8 h-1"></div>
+          <div class="text-3xl font-semibold">$' . number_format((float)$silver_disc_price, 2, '.', '') . '</div>
+        </div>
+        <div>
+          <a href="/membership/silver-membership/" class="flex py-4 px-8 h-full w-full rounded-lg font-quincy bg-primary-lighter text-primary no-underline items-center text-2xl hover:no-underline"><span class="text-primary">Signup <br>& Save</span>
+          </a>
+        </div>
+      </div>
+      <div class="inline-flex bg-gray-100 border border-solid border-gray-200 rounded-lg shadow-md">
+        <div class="py-6 px-6 text-left">
+          <div class="font-quincy text-primary font-bold text-2xl">Gold</div>
+          <div class="mt-2 mb-4 bg-secondary w-8 h-1"></div>
+          <div class="text-3xl font-semibold">$' . number_format((float)$gold_disc_price, 2, '.', '') . '</div>
+        </div>
+        <div>
+          <a href="/membership/gold-membership/" class="flex py-4 px-8 h-full w-full rounded-lg font-quincy bg-secondary text-primary items-center text-2xl"><span class="text-primary">Signup <br>& Save</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>';
+  }
+}
+
+//* Make External Product Buy Now button open in new tab
+// This will take care of the Buy Product button below the external product on the Shop page.
+add_filter('woocommerce_loop_add_to_cart_link', 'sc_external_add_product_link', 10, 2);
+function sc_external_add_product_link($link)
+{
+  global $product;
+
+  if ($product->is_type('external')) {
+
+    $link = sprintf(
+      '<a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s" target="_blank">%s</a>',
+      esc_url($product->add_to_cart_url()),
+      esc_attr(isset($quantity) ? $quantity : 1),
+      esc_attr($product->id),
+      esc_attr($product->get_sku()),
+      esc_attr(isset($class) ? $class : 'button product_type_external'),
+      esc_html($product->add_to_cart_text())
+    );
+  }
+
+  return $link;
+}
+
+// Remove the default WooCommerce external product Buy Product button on the individual Product page.
+remove_action('woocommerce_external_add_to_cart', 'woocommerce_external_add_to_cart', 30);
+
+// Add the open in a new browser tab WooCommerce external product Buy Product button.
+add_action('woocommerce_external_add_to_cart', 'sc_external_add_to_cart', 30);
+function sc_external_add_to_cart()
+{
+  global $product;
+
+  if (!$product->add_to_cart_url()) {
+    return;
+  }
+
+  $product_url = $product->add_to_cart_url();
+  $button_text = $product->single_add_to_cart_text();
+
+  /**
+   * The code below outputs the edited button with target="_blank" added to the html markup.
+   */
+  do_action('woocommerce_before_add_to_cart_button');
+
+  echo '<p class="cart">
+    <a href="' . esc_url($product_url) . '" rel="nofollow" class="single_add_to_cart_button button alt" target="_blank">' . esc_html($button_text) . '</a></p>';
+
+  do_action('woocommerce_after_add_to_cart_button');
+}
+
+
 /**
  * Hook: woocommerce_after_single_product_summary.
  *
@@ -104,6 +220,7 @@ function sc_move_checkout_email_field($address_fields)
   return $address_fields;
 }
 
+//add_filter('wcopc_templates', 'sc_add_opc_template');
 function sc_add_opc_template($templates)
 {
 
@@ -114,4 +231,3 @@ function sc_add_opc_template($templates)
 
   return $templates;
 }
-add_filter('wcopc_templates', 'sc_add_opc_template');

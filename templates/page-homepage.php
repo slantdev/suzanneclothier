@@ -39,15 +39,32 @@ function learning_path_item($background, $title, $text, $url)
 
 <main class="page-homepage">
 
-  <section class="hero min-h-screen flex items-center" style="background-image: url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/hero/hero-homepage.jpg)">
+  <?php
+  $home_hero_background_image = get_field('home_hero_background_image');
+  if (!$home_hero_background_image) {
+    $home_hero_background_image = get_stylesheet_directory_uri() . '/assets/images/hero/hero-homepage.jpg';
+  }
+  $home_hero_title = get_field('home_hero_title');
+  $home_hero_description = get_field('home_hero_description');
+  $home_hero_button_text = get_field('home_hero_button_text');
+  $home_hero_button_url = get_field('home_hero_button_url');
+  ?>
+
+  <section class="hero min-h-screen flex items-center" style="background-image: url(<?php echo $home_hero_background_image ?>)">
     <div class="container max-w-7xl mx-auto">
       <div class="flex">
         <div class="w-1/2 pb-20">
-          <h2 class="text-6xl text-primary font-quincy mb-5">Relationship Centered Training</h2>
-          <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.</p>
-          <a href="#" class="inline-flex items-center leading-none py-2 pl-6 pr-2 rounded-full bg-secondary text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-4">Learn more about RCT</span>
-            <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
-          </a>
+          <?php if ($home_hero_title) { ?>
+            <h2 class="text-6xl text-primary font-quincy mb-5"><?php echo $home_hero_title ?></h2>
+          <?php } ?>
+          <?php if ($home_hero_description) { ?>
+            <p class="mb-5"><?php echo $home_hero_description ?></p>
+          <?php } ?>
+          <?php if ($home_hero_button_text) { ?>
+            <a href="<?php echo $home_hero_button_url ?>" class="inline-flex items-center leading-none py-2 pl-6 pr-2 rounded-full bg-secondary text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-4"><?php echo $home_hero_button_text ?></span>
+              <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
+            </a>
+          <?php } ?>
         </div>
       </div>
     </div>
@@ -55,18 +72,24 @@ function learning_path_item($background, $title, $text, $url)
 
   <section id="about-suzanne" class="bg-secondary-light">
     <div class="container max-w-7xl mx-auto">
+      <?php
+      $cta_title = get_field('cta_title');
+      $cta_description = get_field('cta_description');
+      $cta_button_text = get_field('cta_button_text');
+      $cta_button_url = get_field('cta_button_url');
+      ?>
       <div class="cta-box -mt-24 relative z-20">
         <div class="flex items-center bg-primary text-white rounded-2xl shadow-md px-16 py-16">
           <div class="w-2/4 pr-8">
-            <h3 class="text-4_25xl font-quincy">Become a member<br><span class="text-secondary">& enjoy the benefits</span></h3>
+            <h3 class="text-4_25xl font-quincy"><?php echo $cta_title ?></h3>
           </div>
           <div class="w-3/4 pl-12 border-l border-white border-opacity-10">
             <div class="flex items-center gap-12">
               <div class="w-3/5">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                <p><?php echo $cta_description ?></p>
               </div>
               <div class="w-2/5">
-                <a href="#" class="inline-flex min-w-full items-center justify-between leading-none py-2 pl-6 pr-2 rounded-full bg-white text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-4">Learn more</span>
+                <a href="<?php echo $cta_button_url ?>" class="inline-flex min-w-full items-center justify-between leading-none py-2 pl-6 pr-2 rounded-full bg-white text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-4"><?php echo $cta_button_text ?></span>
                   <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
                 </a>
               </div>
@@ -75,24 +98,34 @@ function learning_path_item($background, $title, $text, $url)
         </div>
       </div>
       <div class="container max-w-7xl mx-auto">
+        <?php
+        $about_title = get_field('about_title');
+        $about_image = get_field('about_image');
+        $about_intro_text = get_field('about_intro_text');
+        $about_body_text = get_field('about_body_text');
+        $call_url = get_field('call_url');
+        $mail_url = get_field('mail_url');
+        $linkedin_url = get_field('linkedin_url');
+        $learn_more_url = get_field('learn_more_url');
+        ?>
         <div class="text-center">
           <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
           <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-          <h3 class="text-4xl my-6 text-primary font-quincy">About Suzanne</h3>
+          <h3 class="text-4xl my-6 text-primary font-quincy"><?php echo $about_title ?></h3>
           <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
         </div>
         <div class="flex items-center pt-14 pb-20 gap-12">
           <div class="w-1/2">
-            <div class="mb-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/about-suzanne.jpg" class="rounded-full mx-auto" /></div>
+            <div class="mb-8"><img src="<?php echo $about_image ?>" class="rounded-full mx-auto" /></div>
             <div>
               <ul class="list-none flex justify-center gap-4 leading-none">
-                <li><a href="#">
+                <li><a href="<?php echo $call_url ?>">
                     <ion-icon class="text-3xl" name="call"></ion-icon>
                   </a></li>
-                <li><a href="#">
+                <li><a href="<?php echo $mail_url ?>">
                     <ion-icon class="text-3xl" name="mail"></ion-icon>
                   </a></li>
-                <li><a href="#">
+                <li><a href="<?php echo $linkedin_url ?>">
                     <ion-icon class="text-3xl" name="logo-linkedin"></ion-icon>
                   </a></li>
               </ul>
@@ -100,14 +133,11 @@ function learning_path_item($background, $title, $text, $url)
           </div>
           <div class="w-1/2">
             <div class="font-medium">
-              <p class="text-xl mb-4">Suzanne Clothier is an internationally respected dog trainer, and the author of many publications, including Bones Would Rain from the Sky: Deepening Our Relationships with Dogs. She teaches seminars throughout the US & internationally on a wide range of topics.</p>
-
-              <p class="mb-4">Suzanne’s approach to dog training, Relationship Centered Training™ (RCT), blends science and heart in a satisfying blend that has helped countless people and dogs create healthy, happy relationships.</p>
-
-              <p class="mb-4">RCT™ techniques are innovative, practical, effective and humane - and fun! Whether you want to understand your dog better, solve a behavior problem, improve your dog training & handling skills, or add some new tools to your training toolbox, Relationship Centered Training™ provides a wealth of information.</p>
+              <?php echo $about_intro_text ?>
+              <?php echo $about_body_text ?>
             </div>
             <div class="mt-8">
-              <a href="#" class="inline-flex items-center justify-between leading-none py-1 pl-6 pr-2 rounded-full bg-white text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-8">Learn more</span>
+              <a href="<?php echo $learn_more_url ?>" class="inline-flex items-center justify-between leading-none py-1 pl-6 pr-2 rounded-full bg-white text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-8">Learn more</span>
                 <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
               </a>
             </div>
@@ -262,19 +292,27 @@ function learning_path_item($background, $title, $text, $url)
         </div>
       </div>
 
-
       <?php
+
       $args = array(
-        'category_name' => 'videos',
-        'posts_per_page' => 3
+        'posts_per_page' => 3,
+        'post_type' => 'product',
+        'orderby' => 'menu_order',
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'product_cat',
+            'field'    => 'id',
+            'terms'    => '269',
+          ),
+        ),
       );
-      $the_query = new WP_Query($args);
+      $wc_query = new WP_Query($args);
 
       // The Loop
-      if ($the_query->have_posts()) {
+      if ($wc_query->have_posts()) {
         echo '<div class="grid grid-cols-3 gap-6">';
-        while ($the_query->have_posts()) {
-          $the_query->the_post();
+        while ($wc_query->have_posts()) {
+          $wc_query->the_post();
       ?>
           <div>
             <div class="mb-4">
@@ -284,7 +322,14 @@ function learning_path_item($background, $title, $text, $url)
                     <ion-icon name="play" class="text-4xl text-white leading-none"></ion-icon>
                   </div>
                 </div>
-                <img src="<?php the_post_thumbnail_url('post-thumbnail') ?>" class="w-full h-full object-center object-cover" />
+                <?php
+                $thumbnail_medium = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                if ($thumbnail_medium) {
+                  echo '<img src="' . $thumbnail_medium . '" class="w-full h-full object-cover object-center">';
+                } else {
+                  echo '<div class="flex items-center justify-center"><ion-icon name="image-outline" class="text-5xl text-primary-light text-opacity-50"></ion-icon></div>';
+                }
+                ?>
               </a>
             </div>
             <h4 class="font-semibold text-xl"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
@@ -358,7 +403,6 @@ function learning_path_item($background, $title, $text, $url)
                   </div>
                 </div>
               </div>
-
             <?php
             }
             echo '</div>';
@@ -382,69 +426,56 @@ function learning_path_item($background, $title, $text, $url)
               <div class="w-12 h-1 bg-secondary -mb-px"></div>
             </div>
           </div>
-          <div class="flex flex-col gap-8 mb-8">
-            <div class="flex gap-6">
-              <div class="w-1/3">
-                <a href="#" class="block">
-                  <div class="aspect-w-11 aspect-h-10 shadow-md rounded-xl overflow-hidden">
-                    <img src="https://source.unsplash.com/random/360x360" alt="" class="w-full h-full object-center object-cover">
+
+          <?php
+          $args = array(
+            'post_type' => 'mec-events',
+            'posts_per_page' => 4,
+          );
+          $posts_query = new WP_Query($args);
+
+          if ($posts_query->have_posts()) {
+            echo '<div class="flex flex-col gap-8 mb-8">';
+            while ($posts_query->have_posts()) {
+              $posts_query->the_post();
+          ?>
+              <div class="flex gap-6">
+
+                <div class="w-1/3">
+                  <a href="<?php echo get_the_permalink(); ?>" class="block">
+                    <div class="aspect-w-11 aspect-h-10 shadow-md rounded-xl overflow-hidden">
+                      <?php
+                      $thumbnail_medium = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                      if ($thumbnail_medium) {
+                        echo '<img src="' . $thumbnail_medium . '" class="w-full h-full object-cover object-center transform transition-transform scale-100 duration-500 hover:scale-110">';
+                      } else {
+                        echo '<div class="flex items-center justify-center"><ion-icon name="image-outline" class="text-5xl text-primary-light text-opacity-50"></ion-icon></div>';
+                      }
+                      ?>
+                    </div>
+                  </a>
+                </div>
+                <div class="w-2/3">
+                  <h4 class="text-base leading-tight font-semibold text-primary mb-3 mt-1"><a href="<?php echo get_the_permalink(); ?>" class="text-primary transition hover:text-primary-light">
+                      <?php echo get_the_title(); ?>
+                    </a></h4>
+                  <div class="text-xs">
+                    <?php echo get_the_excerpt(); ?>
                   </div>
-                </a>
-              </div>
-              <div class="w-2/3">
-                <h4 class="text-base leading-tight font-semibold text-primary mb-3 mt-1"><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                <div class="text-xs">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
                 </div>
               </div>
-            </div>
-            <div class="flex gap-6">
-              <div class="w-1/3">
-                <a href="#" class="block">
-                  <div class="aspect-w-11 aspect-h-10 shadow-md rounded-xl overflow-hidden">
-                    <img src="https://source.unsplash.com/random/360x360" alt="" class="w-full h-full object-center object-cover">
-                  </div>
-                </a>
-              </div>
-              <div class="w-2/3">
-                <h4 class="text-base leading-tight font-semibold text-primary mb-3 mt-1"><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                <div class="text-xs">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                </div>
-              </div>
-            </div>
-            <div class="flex gap-6">
-              <div class="w-1/3">
-                <a href="#" class="block">
-                  <div class="aspect-w-11 aspect-h-10 shadow-md rounded-xl overflow-hidden">
-                    <img src="https://source.unsplash.com/random/360x360" alt="" class="w-full h-full object-center object-cover">
-                  </div>
-                </a>
-              </div>
-              <div class="w-2/3">
-                <h4 class="text-base leading-tight font-semibold text-primary mb-3 mt-1"><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                <div class="text-xs">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                </div>
-              </div>
-            </div>
-            <div class="flex gap-6">
-              <div class="w-1/3">
-                <a href="#" class="block">
-                  <div class="aspect-w-11 aspect-h-10 shadow-md rounded-xl overflow-hidden">
-                    <img src="https://source.unsplash.com/random/360x360" alt="" class="w-full h-full object-center object-cover">
-                  </div>
-                </a>
-              </div>
-              <div class="w-2/3">
-                <h4 class="text-base leading-tight font-semibold text-primary mb-3 mt-1"><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                <div class="text-xs">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="bg-secondary-light py-1 px-4 text-right mt-auto"><a href="" class="font-semibold text-primary text-sm">VIEW ALL &raquo;</a></div>
+            <?php
+            }
+            echo '</div>';
+          } else {
+            ?>
+            <div class="text-center text-3xl">Sorry, there's no post in this category.</div>
+          <?php
+          }
+          wp_reset_postdata();
+          ?>
+
+          <div class="bg-secondary-light py-1 px-4 text-right mt-auto"><a href="/events" class="font-semibold text-primary text-sm">VIEW ALL &raquo;</a></div>
         </div>
       </div>
     </div>

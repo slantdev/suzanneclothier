@@ -6,7 +6,7 @@
 add_filter('body_class', 'sc_body_classes');
 function sc_body_classes($classes)
 {
-  $classes[] = 'header-semi-transparent';
+  $classes[] = 'header-border-bottom';
   return $classes;
 }
 

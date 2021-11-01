@@ -29,6 +29,11 @@ body {
     @apply bg-opacity-100;
   }
 }
+.header-border-bottom {
+  .site-header-bottom {
+    @apply border-b border-black border-opacity-10;
+  }
+}
 
 .site-logo {
   height: 72px;
@@ -129,4 +134,33 @@ body {
 
 .section-anchor {
   scroll-margin-top: 48px;
+}
+
+.page-membership {
+  .checkout {
+    @apply max-w-5xl mx-auto mt-16;
+  }
+  .opc_order_review {
+    table.shop_table {
+      @apply bg-white;
+    }
+  }
+  .button.checkout-quantity {
+    @apply py-3 px-8 text-xl shadow-md;
+  }
+  .opc-complete-order {
+    @apply mt-2;
+  }
+  .opc-pricing-table-wrapper {
+    .opc-pricing-table-bg {
+      background-image: url(/wp-content/themes/suzanneclothier/assets/images/logo-icon-white.svg);
+      background-repeat: no-repeat;
+      background-position: center top;
+      //background-size: 600px;
+      @apply bg-contain;
+    }
+    .opc-pricing-table-product:nth-child(2) {
+      @apply bg-secondary bg-opacity-100;
+    }
+  }
 }

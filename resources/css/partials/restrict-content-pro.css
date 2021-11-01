@@ -1,0 +1,114 @@
+.page-membership-checkout {
+  .blockUI {
+    &.blockOverlay {
+      z-index: 1000;
+      border: none;
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      background: rgb(255, 255, 255) !important;
+      opacity: 0.6;
+      cursor: wait;
+      position: absolute;
+    }
+  }
+  .rcp_header {
+    @apply text-center font-bold text-4xl mb-4;
+  }
+  #rcp_registration_form {
+    @apply p-0;
+    .rcp_description {
+      @apply text-center;
+    }
+    .rcp_login_link {
+      @apply text-center;
+      a {
+        @apply text-link underline hover:text-link-hover;
+      }
+    }
+    .rcp_user_fieldset {
+      @apply p-6 rounded-xl bg-white shadow-md border border-solid border-gray-200 mb-8;
+    }
+  }
+  .rcp_registration_total {
+    @apply p-6 rounded-xl bg-white shadow-md border border-solid border-gray-200 mb-8;
+  }
+  .rcp_registration_total_details {
+    @apply text-sm w-full border-collapse;
+    thead {
+      th {
+        @apply text-left;
+        &:last-child {
+          @apply text-right;
+        }
+      }
+    }
+    td {
+      @apply text-left;
+      &:last-child {
+        @apply text-right;
+      }
+    }
+    tbody {
+      td {
+        @apply text-left py-2;
+      }
+    }
+    tfoot {
+      @apply border-t border-solid border-gray-300;
+      th {
+        @apply text-right;
+      }
+      tr {
+        &:first-child {
+          th,
+          td {
+            @apply pt-2;
+          }
+        }
+      }
+    }
+  }
+  .rcp_form {
+    @apply font-sans;
+    p {
+      @apply mb-4;
+    }
+    label {
+      @apply text-sm font-semibold inline-block mb-1;
+    }
+    input[type='email'],
+    [type='password'],
+    [type='text'] {
+      @apply py-2 px-4;
+      &:focus {
+        @apply border-blue-300;
+      }
+    }
+  }
+  #rcp-sandbox-gateway-test-cards {
+    @apply text-sm;
+  }
+  .rcp_gateway_stripe_fields {
+    @apply p-6 rounded-xl bg-white shadow-md border border-solid border-gray-200 mb-8;
+    a {
+      @apply text-link underline hover:text-link-hover;
+    }
+    div#rcp_card_name_wrap,
+    div#rcp_card_wrap {
+      @apply mb-4;
+    }
+    .StripeElement {
+      @apply py-3 px-4 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50;
+    }
+  }
+  #rcp_submit_wrap {
+    @apply text-center;
+    #rcp_submit {
+      @apply inline-block uppercase font-montserrat font-semibold px-8 py-3 rounded-full text-white text-lg bg-primary whitespace-nowrap hover:bg-primary-light hover:text-white hover:no-underline cursor-pointer;
+    }
+  }
+}

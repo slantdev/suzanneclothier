@@ -1,0 +1,70 @@
+#rpt_pricr {
+  > div {
+    @apply grid grid-cols-2 gap-28 px-12;
+    .rpt_plan {
+      @apply float-none w-auto mr-0;
+    }
+  }
+  .rpt_plan {
+    /* background-image: url(/wp-content/themes/suzanneclothier/assets/images/logo-icon-white.svg);
+    background-repeat: no-repeat;
+    background-position: center 20px; */
+    background-color: #baced0;
+    @apply bg-contain p-12 rounded-xl relative my-8;
+    &:before {
+      content: '';
+      background-image: url(/wp-content/themes/suzanneclothier/assets/images/logo-icon-white.svg);
+      background-repeat: no-repeat;
+      background-position: center 20px;
+      background-color: transparent;
+      @apply block absolute h-full bg-contain w-4/5 top-0 mx-auto z-0;
+    }
+    &.gold-plan {
+      @apply bg-secondary;
+    }
+    .rpt_title {
+      margin-bottom: 0px !important;
+      @apply p-0 bg-transparent border-0 rounded-none text-primary text-4xl font-quincy leading-tight relative z-10;
+      &:after {
+        content: '';
+        @apply block h-1 w-10 bg-white mt-2;
+      }
+    }
+    .rpt_head {
+      background: none;
+      @apply bg-transparent border-0 relative z-10;
+      .rpt_price {
+        @apply py-8 pr-0 pl-2 text-5xl leading-none font-semibold text-left text-black;
+        .rpt_currency {
+          position: relative;
+          top: 3px !important;
+          left: -6px !important;
+          font-size: 0.5em !important;
+          vertical-align: super !important;
+        }
+        sub {
+          font-size: 0.5em;
+          vertical-align: baseline;
+          position: relative;
+          bottom: 0;
+        }
+      }
+      .rpt_description {
+        @apply text-black font-normal p-0 text-left text-base mb-4;
+      }
+    }
+    .rpt_features {
+      @apply pt-0 px-0 pb-8 mb-8 bg-transparent text-left border-b border-gray-400 relative z-10;
+      .rpt_feature {
+        @apply text-base p-0 border-0 leading-normal relative pl-6;
+        &:before {
+          content: '';
+          @apply absolute block left-0 top-1 w-2 h-2 rounded-full bg-white;
+        }
+      }
+    }
+    .rpt_foot {
+      @apply inline-block py-3 px-8 border-0 text-center text-white text-xl font-bold rounded-full shadow-md relative z-10;
+    }
+  }
+}
