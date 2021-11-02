@@ -6,11 +6,10 @@
       <div class="aspect-w-16 aspect-h-9 bg-primary-light bg-opacity-10">
         <?php
         $thumbnail_medium = get_the_post_thumbnail_url(get_the_ID(), 'medium');
-        if ($thumbnail_medium) {
-          echo '<img src="' . $thumbnail_medium . '" class="w-full h-full object-cover object-center transform transition-transform scale-100 duration-500 hover:scale-110">';
-        } else {
-          echo '<div class="flex items-center justify-center"><ion-icon name="image-outline" class="text-5xl text-primary-light text-opacity-50"></ion-icon></div>';
+        if (!$thumbnail_medium) {
+          $thumbnail_medium = get_stylesheet_directory_uri() . '/assets/images/sc-featured-image-landscape.png';
         }
+        echo '<img src="' . $thumbnail_medium . '" class="w-full h-full object-cover object-center transform transition-transform scale-100 duration-500 hover:scale-110">';
         ?>
       </div>
     </a>

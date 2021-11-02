@@ -1,8 +1,11 @@
 <?php
 $post_id = get_the_ID();
 $thumbnail_full = get_the_post_thumbnail_url($post_id, 'full');
-//echo $thumbnail_full;
-$thumbnail_medium = get_the_post_thumbnail_url($post_id, 'medium')
+$thumbnail_medium = get_the_post_thumbnail_url($post_id, 'medium');
+
+if (!$thumbnail_medium) {
+  $thumbnail_medium = get_stylesheet_directory_uri() . '/assets/images/sc-featured-image.png';
+}
 ?>
 <section class="hero flex flex-col items-center bg-cover bg-center bg-primary bg-opacity-30">
   <div class="container pt-32 pb-8 z-10 max-w-7xl mx-auto">
