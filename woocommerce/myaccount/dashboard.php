@@ -46,8 +46,8 @@ if (rcp_user_has_active_membership()) {
       array(
         'taxonomy' => 'product_cat',
         'field'    => 'id',
-        'terms'    => '178',
-        //'terms'    => '54',
+        //'terms'    => '178',
+        'terms'    => '54',
       ),
     ),
     'meta_query'  => array(
@@ -68,7 +68,7 @@ if (rcp_user_has_active_membership()) {
 
   if ($wc_query->have_posts()) {
 
-    echo '<div class="text-center text-sm max-w-prose mx-auto mb-10">' . term_description('178', 'product_cat') . '</div>';
+    echo '<div class="text-center text-sm max-w-prose mx-auto mb-10">' . term_description('54', 'product_cat') . '</div>';
 
     woocommerce_product_loop_start();
 
@@ -90,7 +90,7 @@ if (rcp_user_has_active_membership()) {
 
   echo '</div>';
 
-  // Videos
+  // On Demand
   echo '<div id="on-demand" class="section-anchor mb-24">';
 
   echo '<div class="text-center mb-10">
@@ -106,8 +106,8 @@ if (rcp_user_has_active_membership()) {
       array(
         'taxonomy' => 'product_cat',
         'field'    => 'id',
-        'terms'    => '269',
-        //'terms'    => '276',
+        //'terms'    => '269',
+        'terms'    => '276',
       ),
     ),
     'meta_query'  => array(
@@ -128,7 +128,7 @@ if (rcp_user_has_active_membership()) {
 
   if ($wc_query->have_posts()) {
 
-    echo '<div class="text-center text-sm max-w-prose mx-auto mb-10">' . term_description('269', 'product_cat') . '</div>';
+    echo '<div class="text-center text-sm max-w-prose mx-auto mb-10">' . term_description('276', 'product_cat') . '</div>';
 
     woocommerce_product_loop_start();
 
