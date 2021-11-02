@@ -27,50 +27,18 @@ $allowed_html = array(
     'href' => array(),
   ),
 );
-?>
 
-<!-- <div class="container">
-  <p>
-    <?php
-    printf(
-      /* translators: 1: user display name 2: logout url */
-      wp_kses(__('Hello %1$s (not %1$s? <a href="%2$s">Log out</a>)', 'woocommerce'), $allowed_html),
-      '<strong>' . esc_html($current_user->display_name) . '</strong>',
-      esc_url(wc_logout_url())
-    );
-    ?>
-  </p>
-
-  <p>
-    <?php
-    /* translators: 1: Orders URL 2: Address URL 3: Account URL. */
-    $dashboard_desc = __('From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">billing address</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce');
-    if (wc_shipping_enabled()) {
-      /* translators: 1: Orders URL 2: Addresses URL 3: Account URL. */
-      $dashboard_desc = __('From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">shipping and billing addresses</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce');
-    }
-    printf(
-      wp_kses($dashboard_desc, $allowed_html),
-      esc_url(wc_get_endpoint_url('orders')),
-      esc_url(wc_get_endpoint_url('edit-address')),
-      esc_url(wc_get_endpoint_url('edit-account'))
-    );
-    ?>
-  </p>
-</div> -->
-
-<div class="sticky top-0 z-10 bg-primary">
-  <div class="container">
-    <ul class="flex bg-primary overflow-x-auto items-center justify-center">
-      <li><a href="#courses" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">Courses</a></li>
-      <li><a href="#videos" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">Streaming Videos</a></li>
-      <li><a href="#articles" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">Articles</a></li>
-    </ul>
-  </div>
-</div>
-
-<?php
 if (rcp_user_has_active_membership()) {
+
+  echo '<div class="sticky top-0 z-10 bg-primary">
+    <div class="container">
+      <ul class="flex bg-primary overflow-x-auto items-center justify-center">
+        <li><a href="#courses" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">Courses</a></li>
+        <li><a href="#videos" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">On Demand</a></li>
+        <li><a href="#articles" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">Articles</a></li>
+      </ul>
+    </div>
+  </div>';
 
   // Courses
   echo '<div id="courses" class="section-anchor">';
@@ -91,7 +59,8 @@ if (rcp_user_has_active_membership()) {
       array(
         'taxonomy' => 'product_cat',
         'field'    => 'id',
-        'terms'    => '178',
+        //'terms'    => '178',
+        'terms'    => '54',
       ),
     ),
     'meta_query'  => array(
@@ -139,13 +108,13 @@ if (rcp_user_has_active_membership()) {
   echo '</div>';
 
   // Videos
-  echo '<div id="videos" class="section-anchor bg-secondary-light">';
+  echo '<div id="on-demand" class="section-anchor bg-secondary-light">';
   echo '<div class="container">';
 
   echo '<div class="text-center mb-14">
     <div class="h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
     <div class="my-8"><img src="' . get_stylesheet_directory_uri() . '/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-    <h3 class="text-4_25xl my-6 text-primary font-quincy">Streaming Videos</h3>
+    <h3 class="text-4_25xl my-6 text-primary font-quincy">On Demand</h3>
     <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
   </div>';
 
@@ -157,7 +126,8 @@ if (rcp_user_has_active_membership()) {
       array(
         'taxonomy' => 'product_cat',
         'field'    => 'id',
-        'terms'    => '269',
+        //'terms'    => '269',
+        'terms'    => '276',
       ),
     ),
     'meta_query'  => array(
@@ -244,8 +214,37 @@ if (rcp_user_has_active_membership()) {
 
   echo '</div>';
   echo '</div>';
-}
-?>
+} else { ?>
+  <div class="container">
+    <p>
+      <?php
+      printf(
+        /* translators: 1: user display name 2: logout url */
+        wp_kses(__('Hello %1$s (not %1$s? <a href="%2$s">Log out</a>)', 'woocommerce'), $allowed_html),
+        '<strong>' . esc_html($current_user->display_name) . '</strong>',
+        esc_url(wc_logout_url())
+      );
+      ?>
+    </p>
+
+    <p>
+      <?php
+      /* translators: 1: Orders URL 2: Address URL 3: Account URL. */
+      $dashboard_desc = __('From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">billing address</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce');
+      if (wc_shipping_enabled()) {
+        /* translators: 1: Orders URL 2: Addresses URL 3: Account URL. */
+        $dashboard_desc = __('From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">shipping and billing addresses</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce');
+      }
+      printf(
+        wp_kses($dashboard_desc, $allowed_html),
+        esc_url(wc_get_endpoint_url('orders')),
+        esc_url(wc_get_endpoint_url('edit-address')),
+        esc_url(wc_get_endpoint_url('edit-account'))
+      );
+      ?>
+    </p>
+  </div>
+<?php } ?>
 <?php
 /**
  * My Account dashboard.

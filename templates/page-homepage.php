@@ -302,7 +302,8 @@ function learning_path_item($background, $title, $text, $url)
           array(
             'taxonomy' => 'product_cat',
             'field'    => 'id',
-            'terms'    => '269',
+            //'terms'    => '269',
+            'terms'    => '276',
           ),
         ),
       );
