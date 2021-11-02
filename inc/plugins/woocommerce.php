@@ -39,19 +39,24 @@ add_action('woocommerce_before_single_product_summary', 'woocommerce_template_si
 add_action('woocommerce_single_product_summary', 'sc_add_rcp_member_coupon_code', 25);
 function sc_add_rcp_member_coupon_code()
 {
-  $included_for_member = get_field('included_for_member');
-  $rcp_customer_membership = rcp_get_customer_membership_level_ids();
-  if (in_array(1, $rcp_customer_membership)) {
-    if (in_array(1, $included_for_member)) {
-      echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your membership plan. Please use <strong>SILVERFREE</strong> coupon code to watch it for free.</div>';
-    } else {
-      echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Silver Member, please use <strong>SILVERCODE</strong> coupon code to get 5% discount upon checkout</div>';
-    }
-  } else if (in_array(2, $rcp_customer_membership)) {
-    if (in_array(2, $included_for_member)) {
-      echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your membership plan. Please use <strong>GOLDFREE</strong> coupon code to watch it for free.</div>';
-    } else {
-      echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Gold Member, please use <strong>GOLDCODE</strong> coupon code to get 5% discount upon checkout</div>';
+  global $product;
+  $product_type = $product->get_type();
+
+  if ($product_type == 'external') {
+    $included_for_member = get_field('included_for_member');
+    $rcp_customer_membership = rcp_get_customer_membership_level_ids();
+    if (in_array(1, $rcp_customer_membership)) {
+      if (in_array(1, $included_for_member)) {
+        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your membership plan. Please use <strong>SILVERFREE</strong> coupon code to watch it for free.</div>';
+      } else {
+        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Silver Member, please use <strong>SILVERCODE</strong> coupon code to get 5% discount upon checkout</div>';
+      }
+    } else if (in_array(2, $rcp_customer_membership)) {
+      if (in_array(2, $included_for_member)) {
+        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your membership plan. Please use <strong>GOLDFREE</strong> coupon code to watch it for free.</div>';
+      } else {
+        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Gold Member, please use <strong>GOLDCODE</strong> coupon code to get 5% discount upon checkout</div>';
+      }
     }
   }
 }
