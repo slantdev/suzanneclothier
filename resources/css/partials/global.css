@@ -164,3 +164,15 @@ body {
     }
   }
 }
+
+#about-suzanne {
+  .text-area {
+    @apply font-medium;
+    p {
+      @apply mb-4;
+      &:first-child {
+        @apply text-xl;
+      }
+    }
+  }
+}

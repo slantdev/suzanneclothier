@@ -50,7 +50,7 @@ function learning_path_item($background, $title, $text, $url)
   $home_hero_button_url = get_field('home_hero_button_url');
   ?>
 
-  <section class="hero min-h-screen flex items-center" style="background-image: url(<?php echo $home_hero_background_image ?>)">
+  <section class="hero min-h-screen-85 flex items-center" style="background-image: url(<?php echo $home_hero_background_image ?>)">
     <div class="container max-w-7xl mx-auto">
       <div class="flex">
         <div class="w-1/2 pb-20">
@@ -132,8 +132,7 @@ function learning_path_item($background, $title, $text, $url)
             </div>
           </div>
           <div class="w-1/2">
-            <div class="font-medium">
-              <?php echo $about_intro_text ?>
+            <div class="text-area">
               <?php echo $about_body_text ?>
             </div>
             <div class="mt-8">
@@ -244,80 +243,6 @@ function learning_path_item($background, $title, $text, $url)
         },
       });
     </script>
-  </section>
-
-
-
-  <section id="featured-videos" class="bg-secondary-light">
-    <div class="container max-w-7xl mx-auto">
-      <div class="h-10 w-px bg-black bg-opacity-20 mx-auto"></div>
-      <div class="text-center mb-8">
-        <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-quincy">Featured Videos</h3>
-        <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
-        <div class="max-w-2xl mx-auto text-sm">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.</p>
-        </div>
-      </div>
-
-      <?php
-
-      $args = array(
-        'posts_per_page' => 3,
-        'post_type' => 'product',
-        'orderby' => 'menu_order',
-        'tax_query' => array(
-          array(
-            'taxonomy' => 'product_cat',
-            'field'    => 'id',
-            //'terms'    => '269',
-            'terms'    => '276',
-          ),
-        ),
-      );
-      $wc_query = new WP_Query($args);
-
-      // The Loop
-      if ($wc_query->have_posts()) {
-        echo '<div class="grid grid-cols-3 gap-6">';
-        while ($wc_query->have_posts()) {
-          $wc_query->the_post();
-      ?>
-          <div>
-            <div class="mb-4">
-              <a href="<?php the_permalink() ?>" class="block relative aspect-w-16 aspect-h-9 rounded-xl shadow-md overflow-hidden">
-                <div class="absolute z-10 inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-20 transition-all">
-                  <div class="py-2 px-4 rounded-lg bg-red-500 leading-none">
-                    <ion-icon name="play" class="text-4xl text-white leading-none"></ion-icon>
-                  </div>
-                </div>
-                <?php
-                $thumbnail_medium = get_the_post_thumbnail_url(get_the_ID(), 'medium');
-                if ($thumbnail_medium) {
-                  echo '<img src="' . $thumbnail_medium . '" class="w-full h-full object-cover object-center">';
-                } else {
-                  echo '<div class="flex items-center justify-center"><ion-icon name="image-outline" class="text-5xl text-primary-light text-opacity-50"></ion-icon></div>';
-                }
-                ?>
-              </a>
-            </div>
-            <h4 class="font-semibold text-xl"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
-          </div>
-
-      <?php
-        }
-        echo '</div>';
-      }
-      wp_reset_postdata();
-
-      ?>
-      <div class="mt-16 flex justify-center">
-        <a href="/category/videos/" class="inline-flex items-center justify-between leading-none py-1 pl-6 pr-2 rounded-full bg-white text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-8 uppercase">View all</span>
-          <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
-        </a>
-      </div>
-      <div class="h-10 w-px bg-black bg-opacity-20 mx-auto mt-14"></div>
-    </div>
   </section>
 
   <section id="latest-posts" class="py-28">

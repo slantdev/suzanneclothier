@@ -87,6 +87,19 @@ module.exports = {
       '6xl': ['4rem', '1'],
       '7xl': ['5rem', '1'],
     },
+    minHeight: {
+      '0': '0',
+      '1/4': '25%',
+      '1/2': '50%',
+      '3/4': '75%',
+      'full': '100%',
+      'screen-50': '50vh',
+      'screen-75': '75vh',
+      'screen-80': '80vh',
+      'screen-85': '85vh',
+      'screen-90': '90vh',
+      'screen': '100vh'
+    },
     extend: {
       colors: twp.colors,
       fontFamily: twp.fontFamily,

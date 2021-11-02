@@ -8225,11 +8225,43 @@ select {
 }
 
 .min-h-0 {
-  min-height: 0px;
+  min-height: 0;
+}
+
+.min-h-1\/4 {
+  min-height: 25%;
+}
+
+.min-h-1\/2 {
+  min-height: 50%;
+}
+
+.min-h-3\/4 {
+  min-height: 75%;
 }
 
 .min-h-full {
   min-height: 100%;
+}
+
+.min-h-screen-50 {
+  min-height: 50vh;
+}
+
+.min-h-screen-75 {
+  min-height: 75vh;
+}
+
+.min-h-screen-80 {
+  min-height: 80vh;
+}
+
+.min-h-screen-85 {
+  min-height: 85vh;
+}
+
+.min-h-screen-90 {
+  min-height: 90vh;
 }
 
 .min-h-screen {
@@ -37365,6 +37397,19 @@ body {
       --tw-bg-opacity: 1;
     }
 
+#about-suzanne .text-area {
+    font-weight: 500;
+  }
+
+#about-suzanne .text-area p {
+      margin-bottom: 1rem;
+    }
+
+#about-suzanne .text-area p:first-child {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+
 /* Default */
 
 [type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select {
@@ -46786,11 +46831,43 @@ input[type='checkbox']:focus {
   }
 
   .sm\:min-h-0 {
-    min-height: 0px;
+    min-height: 0;
+  }
+
+  .sm\:min-h-1\/4 {
+    min-height: 25%;
+  }
+
+  .sm\:min-h-1\/2 {
+    min-height: 50%;
+  }
+
+  .sm\:min-h-3\/4 {
+    min-height: 75%;
   }
 
   .sm\:min-h-full {
     min-height: 100%;
+  }
+
+  .sm\:min-h-screen-50 {
+    min-height: 50vh;
+  }
+
+  .sm\:min-h-screen-75 {
+    min-height: 75vh;
+  }
+
+  .sm\:min-h-screen-80 {
+    min-height: 80vh;
+  }
+
+  .sm\:min-h-screen-85 {
+    min-height: 85vh;
+  }
+
+  .sm\:min-h-screen-90 {
+    min-height: 90vh;
   }
 
   .sm\:min-h-screen {
@@ -82999,11 +83076,43 @@ input[type='checkbox']:focus {
   }
 
   .md\:min-h-0 {
-    min-height: 0px;
+    min-height: 0;
+  }
+
+  .md\:min-h-1\/4 {
+    min-height: 25%;
+  }
+
+  .md\:min-h-1\/2 {
+    min-height: 50%;
+  }
+
+  .md\:min-h-3\/4 {
+    min-height: 75%;
   }
 
   .md\:min-h-full {
     min-height: 100%;
+  }
+
+  .md\:min-h-screen-50 {
+    min-height: 50vh;
+  }
+
+  .md\:min-h-screen-75 {
+    min-height: 75vh;
+  }
+
+  .md\:min-h-screen-80 {
+    min-height: 80vh;
+  }
+
+  .md\:min-h-screen-85 {
+    min-height: 85vh;
+  }
+
+  .md\:min-h-screen-90 {
+    min-height: 90vh;
   }
 
   .md\:min-h-screen {
@@ -119212,11 +119321,43 @@ input[type='checkbox']:focus {
   }
 
   .lg\:min-h-0 {
-    min-height: 0px;
+    min-height: 0;
+  }
+
+  .lg\:min-h-1\/4 {
+    min-height: 25%;
+  }
+
+  .lg\:min-h-1\/2 {
+    min-height: 50%;
+  }
+
+  .lg\:min-h-3\/4 {
+    min-height: 75%;
   }
 
   .lg\:min-h-full {
     min-height: 100%;
+  }
+
+  .lg\:min-h-screen-50 {
+    min-height: 50vh;
+  }
+
+  .lg\:min-h-screen-75 {
+    min-height: 75vh;
+  }
+
+  .lg\:min-h-screen-80 {
+    min-height: 80vh;
+  }
+
+  .lg\:min-h-screen-85 {
+    min-height: 85vh;
+  }
+
+  .lg\:min-h-screen-90 {
+    min-height: 90vh;
   }
 
   .lg\:min-h-screen {
@@ -155425,11 +155566,43 @@ input[type='checkbox']:focus {
   }
 
   .xl\:min-h-0 {
-    min-height: 0px;
+    min-height: 0;
+  }
+
+  .xl\:min-h-1\/4 {
+    min-height: 25%;
+  }
+
+  .xl\:min-h-1\/2 {
+    min-height: 50%;
+  }
+
+  .xl\:min-h-3\/4 {
+    min-height: 75%;
   }
 
   .xl\:min-h-full {
     min-height: 100%;
+  }
+
+  .xl\:min-h-screen-50 {
+    min-height: 50vh;
+  }
+
+  .xl\:min-h-screen-75 {
+    min-height: 75vh;
+  }
+
+  .xl\:min-h-screen-80 {
+    min-height: 80vh;
+  }
+
+  .xl\:min-h-screen-85 {
+    min-height: 85vh;
+  }
+
+  .xl\:min-h-screen-90 {
+    min-height: 90vh;
   }
 
   .xl\:min-h-screen {
@@ -191638,11 +191811,43 @@ input[type='checkbox']:focus {
   }
 
   .\32xl\:min-h-0 {
-    min-height: 0px;
+    min-height: 0;
+  }
+
+  .\32xl\:min-h-1\/4 {
+    min-height: 25%;
+  }
+
+  .\32xl\:min-h-1\/2 {
+    min-height: 50%;
+  }
+
+  .\32xl\:min-h-3\/4 {
+    min-height: 75%;
   }
 
   .\32xl\:min-h-full {
     min-height: 100%;
+  }
+
+  .\32xl\:min-h-screen-50 {
+    min-height: 50vh;
+  }
+
+  .\32xl\:min-h-screen-75 {
+    min-height: 75vh;
+  }
+
+  .\32xl\:min-h-screen-80 {
+    min-height: 80vh;
+  }
+
+  .\32xl\:min-h-screen-85 {
+    min-height: 85vh;
+  }
+
+  .\32xl\:min-h-screen-90 {
+    min-height: 90vh;
   }
 
   .\32xl\:min-h-screen {

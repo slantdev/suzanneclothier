@@ -264,25 +264,6 @@
             "mime_types": ""
         },
         {
-            "key": "field_618078818a889",
-            "label": "About Intro Text",
-            "name": "about_intro_text",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
-        },
-        {
             "key": "field_618078aa8a88a",
             "label": "About Body Text",
             "name": "about_body_text",
@@ -500,5 +481,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1635817164
+    "modified": 1635823323
 }
