@@ -39141,20 +39141,21 @@ input[type='checkbox']:focus {
     width: 100%;
   }
 
-/* @apply border-b border-solid border-gray-200; */
+.woocommerce-account .woocommerce-MyAccount-navigation .woocommerce-MyAccount-navigation-link {
+      border-bottom-width: 1px;
+      border-style: solid;
+      --tw-border-opacity: 1;
+      border-color: rgba(229, 229, 229, var(--tw-border-opacity));
+    }
 
 .woocommerce-account .woocommerce-MyAccount-navigation .woocommerce-MyAccount-navigation-link:last-child {
-        /* @apply border-0; */
+        border-width: 0px;
       }
 
 .woocommerce-account .woocommerce-MyAccount-navigation .woocommerce-MyAccount-navigation-link a {
-        /* @apply block py-2 hover:text-secondary-dark; */
         display: block;
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
-        font-size: .875rem;
-        line-height: 1.25rem;
-        font-weight: 600;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
       }
 
 .woocommerce-account .woocommerce-MyAccount-navigation .woocommerce-MyAccount-navigation-link a:hover {
@@ -39162,10 +39163,18 @@ input[type='checkbox']:focus {
         color: rgba(186, 127, 38, var(--tw-text-opacity));
       }
 
+.woocommerce-account .woocommerce-MyAccount-navigation .woocommerce-MyAccount-navigation-link a {
+        /* @apply block py-3 hover:text-secondary-dark text-sm font-semibold; */
+      }
+
 .woocommerce-account .woocommerce-MyAccount-navigation .woocommerce-MyAccount-navigation-link.is-active a {
           --tw-text-opacity: 1;
           color: rgba(186, 127, 38, var(--tw-text-opacity));
         }
+
+.woocommerce-account .non_member .woocommerce-MyAccount-navigation-link--courses, .woocommerce-account .non_member .woocommerce-MyAccount-navigation-link--on-demand, .woocommerce-account .non_member .woocommerce-MyAccount-navigation-link--articles {
+      display: none;
+    }
 
 .woocommerce-account .woocommerce-MyAccount-content {
     float: none;
@@ -39331,6 +39340,52 @@ input[type='checkbox']:focus {
     --tw-bg-opacity: 1;
     background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   }
+
+.mec-reg-btn.mec-frontbox {
+  margin: 0px;
+  border-width: 0px;
+  padding: 0px;
+  --tw-shadow: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.mec-color, .mec-color-before :before, .mec-color-hover:hover, .mec-wrap .mec-color, .mec-wrap .mec-color-before :before, .mec-wrap .mec-color-hover:hover {
+  --tw-text-opacity: 1;
+  color: rgba(21, 81, 99, var(--tw-text-opacity));
+}
+
+.mec-single-event .mec-booking-button {
+    display: block;
+    height: auto;
+    border-radius: 9999px;
+    --tw-bg-opacity: 1;
+    background-color: rgba(21, 81, 99, var(--tw-bg-opacity))
+  }
+
+.mec-single-event .mec-booking-button:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(36, 137, 168, var(--tw-bg-opacity));
+  }
+
+.mec-single-event .mec-booking-button {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    line-height: 1.5;
+    letter-spacing: 0em;
+    --tw-text-opacity: 1;
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+    --tw-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.1), 0 2px 4px 0px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+.mec-single-event .mec-booking-button:hover {
+      background-color: rgba(36, 137, 168, 1) !important;
+    }
 
 @media (min-width: 640px) {
   .sm\:container {

@@ -10,7 +10,7 @@ function site_footer()
         <div class="grid grid-cols-4 divide-x divide-white divide-opacity-10 text-white">
           <div class="px-8">
             <div class="mb-8">
-              <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-footer.svg)">
+              <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-footer.svg">
             </div>
             <div>
               <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>

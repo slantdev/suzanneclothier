@@ -21,10 +21,16 @@ if (!defined('ABSPATH')) {
 }
 
 do_action('woocommerce_before_account_navigation');
+
+if (rcp_user_has_active_membership()) {
+  $container_class = 'has_active_membership';
+} else {
+  $container_class = 'non_member';
+}
 ?>
 
-<nav class="woocommerce-MyAccount-navigation float-none">
-  <ul class="flex overflow-x-auto items-center justify-between">
+<nav class="woocommerce-MyAccount-navigation float-none p-8 rounded-md shadow-md border border-gray-200 sticky top-8 z-10 <?php echo $container_class ?>">
+  <ul class="">
     <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
       <li class="<?php echo wc_get_account_menu_item_classes($endpoint); ?>">
         <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>"><?php echo esc_html($label); ?></a>

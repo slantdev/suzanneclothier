@@ -2,19 +2,26 @@
   .woocommerce-MyAccount-navigation {
     @apply float-none w-full;
     .woocommerce-MyAccount-navigation-link {
-      /* @apply border-b border-solid border-gray-200; */
+      @apply border-b border-solid border-gray-200;
       &:last-child {
-        /* @apply border-0; */
+        @apply border-0;
       }
       a {
-        /* @apply block py-2 hover:text-secondary-dark; */
-        @apply block py-3 hover:text-secondary-dark text-sm font-semibold;
+        @apply block py-2 hover:text-secondary-dark;
+        /* @apply block py-3 hover:text-secondary-dark text-sm font-semibold; */
       }
       &.is-active {
         a {
           @apply text-secondary-dark;
         }
       }
+    }
+  }
+  .non_member {
+    .woocommerce-MyAccount-navigation-link--courses,
+    .woocommerce-MyAccount-navigation-link--on-demand,
+    .woocommerce-MyAccount-navigation-link--articles {
+      @apply hidden;
     }
   }
   .woocommerce-MyAccount-content {

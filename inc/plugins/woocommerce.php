@@ -236,3 +236,70 @@ function sc_add_opc_template($templates)
 
   return $templates;
 }
+
+/*
+ * MY ACCOUNT
+ */
+add_filter('woocommerce_account_menu_items', 'sc_remove_my_account_links');
+function sc_remove_my_account_links($menu_links)
+{
+
+  //unset( $menu_links['edit-address'] ); // Addresses
+  //unset( $menu_links['dashboard'] ); // Remove Dashboard
+  unset($menu_links['payment-methods']); // Remove Payment Methods
+  //unset( $menu_links['orders'] ); // Remove Orders
+  unset($menu_links['downloads']); // Disable Downloads
+  //unset( $menu_links['edit-account'] ); // Remove Account details tab
+  //unset( $menu_links['customer-logout'] ); // Remove Logout link
+
+  return $menu_links;
+}
+
+// Add custom endpoint for My Account menu
+add_action('init', 'sc_add_my_account_endpoint');
+function sc_add_my_account_endpoint()
+{
+  add_rewrite_endpoint('#courses', EP_ROOT | EP_PAGES, false);
+  add_rewrite_endpoint('#on-demand', EP_ROOT | EP_PAGES, false);
+  add_rewrite_endpoint('#articles', EP_ROOT | EP_PAGES, false);
+}
+
+function sc_insert_after_helper($items, $new_items, $after)
+{
+  // Search for the item position and +1 since is after the selected item key.
+  $position = array_search($after, array_keys($items)) + 1;
+
+  // Insert the new item.
+  $array = array_slice($items, 0, $position, true);
+  $array += $new_items;
+  $array += array_slice($items, $position, count($items) - $position, true);
+
+  return $array;
+}
+
+add_filter('woocommerce_account_menu_items', 'sc_add_my_account_link');
+function sc_add_my_account_link($items)
+{
+  $new_items = array();
+
+  $new_items['#courses'] = 'Courses';
+  $new_items['#on-demand'] = 'On Demand';
+  $new_items['#articles'] = 'Articles';
+
+  return sc_insert_after_helper($items, $new_items, 'dashboard');
+}
+
+add_filter('woocommerce_get_endpoint_url', 'sc_hook_endpoint', 10, 4);
+function sc_hook_endpoint($url, $endpoint, $value, $permalink)
+{
+  if ($endpoint === '#courses') {
+    $url = site_url() . '/my-account/#courses';
+  }
+  if ($endpoint === '#on-demand') {
+    $url = site_url() . '/my-account/#on-demand';
+  }
+  if ($endpoint === '#articles') {
+    $url = site_url() . '/my-account/#articles';
+  }
+  return $url;
+}

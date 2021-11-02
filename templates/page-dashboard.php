@@ -16,17 +16,23 @@ get_header();
 
 <main>
 
-  <?php if (have_posts()) : ?>
-    <?php
-    while (have_posts()) :
-      the_post();
-    ?>
+  <section class="bg-white">
+    <div class="container mx-auto pt-10 pb-20">
 
-      <?php the_content(); ?>
+      <?php if (have_posts()) : ?>
+        <?php
+        while (have_posts()) :
+          the_post();
+        ?>
 
-    <?php endwhile; ?>
+          <?php the_content(); ?>
 
-  <?php endif; ?>
+        <?php endwhile; ?>
+
+      <?php endif; ?>
+
+    </div>
+  </section>
 
 
 </main>

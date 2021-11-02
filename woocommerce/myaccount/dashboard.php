@@ -30,23 +30,10 @@ $allowed_html = array(
 
 if (rcp_user_has_active_membership()) {
 
-  echo '<div class="sticky top-0 z-10 bg-primary">
-    <div class="container">
-      <ul class="flex bg-primary overflow-x-auto items-center justify-center">
-        <li><a href="#courses" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">Courses</a></li>
-        <li><a href="#videos" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">On Demand</a></li>
-        <li><a href="#articles" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">Articles</a></li>
-      </ul>
-    </div>
-  </div>';
-
   // Courses
-  echo '<div id="courses" class="section-anchor">';
-  echo '<div class="container">';
+  echo '<div id="courses" class="section-anchor mb-24">';
 
-  echo '<div class="text-center mb-14">
-    <div class="h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
-    <div class="my-8"><img src="' . get_stylesheet_directory_uri() . '/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
+  echo '<div class="text-center mb-10">
     <h3 class="text-4_25xl my-6 text-primary font-quincy">Courses</h3>
     <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
   </div>';
@@ -59,8 +46,8 @@ if (rcp_user_has_active_membership()) {
       array(
         'taxonomy' => 'product_cat',
         'field'    => 'id',
-        //'terms'    => '178',
-        'terms'    => '54',
+        'terms'    => '178',
+        //'terms'    => '54',
       ),
     ),
     'meta_query'  => array(
@@ -81,7 +68,7 @@ if (rcp_user_has_active_membership()) {
 
   if ($wc_query->have_posts()) {
 
-    echo '<div class="text-center text-sm max-w-prose mx-auto mb-14">' . term_description('178', 'product_cat') . '</div>';
+    echo '<div class="text-center text-sm max-w-prose mx-auto mb-10">' . term_description('178', 'product_cat') . '</div>';
 
     woocommerce_product_loop_start();
 
@@ -100,20 +87,13 @@ if (rcp_user_has_active_membership()) {
   }
   wp_reset_postdata();
 
-  echo '<div class="text-center mt-16">
-  <div class="h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
-  </div>';
 
-  echo '</div>';
   echo '</div>';
 
   // Videos
-  echo '<div id="on-demand" class="section-anchor bg-secondary-light">';
-  echo '<div class="container">';
+  echo '<div id="on-demand" class="section-anchor mb-24">';
 
-  echo '<div class="text-center mb-14">
-    <div class="h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
-    <div class="my-8"><img src="' . get_stylesheet_directory_uri() . '/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
+  echo '<div class="text-center mb-10">
     <h3 class="text-4_25xl my-6 text-primary font-quincy">On Demand</h3>
     <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
   </div>';
@@ -126,8 +106,8 @@ if (rcp_user_has_active_membership()) {
       array(
         'taxonomy' => 'product_cat',
         'field'    => 'id',
-        //'terms'    => '269',
-        'terms'    => '276',
+        'terms'    => '269',
+        //'terms'    => '276',
       ),
     ),
     'meta_query'  => array(
@@ -148,7 +128,7 @@ if (rcp_user_has_active_membership()) {
 
   if ($wc_query->have_posts()) {
 
-    echo '<div class="text-center text-sm max-w-prose mx-auto mb-14">' . term_description('269', 'product_cat') . '</div>';
+    echo '<div class="text-center text-sm max-w-prose mx-auto mb-10">' . term_description('269', 'product_cat') . '</div>';
 
     woocommerce_product_loop_start();
 
@@ -167,20 +147,13 @@ if (rcp_user_has_active_membership()) {
   }
   wp_reset_postdata();
 
-  echo '<div class="text-center mt-16">
-  <div class="h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
-  </div>';
-
-  echo '</div>';
   echo '</div>';
 
   // Articles
   echo '<div id="articles" class="section-anchor">';
   echo '<div class="container">';
 
-  echo '<div class="text-center mb-20">
-    <div class="h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
-    <div class="my-8"><img src="' . get_stylesheet_directory_uri() . '/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
+  echo '<div class="text-center mb-10">
     <h3 class="text-4_25xl my-6 text-primary font-quincy">Articles</h3>
     <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
   </div>';
@@ -208,14 +181,10 @@ if (rcp_user_has_active_membership()) {
   }
   wp_reset_postdata();
 
-  echo '<div class="text-center mt-16">
-  <div class="h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
-  </div>';
-
   echo '</div>';
   echo '</div>';
 } else { ?>
-  <div class="container">
+  <div class="py-8 prose max-w-none">
     <p>
       <?php
       printf(

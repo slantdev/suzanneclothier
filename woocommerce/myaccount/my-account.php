@@ -19,21 +19,19 @@
 defined('ABSPATH') || exit;
 ?>
 
-<div class="">
+<div class="flex gap-8">
 
-  <div class="bg-gray-50 border-b border-solid border-gray-300">
-    <div class="container">
-      <?php
-      /**
-       * My Account navigation.
-       *
-       * @since 2.6.0
-       */
-      do_action('woocommerce_account_navigation'); ?>
-    </div>
+  <div class="w-1/4">
+    <?php
+    /**
+     * My Account navigation.
+     *
+     * @since 2.6.0
+     */
+    do_action('woocommerce_account_navigation'); ?>
   </div>
 
-  <div class="woocommerce-MyAccount-content float-none">
+  <div class="woocommerce-MyAccount-content float-none w-3/4">
     <?php
     /**
      * My Account content.

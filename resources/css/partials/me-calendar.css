@@ -1,0 +1,21 @@
+.mec-reg-btn.mec-frontbox {
+  @apply m-0 p-0 border-0 shadow-none;
+}
+
+.mec-color,
+.mec-color-before :before,
+.mec-color-hover:hover,
+.mec-wrap .mec-color,
+.mec-wrap .mec-color-before :before,
+.mec-wrap .mec-color-hover:hover {
+  @apply text-primary;
+}
+
+.mec-single-event {
+  .mec-booking-button {
+    @apply bg-primary hover:bg-primary-light h-auto leading-normal text-center text-white block text-base tracking-normal py-4 px-6 rounded-full shadow-md;
+    &:hover {
+      background-color: rgba(36, 137, 168, 1) !important;
+    }
+  }
+}
