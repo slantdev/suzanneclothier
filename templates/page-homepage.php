@@ -154,64 +154,32 @@ function learning_path_item($background, $title, $text, $url)
         <h3 class="text-4xl my-6 text-primary font-quincy">Choose your Learning Path</h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>
-      <div class="grid grid-cols-4 gap-4">
-        <?php
-        $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-01.jpg';
-        $title = 'Behavior';
-        $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '/learning_paths/behavior';
-        echo learning_path_item($background, $title, $text, $url);
-        ?>
-        <?php
-        $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-02.jpg';
-        $title = 'Training';
-        $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '/learning_paths/training';
-        echo learning_path_item($background, $title, $text, $url);
-        ?>
-        <?php
-        $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-03.jpg';
-        $title = 'Relationship';
-        $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '/learning_paths/relationship';
-        echo learning_path_item($background, $title, $text, $url);
-        ?>
-        <?php
-        $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-04.jpg';
-        $title = 'Performance';
-        $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '/learning_paths/performance';
-        echo learning_path_item($background, $title, $text, $url);
-        ?>
-        <?php
-        $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-05.jpg';
-        $title = 'Professional';
-        $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '/learning_paths/professional';
-        echo learning_path_item($background, $title, $text, $url);
-        ?>
-        <?php
-        $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-06.jpg';
-        $title = 'Rescue';
-        $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '/learning_paths/rescue';
-        echo learning_path_item($background, $title, $text, $url);
-        ?>
-        <?php
-        $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-07.jpg';
-        $title = 'Breeding';
-        $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.';
-        $url = '/learning_paths/breeding';
-        echo learning_path_item($background, $title, $text, $url);
-        ?>
-        <?php
-        $background = get_stylesheet_directory_uri() . '/assets/images/learning-path/learningpath-bg-08.jpg';
-        $title = 'Need Help In Choosing Your Learning Path?';
-        $text = '';
-        $url = '/contact-us';
-        echo learning_path_item($background, $title, $text, $url);
-        ?>
-      </div>
+      <?php
+      if (have_rows('learning_path_item')) :
+
+        echo '<div class="grid grid-cols-4 gap-4">';
+
+        while (have_rows('learning_path_item')) : the_row();
+
+          $lp_title = get_sub_field('lp_title');
+          $lp_description = get_sub_field('lp_description');
+          $lp_image = get_sub_field('lp_image');
+          $learning_path_url = get_sub_field('learning_path_url');
+
+          $background = get_sub_field('lp_image');
+          $title = get_sub_field('lp_title');
+          $text = get_sub_field('lp_description');
+          $url = get_sub_field('lp_url');
+          echo learning_path_item($background, $title, $text, $url);
+
+
+        endwhile;
+
+        echo '</div>';
+
+      endif;
+      ?>
+
     </div>
   </section>
 
