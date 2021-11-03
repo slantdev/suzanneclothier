@@ -94,13 +94,17 @@ function site_header_buttons()
 }
 
 function site_header_icon_links()
-{ ?>
+{
+  $items_count = WC()->cart->get_cart_contents_count();
+  //echo '< id="mini-cart-count"><?php echo $items_count ? $items_count : '&nbsp;';
+?>
   <ul class="flex leading-none">
     <li><button class="inline-flex p-1" type="button">
         <ion-icon name="search" class="text-2xl leading-none"></ion-icon>
       </button></li>
     <li><a href="/cart" class="inline-flex p-1">
         <ion-icon name="cart" class="text-2xl leading-none"></ion-icon>
+        <div id="mini-cart" class="-mt-1 w-5 h-5 leading-5 font-semibold text-xs font-sans text-center rounded-full bg-secondary"><?php echo $items_count ? $items_count : '0'; ?></div>
       </a></li>
   </ul>
 <?php

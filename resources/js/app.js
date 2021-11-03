@@ -1,4 +1,3 @@
-// Navigation toggle
 jQuery(document).ready(function ($) {
 
   $('.cat-list').on('change', function () {

@@ -288,6 +288,18 @@ function sc_cross_sells_total($total)
   return $total;
 }
 
+add_filter('woocommerce_add_to_cart_fragments', 'wc_refresh_mini_cart_count');
+function wc_refresh_mini_cart_count($fragments)
+{
+  ob_start();
+  $items_count = WC()->cart->get_cart_contents_count();
+?>
+  <div id="mini-cart" class="-mt-1 w-5 h-5 leading-5 font-semibold text-xs font-sans text-center rounded-full bg-secondary"><?php echo $items_count ? $items_count : '0'; ?></div>
+<?php
+  $fragments['#mini-cart'] = ob_get_clean();
+  return $fragments;
+}
+
 /*
  * CHECKOUT
  */
