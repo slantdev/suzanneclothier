@@ -165,7 +165,8 @@ body {
   }
 }
 
-#about-suzanne {
+#about-suzanne,
+#customer-service {
   .text-area {
     @apply font-medium;
     p {
@@ -173,6 +174,9 @@ body {
       &:first-child {
         @apply text-xl;
       }
+    }
+    ul {
+      @apply mb-4 list-disc pl-5;
     }
   }
 }

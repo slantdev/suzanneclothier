@@ -11,60 +11,74 @@ function my_body_classes($classes)
   return $classes;
 }
 
+$hero_title = get_field('hero_title');
+$hero_description = get_field('hero_description');
+$hero_background = get_field('hero_background');
+$background_image_desktop = $hero_background['background_image_desktop'];
+$background_image_mobile = $hero_background['background_image_mobile'];
+$background_overlay = $hero_background['background_overlay'];
+
+$hero_image = '';
+if ($background_image_desktop) {
+  $hero_image = $background_image_desktop;
+}
+
 get_header();
-//get_header('', array('bg_classes' => 'bg-opacity-50'));
+
 ?>
 
 <main class="page-contact">
 
-  <section class="hero flex flex-col items-center" style="background-image: url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/hero/hero-contact.jpg)">
-    <div class="absolute bg-black bg-opacity-30 inset-0"></div>
-    <div class="container pt-32 pb-8 z-10 max-w-7xl mx-auto">
+  <section class="hero flex flex-col items-center" style="background-image: url(<?php echo $hero_image ?>">
+    <?php if ($background_overlay) {
+      echo '<div class="absolute inset-0" style="background-color: ' . $background_overlay . '"></div>';
+    } ?>
+    <div class="container pt-32 pb-8 z-10 mx-auto max-w-7xl">
       <div class="flex">
-        <div class="w-2/5 pb-20 text-white">
-          <h2 class="text-6xl font-quincy mb-5">Contact Us</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus.</p>
+        <div class="w-2/5 pb-20">
+          <h2 class="text-6xl font-quincy text-white mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
+          <?php if ($hero_description) {
+            echo '<div class="text-white">';
+            echo $hero_description;
+            echo '</div>';
+          } ?>
         </div>
       </div>
     </div>
-    <div class="w-full bg-white bg-opacity-90 z-10">
-      <div class="container h-12 flex items-center max-w-7xl mx-auto">
-        <div class="breadcrumb -mx-1">
-          <span class="inline-block px-1"><a href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Contact Us</span>
+    <div class="w-full bg-white bg-opacity-50 z-10">
+      <div class="container h-12 flex items-center mx-auto max-w-7xl">
+        <div class="breadcrumb -mx-1 text-white">
+          <span class="inline-block px-1"><a class="hover:text-white" href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Contact Us</span>
         </div>
       </div>
     </div>
   </section>
 
   <section id="customer-service" class="bg-white">
+    <?php
+    $contact_title = get_field('contact_title');
+    $contact_image = get_field('contact_image');
+    $contact_body_text = get_field('contact_body_text');
+    $phone_number = get_field('phone_number');
+    $email = get_field('email');
+    $linkedin_url = get_field('linkedin_url');
+    ?>
     <div class="container max-w-7xl mx-auto">
       <div class="text-center">
         <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
         <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-quincy">Customer Service</h3>
+        <h3 class="text-4xl my-6 text-primary font-quincy"><?php echo $contact_title ?></h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>
       <div class="flex pt-14 pb-20 gap-12">
         <div class="w-1/2">
           <div class="px-14">
-            <div class="mb-8"><img src="/wp-content/themes/suzanneclothier/assets/images/learning-path/learningpath-intro.jpg" class="rounded-full mx-auto" /></div>
+            <div class="mb-8"><img src="<?php echo $contact_image ?>" class="rounded-full mx-auto" /></div>
           </div>
         </div>
         <div class="w-1/2">
-          <div class="font-medium">
-            <p class="text-xl mb-4">Our brand new website is coming in fall 2021. Till then, we’re trying to cut down on spam bots sending us forms full of garbage.</p>
-            <p class="mb-4">You can help us by doing what only a fellow human can do: think!</p>
-            <p class="mb-4">To contact the right folks to help you, select the right email address from the list below. Then, remove the spaces before and after the @ symbol. Use that address to reach us.</p>
-            <ul class="mb-4 list-disc pl-5">
-              <li><strong>Question about an order?</strong> sales @ suzanneclothier.com</li>
-              <li><strong>Interested in a consultation?</strong> Check out the Consultations page for information. https://suzanneclothier.com/shop/telephone-consultations/</li>
-              <li><strong>Wondering about a webinar?</strong> webinars @ suzanneclothier.com</li>
-              <li><strong>Looking for help with our online courses?</strong> courses @ suzanneclothier.com</li>
-              <li><strong>Need Enriched Puppy help?</strong> Visit this page, then contact suzanne @ suzanneclothier.com</li>
-              <li><strong>Seminars with Suzanne Clothier and/or John Rice?</strong> seminars @ suzanneclothier.com</li>
-              <li><strong>Not sure?</strong> info @ suzanneclothier.com</li>
-            </ul>
-            <p>Thanks for doing your part to use this low-tech approach to avoid spammers. Our new website will handle it much better, promise!</p>
+          <div class="text-area">
+            <?php echo $contact_body_text ?>
           </div>
         </div>
       </div>
@@ -76,15 +90,15 @@ get_header();
               <ul class="list-none flex flex-col gap-4 leading-none">
                 <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
                   <ion-icon class="text-3xl" name="mail"></ion-icon>
-                  <a href="#">info@suzanneclothier.com</a>
+                  <a href="mailto:<?php echo $email ?>" target="_blank"><?php echo $email ?></a>
                 </li>
                 <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
                   <ion-icon class="text-3xl" name="logo-linkedin"></ion-icon>
-                  <a href="#">https://au.linkedin.com/in/suzanne-clothier</a>
+                  <a href="<?php echo $linkedin_url ?>" target="_blank"><?php echo $linkedin_url ?></a>
                 </li>
                 <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
                   <ion-icon class="text-3xl" name="call"></ion-icon>
-                  <a href="#">1-800-7-FLY-DOG</a>
+                  <a href="tel:<?php echo $phone_number ?>" target="_blank"><?php echo $phone_number ?></a>
                 </li>
               </ul>
             </div>

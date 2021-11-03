@@ -37397,18 +37397,24 @@ body {
       --tw-bg-opacity: 1;
     }
 
-#about-suzanne .text-area {
+#about-suzanne .text-area, #customer-service .text-area {
     font-weight: 500;
   }
 
-#about-suzanne .text-area p {
+#about-suzanne .text-area p, #customer-service .text-area p {
       margin-bottom: 1rem;
     }
 
-#about-suzanne .text-area p:first-child {
+#about-suzanne .text-area p:first-child, #customer-service .text-area p:first-child {
         font-size: 1.25rem;
         line-height: 1.75rem;
       }
+
+#about-suzanne .text-area ul, #customer-service .text-area ul {
+      margin-bottom: 1rem;
+      list-style-type: disc;
+      padding-left: 1.25rem;
+    }
 
 /* Default */
 
