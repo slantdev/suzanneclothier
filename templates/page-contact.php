@@ -35,7 +35,7 @@ get_header();
     } ?>
     <div class="container pt-32 pb-8 z-10 mx-auto max-w-7xl">
       <div class="flex">
-        <div class="w-2/5 pb-20">
+        <div class="w-3/5 pb-20">
           <h2 class="text-6xl font-quincy text-white mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
           <?php if ($hero_description) {
             echo '<div class="text-white">';
