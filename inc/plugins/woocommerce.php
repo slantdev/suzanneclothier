@@ -103,6 +103,26 @@ function sc_add_discounted_price()
     </div>
     </div>';
   }
+  $rcp_customer_membership = rcp_get_customer_membership_level_ids();
+  if (in_array(1, $rcp_customer_membership)) {
+    $this_product = wc_get_product(get_the_ID());
+    $this_price = $this_product->get_price();
+    $gold_disc_percent = 10 / 100;
+    $gold_disc_amount = $this_price * $gold_disc_percent;
+    $gold_disc_price = $this_price - $gold_disc_amount;
+
+    echo '<div class="pt-12 mt-12 border-t border-solid border-gray-300">
+    <div class="member-price-compare flex gap-4">
+      <a href="/membership/gold-membership/" class="inline-flex bg-gray-100 border border-solid border-gray-200 rounded-lg shadow-md">
+        <div class="py-6 px-6 text-left">
+          <div class="font-quincy text-primary font-bold text-2xl">Gold Member Price</div>
+          <div class="mt-2 mb-4 bg-secondary w-8 h-1"></div>
+          <div class="text-3xl font-semibold text-black">$' . number_format((float)$gold_disc_price, 2, '.', '') . '</div>
+        </div>
+      </a>
+    </div>
+    </div>';
+  }
 }
 
 //* Make External Product Buy Now button open in new tab
