@@ -352,6 +352,8 @@ function sc_add_my_account_endpoint()
   add_rewrite_endpoint('#courses', EP_ROOT | EP_PAGES, false);
   add_rewrite_endpoint('#on-demand', EP_ROOT | EP_PAGES, false);
   add_rewrite_endpoint('#articles', EP_ROOT | EP_PAGES, false);
+  add_rewrite_endpoint('community', EP_ROOT | EP_PAGES, false);
+  add_rewrite_endpoint('my-membership', EP_ROOT | EP_PAGES);
 }
 
 function sc_insert_after_helper($items, $new_items, $after)
@@ -375,6 +377,9 @@ function sc_add_my_account_link($items)
   $new_items['#courses'] = 'Courses';
   $new_items['#on-demand'] = 'On Demand';
   $new_items['#articles'] = 'Articles';
+  $new_items['community'] = 'Community';
+  $new_items['my-membership'] = 'My Membership';
+
 
   return sc_insert_after_helper($items, $new_items, 'dashboard');
 }
@@ -391,5 +396,14 @@ function sc_hook_endpoint($url, $endpoint, $value, $permalink)
   if ($endpoint === '#articles') {
     $url = site_url() . '/my-account/#articles';
   }
+  if ($endpoint === 'community') {
+    $url = site_url() . '/community';
+  }
   return $url;
+}
+
+add_action('woocommerce_account_my-membership_endpoint', 'sc_my_membership_endpoint_content');
+function sc_my_membership_endpoint_content()
+{
+  echo do_shortcode('[subscription_details]');
 }

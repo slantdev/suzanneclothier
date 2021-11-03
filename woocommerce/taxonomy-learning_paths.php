@@ -104,7 +104,7 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
     $params = array(
       'posts_per_page' => 1000,
       'post_type' => 'product',
-      'orderby' => 'menu_order',
+      'orderby' => 'name',
       'tax_query' => array(
         array(
           'taxonomy' => 'learning_paths',
@@ -120,6 +120,7 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
 
     foreach ($query->posts as $post_id) {
       $product_categories = get_the_terms($post_id, 'product_cat');
+
       if (!is_wp_error($product_categories) && $product_categories) {
         foreach ($product_categories as $product_cat) {
           if ($product_cat->term_id != 16) { // Exclude Uncategorized
@@ -131,9 +132,17 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
       }
     }
 
+    $slug = array_column($categories, 'slug');
+
+    array_multisort($slug, SORT_ASC, $categories);
+
+    // echo '<pre>';
+    // print_r($categories);
+    // echo '</pre>';
+
     if (!empty($categories)) {
-      echo '<ul class="flex bg-primary overflow-x-auto items-center">';
-      echo '<li class="px-8 py-3 bg-secondary text-primary font-bold font-quincy text-xl">' . $queried_object->name . '</li>';
+      echo '<ul class="flex bg-primary overflow-x-auto items-center justify-center">';
+      //echo '<li class="px-8 py-3 bg-secondary text-primary font-bold font-quincy text-xl">' . $queried_object->name . '</li>';
       foreach ($categories as $key => $category) {
         echo '<li>';
         echo '<a href="#' . $category->slug . '" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">';
@@ -155,7 +164,7 @@ $term_id = $queried_object->term_id;
 $term_slug = $queried_object->slug;
 
 $product_cat_args = array(
-  'orderby'    => 'menu_order',
+  'orderby'    => 'name',
   'order'      => 'asc',
   'hide_empty' => true,
   'exclude'    => 16
@@ -169,7 +178,7 @@ if (!empty($product_categories)) {
   foreach ($product_categories as $key => $category) {
 
     $params = array(
-      'posts_per_page' => 8,
+      'posts_per_page' => -1,
       'post_type' => 'product',
       'orderby' => 'menu_order',
       'tax_query' => array(

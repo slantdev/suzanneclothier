@@ -41,6 +41,10 @@ function sc_pathmenu_func($atts)
     }
   }
 
+  $slug = array_column($categories, 'slug');
+
+  array_multisort($slug, SORT_ASC, $categories);
+
   $output = '';
 
   if (!empty($categories)) {
@@ -55,7 +59,7 @@ function sc_pathmenu_func($atts)
       $params2 = array(
         'posts_per_page' => 5,
         'post_type' => 'product',
-        'orderby' => 'menu_order',
+        'orderby' => 'name',
         'tax_query' => array(
           'relation' => 'AND',
           array(

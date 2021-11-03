@@ -62,6 +62,7 @@ get_header();
     $phone_number = get_field('phone_number');
     $email = get_field('email');
     $linkedin_url = get_field('linkedin_url');
+    $form_shortcode = get_field('form_shortcode');
     ?>
     <div class="container max-w-7xl mx-auto">
       <div class="text-center">
@@ -107,7 +108,12 @@ get_header();
         <div class="w-1/2">
           <h3 class="mb-8 text-4xl text-primary font-quincy">Drop us a line</h3>
           <div>
-            <form>
+            <?php
+            if ($form_shortcode) {
+              echo do_shortcode($form_shortcode);
+            }
+            ?>
+            <!-- <form>
               <div class="grid grid-cols-2 gap-4">
                 <div>
                   <input type="text" placeholder="First Name" class="bg-white rounded-full w-full shadow py-3 px-5 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
@@ -131,7 +137,7 @@ get_header();
                   </button>
                 </div>
               </div>
-            </form>
+            </form> -->
           </div>
         </div>
       </div>
