@@ -116,6 +116,9 @@
 .rcp-table {
   @apply shadow overflow-hidden border-b border-gray-200 sm:rounded-md;
   @apply min-w-full divide-y divide-gray-200 mb-8 font-sans;
+  a {
+    @apply text-link hover:text-link-hover;
+  }
   thead {
     @apply bg-gray-50;
     th {
