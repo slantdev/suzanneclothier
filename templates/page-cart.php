@@ -7,37 +7,63 @@
 add_filter('body_class', 'sc_body_classes');
 function sc_body_classes($classes)
 {
-  $classes[] = 'page-cart';
+  $classes[] = 'header-semi-transparent page-cart';
   return $classes;
+}
+
+$hero_title = get_field('hero_title');
+$hero_description = get_field('hero_description');
+$hero_background = get_field('hero_background');
+$background_image_desktop = $hero_background['background_image_desktop'];
+$background_image_mobile = $hero_background['background_image_mobile'];
+$background_overlay = $hero_background['background_overlay'];
+
+$hero_image = '';
+if ($background_image_desktop) {
+  $hero_image = $background_image_desktop;
 }
 
 get_header();
 
 ?>
-
-<div class="container mx-auto my-8">
-
-  <?php if (have_posts()) : ?>
-    <?php
-    while (have_posts()) :
-      the_post();
-    ?>
-
-      <div id="post-<?php the_ID(); ?>" <?php post_class('mb-12'); ?>>
-
-        <header class="entry-header mb-4">
-          <?php the_title(sprintf('<h2 class="entry-title text-2xl md:text-3xl font-extrabold leading-tight mb-1"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h2>'); ?>
-        </header>
-
-        <?php the_content(); ?>
-
+<section class="hero flex flex-col items-center" style="background-image: url(<?php echo $hero_image ?>">
+  <?php if ($background_overlay) {
+    echo '<div class="absolute inset-0" style="background-color: ' . $background_overlay . '"></div>';
+  } ?>
+  <div class="container pt-32 pb-8 z-10 mx-auto">
+    <div class="flex">
+      <div class="w-2/5 pb-20">
+        <h2 class="text-6xl font-quincy text-primary mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
+        <?php if ($hero_description) {
+          echo '<div>';
+          echo $hero_description;
+          echo '</div>';
+        } ?>
       </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container mx-auto my-12">
 
-    <?php endwhile; ?>
+    <?php if (have_posts()) : ?>
+      <?php
+      while (have_posts()) :
+        the_post();
+      ?>
 
-  <?php endif; ?>
+        <div id="post-<?php the_ID(); ?>" <?php post_class('mb-12'); ?>>
 
-</div>
+          <?php the_content(); ?>
+
+        </div>
+
+      <?php endwhile; ?>
+
+    <?php endif; ?>
+
+  </div>
+</section>
 
 <?php
 get_footer();
