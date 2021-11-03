@@ -80,20 +80,16 @@ function learning_path_item($background, $title, $text, $url)
       ?>
       <div class="cta-box -mt-24 relative z-20">
         <div class="flex items-center bg-primary text-white rounded-2xl shadow-md px-16 py-16">
-          <div class="w-2/4 pr-8">
-            <h3 class="text-4_25xl font-quincy"><?php echo $cta_title ?></h3>
+          <div class="inline-flex pr-8">
+            <h3 class="text-4_25xl font-quincy whitespace-nowrap"><?php echo $cta_title ?></h3>
           </div>
-          <div class="w-3/4 pl-12 border-l border-white border-opacity-10">
-            <div class="flex items-center gap-12">
-              <div class="w-3/5">
-                <p><?php echo $cta_description ?></p>
-              </div>
-              <div class="w-2/5">
-                <a href="<?php echo $cta_button_url ?>" class="inline-flex min-w-full items-center justify-between leading-none py-2 pl-6 pr-2 rounded-full bg-white text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-4"><?php echo $cta_button_text ?></span>
-                  <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
-                </a>
-              </div>
-            </div>
+          <div class="inline-flex px-8 border-l border-white border-opacity-10">
+            <div><?php echo $cta_description ?></div>
+          </div>
+          <div class="inline-flex ml-auto">
+            <a href="<?php echo $cta_button_url ?>" class="inline-flex min-w-full items-center justify-between leading-none py-2 pl-6 pr-2 rounded-full bg-white text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-4"><?php echo $cta_button_text ?></span>
+              <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
+            </a>
           </div>
         </div>
       </div>
