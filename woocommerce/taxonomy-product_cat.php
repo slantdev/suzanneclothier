@@ -84,7 +84,7 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
   </div>
 </section>
 
-<div class="sticky top-0 z-30 bg-primary">
+<div class="sticky top-0 z-30 bg-primary text-white">
   <div class="container">
     <?php
 
@@ -107,28 +107,30 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
 
     $query = new WP_Query($params);
 
-    $categories = array();
+    $filters = array();
 
     foreach ($query->posts as $post_id) {
-      $product_categories = get_the_terms($post_id, 'product_cat');
-      if (!is_wp_error($product_categories) && $product_categories) {
-        foreach ($product_categories as $product_cat) {
-          if ($product_cat->term_id != 16) { // Exclude Uncategorized
-            if (!isset($categories[$product_cat->term_id])) {
-              $categories[$product_cat->term_id] = $product_cat;
-            }
+      $learning_paths = get_the_terms($post_id, 'learning_paths');
+      if (!is_wp_error($learning_paths) && $learning_paths) {
+        foreach ($learning_paths as $learning_path) {
+          if (!isset($categories[$product_cat->term_id])) {
+            $filters[$learning_path->term_id] = $learning_path;
           }
         }
       }
     }
 
-    if (!empty($categories)) {
-      echo '<ul class="flex bg-primary overflow-x-auto items-center">';
-      echo '<li class="px-8 py-3 bg-secondary text-primary font-bold font-quincy text-xl">' . $queried_object->name . '</li>';
-      foreach ($categories as $key => $category) {
+    // echo '<pre>';
+    // print_r($filters);
+    // echo '</pre>';
+
+    if (!empty($filters)) {
+      echo '<ul class="flex bg-primary overflow-x-auto items-center justify-center">';
+      echo '<li><a href="#" data-term="' . $term_slug . '" data-slug="" class="filter-button block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">All</a></li>';
+      foreach ($filters as $key => $filter) {
         echo '<li>';
-        echo '<a href="#' . $category->slug . '" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">';
-        echo $category->name;
+        echo '<a href="#" data-term="' . $term_slug . '" data-slug="' . $filter->slug . '" class="filter-button block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">';
+        echo $filter->name;
         echo '</a>';
         echo '</li>';
       }
@@ -142,54 +144,42 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
 
 <div class="pt-20 pb-24 bg-secondary-light">
   <div class="container">
+
     <?php
-    if (woocommerce_product_loop()) {
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    $args = array(
+      'post_type' => 'product',
+      'posts_per_page' => -1,
+      'paged' => $paged,
+      'orderby' => 'menu_order',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'product_cat',
+          'field'    => 'slug',
+          'terms'    => $term_slug,
+        ),
+      ),
+    );
+    $posts_query = new WP_Query($args);
 
-      /**
-       * Hook: woocommerce_before_shop_loop.
-       *
-       * @hooked woocommerce_output_all_notices - 10
-       * @hooked woocommerce_result_count - 20
-       * @hooked woocommerce_catalog_ordering - 30
-       */
-      //do_action('woocommerce_before_shop_loop');
-      echo woocommerce_output_all_notices();
-      //echo '<div class="flex justify-between mb-4">';
-      //echo woocommerce_result_count();
-      //echo woocommerce_catalog_ordering();
-      //echo '</div>';
-
-      woocommerce_product_loop_start();
-
-      if (wc_get_loop_prop('total')) {
-        while (have_posts()) {
-          the_post();
-
-          /**
-           * Hook: woocommerce_shop_loop.
-           */
-          do_action('woocommerce_shop_loop');
-
-          wc_get_template_part('content', 'product');
-        }
+    if ($posts_query->have_posts()) {
+      echo '<div class="product-grid grid grid-cols-4 pb-12 gap-8">';
+      while ($posts_query->have_posts()) {
+        $posts_query->the_post();
+        wc_get_template_part('content', 'product');
       }
+      echo '</div>';
 
-      woocommerce_product_loop_end();
-
-      /**
-       * Hook: woocommerce_after_shop_loop.
-       *
-       * @hooked woocommerce_pagination - 10
-       */
-      do_action('woocommerce_after_shop_loop');
+      // echo '<div class="pb-24">';
+      // echo pagination($posts_query->max_num_pages);
+      // echo '</div>';
     } else {
-      /**
-       * Hook: woocommerce_no_products_found.
-       *
-       * @hooked wc_no_products_found - 10
-       */
-      do_action('woocommerce_no_products_found');
-    } ?>
+    ?>
+      <div class="text-center text-3xl">Sorry, there's no product in this category.</div>
+    <?php
+    }
+    wp_reset_postdata();
+    ?>
 
   </div>
 </div>

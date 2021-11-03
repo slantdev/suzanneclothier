@@ -219,6 +219,64 @@ add_action('woocommerce_after_single_product', 'woocommerce_output_related_produ
 //* Move woocommerce_breadcrumb
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 
+//* Filter Product Category Against Learning Paths
+function filter_product_cat()
+{
+  $term = $_POST['term'];
+  $slug = $_POST['slug'];
+
+  if ($slug) {
+    $ajaxposts = new WP_Query([
+      'post_type' => 'product',
+      'posts_per_page' => -1,
+      'orderby' => 'menu_order',
+      'order' => 'desc',
+      'tax_query' => array(
+        'relation' => 'AND',
+        array(
+          'taxonomy' => 'product_cat',
+          'field'    => 'slug',
+          'terms'    => $term,
+        ),
+        array(
+          'taxonomy' => 'learning_paths',
+          'field'    => 'slug',
+          'terms'    => $slug,
+        ),
+      ),
+    ]);
+  } else {
+    $ajaxposts = new WP_Query([
+      'post_type' => 'product',
+      'posts_per_page' => -1,
+      'orderby' => 'menu_order',
+      'order' => 'desc',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'product_cat',
+          'field'    => 'slug',
+          'terms'    => $term,
+        ),
+      ),
+    ]);
+  }
+
+  $response = '';
+
+  if ($ajaxposts->have_posts()) {
+    while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
+      $response .= wc_get_template_part('content', 'product');
+    endwhile;
+  } else {
+    $response = 'empty';
+  }
+
+  echo $response;
+  exit;
+}
+add_action('wp_ajax_filter_product_cat', 'filter_product_cat');
+add_action('wp_ajax_nopriv_filter_product_cat', 'filter_product_cat');
+
 /*
  * CART
  */

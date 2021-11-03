@@ -24,6 +24,26 @@ jQuery(document).ready(function ($) {
       }
     });
   });
+  $('.filter-button').on('click', function (e) {
+    e.preventDefault();
+    $term = $(this).data('term');
+    $slug = $(this).data('slug'); //console.log($(this).data('term'));
+    //console.log($(this).data('slug'));
+
+    $.ajax({
+      type: 'POST',
+      url: '/wp-admin/admin-ajax.php',
+      dataType: 'html',
+      data: {
+        action: 'filter_product_cat',
+        term: $term,
+        slug: $slug
+      },
+      success: function success(res) {
+        $('.product-grid').html(res);
+      }
+    });
+  });
 });
 
 /***/ }),
