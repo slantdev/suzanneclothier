@@ -284,9 +284,9 @@
         },
         {
             "key": "field_618078c18a88b",
-            "label": "Call URL",
-            "name": "call_url",
-            "type": "url",
+            "label": "Phone Number",
+            "name": "phone_number",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -296,13 +296,16 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": ""
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_618078e08a88c",
-            "label": "Mail URL",
-            "name": "mail_url",
-            "type": "url",
+            "label": "Email",
+            "name": "email",
+            "type": "email",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -312,7 +315,9 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": ""
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_618078e88a88d",
@@ -481,5 +486,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1635904634
+    "modified": 1635906413
 }

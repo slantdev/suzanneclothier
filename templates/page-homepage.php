@@ -103,8 +103,8 @@ function learning_path_item($background, $title, $text, $url)
         $about_image = get_field('about_image');
         $about_intro_text = get_field('about_intro_text');
         $about_body_text = get_field('about_body_text');
-        $call_url = get_field('call_url');
-        $mail_url = get_field('mail_url');
+        $phone_number = get_field('phone_number');
+        $email = get_field('email');
         $linkedin_url = get_field('linkedin_url');
         $learn_more_url = get_field('learn_more_url');
         ?>
@@ -119,13 +119,13 @@ function learning_path_item($background, $title, $text, $url)
             <div class="mb-8"><img src="<?php echo $about_image ?>" class="rounded-full mx-auto" /></div>
             <div>
               <ul class="list-none flex justify-center gap-4 leading-none">
-                <li><a href="<?php echo $call_url ?>">
+                <li><a href="tel:<?php echo $phone_number ?>" target="_blank">
                     <ion-icon class="text-3xl" name="call"></ion-icon>
                   </a></li>
-                <li><a href="<?php echo $mail_url ?>">
+                <li><a href="mailto:<?php echo $email ?>" target="_blank">
                     <ion-icon class="text-3xl" name="mail"></ion-icon>
                   </a></li>
-                <li><a href="<?php echo $linkedin_url ?>">
+                <li><a href="<?php echo $linkedin_url ?>" target="_blank">
                     <ion-icon class="text-3xl" name="logo-linkedin"></ion-icon>
                   </a></li>
               </ul>

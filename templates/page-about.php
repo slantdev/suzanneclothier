@@ -77,7 +77,7 @@ get_header();
               <ul class="list-none flex flex-col gap-4 leading-none">
                 <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
                   <ion-icon class="text-3xl" name="mail"></ion-icon>
-                  <a href="mailto:<?php echo $email ?>"><?php echo $email ?></a>
+                  <a href="mailto:<?php echo $email ?>" target="_blank"><?php echo $email ?></a>
                 </li>
                 <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
                   <ion-icon class="text-3xl" name="logo-linkedin"></ion-icon>
@@ -85,7 +85,7 @@ get_header();
                 </li>
                 <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
                   <ion-icon class="text-3xl" name="call"></ion-icon>
-                  <a href="tel:<?php echo $phone_number ?>"><?php echo $phone_number ?></a>
+                  <a href="tel:<?php echo $phone_number ?>" target="_blank"><?php echo $phone_number ?></a>
                 </li>
               </ul>
             </div>
