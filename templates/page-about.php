@@ -10,17 +10,36 @@ function sc_body_classes($classes)
   return $classes;
 }
 
+$hero_title = get_field('hero_title');
+$hero_description = get_field('hero_description');
+$hero_background = get_field('hero_background');
+$background_image_desktop = $hero_background['background_image_desktop'];
+$background_image_mobile = $hero_background['background_image_mobile'];
+$background_overlay = $hero_background['background_overlay'];
+
+$hero_image = '';
+if ($background_image_desktop) {
+  $hero_image = $background_image_desktop;
+}
+
 get_header();
 ?>
 
 <main class="page-about">
 
-  <section class="hero flex flex-col items-center" style="background-image: url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/hero/hero-about.jpg)">
-    <div class="container pt-32 pb-8 mx-auto max-w-7xl">
+  <section class="hero flex flex-col items-center" style="background-image: url(<?php echo $hero_image ?>">
+    <?php if ($background_overlay) {
+      echo '<div class="absolute inset-0" style="background-color: ' . $background_overlay . '"></div>';
+    } ?>
+    <div class="container pt-32 pb-8 z-10 mx-auto max-w-7xl">
       <div class="flex">
         <div class="w-2/5 pb-20">
-          <h2 class="text-6xl text-primary font-quincy mb-5">About Us</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.</p>
+          <h2 class="text-6xl font-quincy text-primary mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
+          <?php if ($hero_description) {
+            echo '<div>';
+            echo $hero_description;
+            echo '</div>';
+          } ?>
         </div>
       </div>
     </div>
@@ -34,50 +53,47 @@ get_header();
   </section>
 
   <section id="about-suzanne" class="bg-secondary-light">
+    <?php
+    $about_title = get_field('about_title');
+    $about_image = get_field('about_image');
+    $about_intro_text = get_field('about_intro_text');
+    $about_body_text = get_field('about_body_text');
+    $phone_number = get_field('phone_number');
+    $email = get_field('email');
+    $linkedin_url = get_field('linkedin_url');
+    ?>
     <div class="container mx-auto max-w-7xl">
       <div class="text-center">
         <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
         <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-quincy">About Suzanne</h3>
+        <h3 class="text-4xl my-6 text-primary font-quincy"><?php echo $about_title ?></h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>
       <div class="flex pt-14 pb-20 gap-12">
         <div class="w-1/2">
           <div class="px-14">
-            <div class="mb-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/about-suzanne.jpg" class="rounded-full mx-auto" /></div>
+            <div class="mb-8"><img src="<?php echo $about_image ?>" class="rounded-full mx-auto" /></div>
             <div>
               <ul class="list-none flex flex-col gap-4 leading-none">
                 <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
                   <ion-icon class="text-3xl" name="mail"></ion-icon>
-                  <a href="#">info@suzanneclothier.com</a>
+                  <a href="mailto:<?php echo $email ?>"><?php echo $email ?></a>
                 </li>
                 <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
                   <ion-icon class="text-3xl" name="logo-linkedin"></ion-icon>
-                  <a href="#">https://au.linkedin.com/in/suzanne-clothier</a>
+                  <a href="<?php echo $linkedin_url ?>" target="_blank"><?php echo $linkedin_url ?></a>
                 </li>
                 <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
                   <ion-icon class="text-3xl" name="call"></ion-icon>
-                  <a href="#">1-800-7-FLY-DOG</a>
+                  <a href="tel:<?php echo $phone_number ?>"><?php echo $phone_number ?></a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
         <div class="w-1/2">
-          <div class="font-medium">
-            <p class="text-xl mb-4">Suzanne Clothier is an internationally respected dog trainer, and the author of many publications, including Bones Would Rain from the Sky: Deepening Our Relationships with Dogs. She teaches seminars throughout the US & internationally on a wide range of topics.</p>
-
-            <p class="mb-4">Suzanne’s approach to dog training, Relationship Centered Training™ (RCT), blends science and heart in a satisfying blend that has helped countless people and dogs create healthy, happy relationships.</p>
-
-            <p class="mb-4">RCT™ techniques are innovative, practical, effective and humane - and fun! Whether you want to understand your dog better, solve a behavior problem, improve your dog training & handling skills, or add some new tools to your training toolbox, Relationship Centered Training™ provides a wealth of information.</p>
-
-            <p class="mb-4">Suzanne’s approach to dog training, Relationship Centered Training™ (RCT), blends science and heart in a satisfying blend that has helped countless people and dogs create healthy, happy relationships.</p>
-
-            <p class="mb-4">RCT™ techniques are innovative, practical, effective and humane - and fun! Whether you want to understand your dog better, solve a behavior problem, improve your dog training & handling skills, or add some new tools to your training toolbox, Relationship Centered Training™ provides a wealth of information.</p>
-
-            <p class="mb-4">Suzanne’s approach to dog training, Relationship Centered Training™ (RCT), blends science and heart in a satisfying blend that has helped countless people and dogs create healthy, happy relationships.</p>
-
-            <p class="mb-4">RCT™ techniques are innovative, practical, effective and humane - and fun! Whether you want to understand your dog better, solve a behavior problem, improve your dog training & handling skills, or add some new tools to your training toolbox, Relationship Centered Training™ provides a wealth of information.</p>
+          <div class="text-area">
+            <?php echo $about_body_text ?>
           </div>
         </div>
       </div>

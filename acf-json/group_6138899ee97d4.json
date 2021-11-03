@@ -51,16 +51,21 @@
                 "param": "page_template",
                 "operator": "!=",
                 "value": "templates\/page-homepage.php"
+            },
+            {
+                "param": "page",
+                "operator": "!=",
+                "value": "8"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635794069
+    "modified": 1635904608
 }
