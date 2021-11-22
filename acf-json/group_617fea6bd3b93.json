@@ -34,13 +34,6 @@
                 "operator": "==",
                 "value": "product"
             }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "member_video_library"
-            }
         ]
     ],
     "menu_order": 0,
@@ -51,5 +44,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637554137
+    "modified": 1637554279
 }
