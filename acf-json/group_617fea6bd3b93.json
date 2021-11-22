@@ -1,6 +1,6 @@
 {
     "key": "group_617fea6bd3b93",
-    "title": "Extra Product Settings",
+    "title": "Included For Member Settings",
     "fields": [
         {
             "key": "field_617fea88b3a8c",
@@ -34,6 +34,13 @@
                 "operator": "==",
                 "value": "product"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "member_video_library"
+            }
         ]
     ],
     "menu_order": 0,
@@ -44,5 +51,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635774096
+    "modified": 1637554137
 }
