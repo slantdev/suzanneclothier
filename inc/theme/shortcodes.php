@@ -12,7 +12,7 @@ function sc_pathmenu_func($atts)
   $term_slug = $term;
 
   $params = array(
-    'posts_per_page' => 8,
+    'posts_per_page' => -1,
     'post_type' => 'product',
     'orderby' => 'menu_order',
     'tax_query' => array(
