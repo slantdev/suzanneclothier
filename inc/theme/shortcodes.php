@@ -49,9 +49,9 @@ function sc_pathmenu_func($atts)
 
   $output = '';
 
-  // $output .= '<pre>';
-  // $output .= print_r($categories, true);
-  // $output .= '</pre>';
+  $output .= '<pre><small>';
+  $output .= print_r($categories, true);
+  $output .= '</small></pre>';
 
   // $output .= '<pre>';
   // $output .= print_r($categories['name']);
@@ -113,6 +113,8 @@ function sc_pathmenu_func($atts)
     }
     $output .=  '</div>';
   }
+
+  wp_reset_postdata();
 
   return $output;
 }
