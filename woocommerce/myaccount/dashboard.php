@@ -94,18 +94,14 @@ if (rcp_user_has_active_membership()) {
   echo '<div id="articles" class="section-anchor">';
   echo '<div class="container">';
 
-  echo '<div class="text-center mb-10">
-    <h3 class="text-4_25xl my-6 text-primary font-quincy">Member Video Library</h3>
-    <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
-  </div>';
 
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
   $args = array(
     'post_type' => 'member_video_library',
     'posts_per_page' => -1,
     'paged' => $paged,
-    'meta_key'       => '_is_paid',
-    'meta_value'     => 1,
+    //'meta_key'       => '_is_paid',
+    //'meta_value'     => 1,
     'post_status'    => 'publish',
     'posts_per_page' => -1,
     'fields'         => 'ids'
@@ -113,6 +109,10 @@ if (rcp_user_has_active_membership()) {
   $posts_query = new WP_Query($args);
 
   if ($posts_query->have_posts()) {
+    echo '<div class="text-center mb-10">
+      <h3 class="text-4_25xl my-6 text-primary font-quincy">Member Video Library</h3>
+      <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
+    </div>';
     echo '<div class="blog-grid grid grid-cols-4 pb-12 gap-8">';
     while ($posts_query->have_posts()) {
       $posts_query->the_post();
