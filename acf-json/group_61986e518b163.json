@@ -1,0 +1,53 @@
+{
+    "key": "group_61986e518b163",
+    "title": "Resources Page Settings",
+    "fields": [
+        {
+            "key": "field_61986e69fcc61",
+            "label": "Post Type",
+            "name": "post_type",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "post": "Post",
+                "article": "Article in English",
+                "articles_french": "Article in French",
+                "article_norway": "Article in Norwegian",
+                "article_dutch": "Article in Dutch",
+                "article_it": "Article in Italian"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates\/page-resources.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1637379848
+}

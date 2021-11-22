@@ -90,60 +90,35 @@ if (rcp_user_has_active_membership()) {
 
   echo '</div>';
 
-  // On Demand
-  echo '<div id="on-demand" class="section-anchor mb-24">';
+  // Member Videos
+  echo '<div id="articles" class="section-anchor">';
+  echo '<div class="container">';
 
   echo '<div class="text-center mb-10">
-    <h3 class="text-4_25xl my-6 text-primary font-quincy">On Demand</h3>
+    <h3 class="text-4_25xl my-6 text-primary font-quincy">Member Video Library</h3>
     <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
   </div>';
 
+  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
   $args = array(
+    'post_type' => 'member_video_library',
     'posts_per_page' => -1,
-    'post_type' => 'product',
-    'orderby' => 'menu_order',
-    'tax_query' => array(
-      array(
-        'taxonomy' => 'product_cat',
-        'field'    => 'id',
-        //'terms'    => '269',
-        'terms'    => '276',
-      ),
-    ),
-    'meta_query'  => array(
-      'relation'    => 'OR',
-      array(
-        'key'    => 'included_for_member',
-        'value'    => '1',
-        'compare'  => 'LIKE'
-      ),
-      array(
-        'key'    => 'included_for_member',
-        'value'    => '2',
-        'compare'  => 'LIKE'
-      )
-    )
+    'paged' => $paged,
+    'meta_key'       => '_is_paid',
+    'meta_value'     => 1,
+    'post_status'    => 'publish',
+    'posts_per_page' => -1,
+    'fields'         => 'ids'
   );
-  $wc_query = new WP_Query($args);
+  $posts_query = new WP_Query($args);
 
-  if ($wc_query->have_posts()) {
-
-    echo '<div class="text-center text-sm max-w-prose mx-auto mb-10">' . term_description('276', 'product_cat') . '</div>';
-
-    woocommerce_product_loop_start();
-
-    while ($wc_query->have_posts()) {
-      $wc_query->the_post();
-
-      /**
-       * Hook: woocommerce_shop_loop.
-       */
-      do_action('woocommerce_shop_loop');
-
-      wc_get_template_part('content', 'product');
+  if ($posts_query->have_posts()) {
+    echo '<div class="blog-grid grid grid-cols-4 pb-12 gap-8">';
+    while ($posts_query->have_posts()) {
+      $posts_query->the_post();
+      get_template_part('template-parts/blog-list-item');
     }
-
-    woocommerce_product_loop_end();
+    echo '</div>';
   }
   wp_reset_postdata();
 
@@ -154,7 +129,7 @@ if (rcp_user_has_active_membership()) {
   echo '<div class="container">';
 
   echo '<div class="text-center mb-10">
-    <h3 class="text-4_25xl my-6 text-primary font-quincy">Articles</h3>
+    <h3 class="text-4_25xl my-6 text-primary font-quincy">Member Articles</h3>
     <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
   </div>';
 
@@ -182,6 +157,8 @@ if (rcp_user_has_active_membership()) {
   wp_reset_postdata();
 
   echo '</div>';
+  echo '</div>';
+
   echo '</div>';
 } else { ?>
   <div class="py-8 prose max-w-none">

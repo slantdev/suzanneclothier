@@ -12,6 +12,19 @@ if (!$thumbnail_medium) {
     <div class="flex">
       <div class="w-2/3 pb-14">
         <h1 class="text-6xl font-quincy mb-5 text-primary"><?php the_title(); ?></h1>
+        <?php
+        $article_in_other_language = get_field('article_in_other_language');
+        if ($article_in_other_language) {
+          echo '<p>This article is also available in ';
+          foreach ($article_in_other_language as $article) :
+            $permalink = get_permalink($article->ID);
+            $post_type = get_post_type_object(get_post_type($article->ID));
+            $separator = ($article != end($article_in_other_language)) ? ", " : '';
+            echo '<a class="font-semibold hover:underline" href="' . esc_url($permalink) . '">' . esc_html($post_type->labels->singular_name) . '</a>' . $separator;
+          endforeach;
+          echo '.</p>';
+        }
+        ?>
       </div>
     </div>
   </div>
@@ -34,9 +47,7 @@ if (!$thumbnail_medium) {
       <div class="w-2/3">
         <div class="entry-content">
           <article id="post-<?php the_ID(); ?>" <?php post_class('prose xl:prose-lg font-sans'); ?>>
-
             <?php the_content(); ?>
-
           </article>
         </div>
       </div>

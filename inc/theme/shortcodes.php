@@ -41,11 +41,21 @@ function sc_pathmenu_func($atts)
     }
   }
 
+  wp_reset_postdata();
+
   $slug = array_column($categories, 'slug');
 
   array_multisort($slug, SORT_ASC, $categories);
 
   $output = '';
+
+  // $output .= '<pre>';
+  // $output .= print_r($categories, true);
+  // $output .= '</pre>';
+
+  // $output .= '<pre>';
+  // $output .= print_r($categories['name']);
+  // $output .= '</pre>';
 
   if (!empty($categories)) {
     $output .=  '<div class="grid grid-cols-4 gap-4 w-full">';
@@ -54,7 +64,9 @@ function sc_pathmenu_func($atts)
       $output .= '<div class="">';
       $output .= '<h5 class="border-b border-gray-300 px-1 pt-2 pb-3 font-bold">' . $category->name . '</h5>';
 
-      //print_r($category);
+      //$output .= '<pre>';
+      //$output .= print_r($category, true);
+      //$output .= '</pre>';
 
       $params2 = array(
         'posts_per_page' => 5,
