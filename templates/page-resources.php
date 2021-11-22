@@ -60,13 +60,14 @@ if (!$post_type) {
 
   <section class="bg-white">
     <div class="container mx-auto max-w-7xl">
-      <div class="text-center">
-        <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
-        <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-quincy">Suzanne Clothier’s Blog</h3>
-        <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
-      </div>
+
       <?php if ($post_type != 'post') { ?>
+        <div class="text-center">
+          <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
+          <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
+          <h3 class="text-4xl my-6 text-primary font-quincy">Suzanne Clothier’s Articles</h3>
+          <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
+        </div>
         <div class="text-center my-12">
           <?php
           $link_class_english = 'text-link hover:text-link-hover';
@@ -102,6 +103,12 @@ if (!$post_type) {
       <?php } ?>
 
       <?php if ($post_type == 'post') { ?>
+        <div class="text-center">
+          <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
+          <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
+          <h3 class="text-4xl my-6 text-primary font-quincy">Suzanne Clothier’s Blog</h3>
+          <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
+        </div>
         <div class="max-w-sm mx-auto my-12">
 
           <?php
