@@ -47,17 +47,18 @@ function sc_add_rcp_member_coupon_code()
     $rcp_customer_membership = rcp_get_customer_membership_level_ids();
     $silver_code = get_field('silver_member_coupon_code', 'option');
     $gold_code = get_field('gold_member_coupon_code', 'option');
+
     if (in_array(1, $rcp_customer_membership)) {
       if (in_array(1, $included_for_member)) {
-        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your membership plan. Please use <strong>' . $silver_code . '</strong> coupon code to watch it for free.</div>';
+        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your <a href="/my-account">Silver Member Library</a>. </div>';
       } else {
-        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Silver Member, please use <strong>SILVERCODE</strong> coupon code to get 5% discount upon checkout</div>';
+        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Silver Member, please use <strong>' . $silver_code . '</strong> coupon code to get 5% discount upon checkout</div>';
       }
     } else if (in_array(2, $rcp_customer_membership)) {
       if (in_array(2, $included_for_member)) {
-        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your membership plan. Please use <strong>' . $gold_code . '</strong> coupon code to watch it for free.</div>';
+        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your <a href="/my-account">Gold Member Library</a>. </div>';
       } else {
-        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Gold Member, please use <strong>GOLDCODE</strong> coupon code to get 5% discount upon checkout</div>';
+        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Gold Member, please use <strong>' . $gold_code . '</strong> coupon code to get 5% discount upon checkout</div>';
       }
     }
   }
