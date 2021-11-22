@@ -66,42 +66,40 @@ if (!$post_type) {
         <h3 class="text-4xl my-6 text-primary font-quincy">Suzanne Clothier’s Blog</h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>
-      <div class="text-center my-12">
-        <?php
-        $link_class_post = 'text-link hover:text-link-hover';
-        $link_class_english = 'text-link hover:text-link-hover';
-        $link_class_french = 'text-link hover:text-link-hover';
-        $link_class_norway = 'text-link hover:text-link-hover';
-        $link_class_dutch = 'text-link hover:text-link-hover';
-        $link_class_italian = 'text-link hover:text-link-hover';
+      <?php if ($post_type != 'post') { ?>
+        <div class="text-center my-12">
+          <?php
+          $link_class_english = 'text-link hover:text-link-hover';
+          $link_class_french = 'text-link hover:text-link-hover';
+          $link_class_norway = 'text-link hover:text-link-hover';
+          $link_class_dutch = 'text-link hover:text-link-hover';
+          $link_class_italian = 'text-link hover:text-link-hover';
 
-        if ($post_type == 'post') {
-          $link_class_post = 'font-bold';
-        }
-        if ($post_type == 'article') {
-          $link_class_english = 'font-bold';
-        }
-        if ($post_type == 'articles_french') {
-          $link_class_french = 'font-bold';
-        }
-        if ($post_type == 'article_norway') {
-          $link_class_norway = 'font-bold';
-        }
-        if ($post_type == 'article_dutch') {
-          $link_class_dutch = 'font-bold';
-        }
-        if ($post_type == 'article_it') {
-          $link_class_italian = 'font-bold';
-        }
-        ?>
-        <ul class="flex justify-center gap-y-4 gap-x-16 border-t border-b py-6 border-solid border-gray-200">
-          <li><a class="<?php echo $link_class_post ?>" href="/resources">Articles in English</a></li>
-          <li><a class="<?php echo $link_class_dutch ?>" href="/resources/articles-in-dutch">Articles in Dutch</a></li>
-          <li><a class="<?php echo $link_class_italian ?>" href="/resources/articles-in-italian">Articles in Italian</a></li>
-          <li><a class="<?php echo $link_class_norway ?>" href="/resources/articles-in-norwegian">Articles in Norwegian</a></li>
-          <li><a class="<?php echo $link_class_french ?>" href="/resources/articles-in-french">Articles in French</a></li>
-        </ul>
-      </div>
+          if ($post_type == 'article') {
+            $link_class_english = 'font-bold';
+          }
+          if ($post_type == 'articles_french') {
+            $link_class_french = 'font-bold';
+          }
+          if ($post_type == 'article_norway') {
+            $link_class_norway = 'font-bold';
+          }
+          if ($post_type == 'article_dutch') {
+            $link_class_dutch = 'font-bold';
+          }
+          if ($post_type == 'article_it') {
+            $link_class_italian = 'font-bold';
+          }
+          ?>
+          <ul class="flex justify-center gap-y-4 gap-x-16 border-t border-b py-6 border-solid border-gray-200">
+            <li><a class="<?php echo $link_class_english ?>" href="/articles-in-english">Articles in English</a></li>
+            <li><a class="<?php echo $link_class_dutch ?>" href="/articles-in-dutch">Articles in Dutch</a></li>
+            <li><a class="<?php echo $link_class_italian ?>" href="/articles-in-italian">Articles in Italian</a></li>
+            <li><a class="<?php echo $link_class_norway ?>" href="/articles-in-norwegian">Articles in Norwegian</a></li>
+            <li><a class="<?php echo $link_class_french ?>" href="/articles-in-french">Articles in French</a></li>
+          </ul>
+        </div>
+      <?php } ?>
 
       <?php if ($post_type == 'post') { ?>
         <div class="max-w-sm mx-auto my-12">
