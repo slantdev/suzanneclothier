@@ -49,9 +49,9 @@ function sc_pathmenu_func($atts)
 
   $output = '';
 
-  $output .= '<pre><small>';
-  $output .= print_r($categories, true);
-  $output .= '</small></pre>';
+  // $output .= '<pre><small>';
+  // $output .= print_r($categories, true);
+  // $output .= '</small></pre>';
 
   // $output .= '<pre>';
   // $output .= print_r($categories['name']);
