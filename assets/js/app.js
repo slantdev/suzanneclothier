@@ -23,6 +23,23 @@ jQuery(document).ready(function ($) {
       }
     });
   });
+  $('.article-cat-list').on('change', function () {
+    $category = this.value;
+    $postType = $(this).data("post");
+    $.ajax({
+      type: 'POST',
+      url: '/wp-admin/admin-ajax.php',
+      dataType: 'html',
+      data: {
+        action: 'filter_article',
+        category: $category,
+        postType: $postType
+      },
+      success: function success(res) {
+        $('.blog-grid').html(res);
+      }
+    });
+  });
   $('.filter-button').on('click', function (e) {
     e.preventDefault();
     $term = $(this).data('term');

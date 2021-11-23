@@ -29,6 +29,46 @@ $post_type = get_field('post_type');
 if (!$post_type) {
   $post_type = 'post';
 }
+
+
+// Gets Categories by Post Type
+// returns categories that aren't empty
+function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
+{
+  $exclude = array(get_category_by_slug('videos')->term_id, get_category_by_slug('uncategorized')->term_id);
+  $args = array(
+    "taxonomy" => $taxonomy,
+  );
+  $categories = get_categories($args);
+
+  // Check ALL categories for posts of given post type
+  foreach ($categories as $category) {
+    $posts = get_posts(array(
+      'post_type' => $post_type,
+      'tax_query' => array(
+        array(
+          'taxonomy' => $taxonomy,
+          'field' => 'term_id',
+          'terms' => $category->term_id
+        )
+      )
+    ));
+
+    // If no posts in category, add to exclude list
+    if (empty($posts)) {
+      $exclude[] = $category->term_id;
+    }
+  }
+
+  // If exclude list, add to args
+  //if (!empty($exclude)) {
+  $args['exclude'] = implode(',', $exclude);
+  //}
+
+  // List categories
+  return get_categories($args);
+}
+
 ?>
 
 <main>
@@ -61,7 +101,34 @@ if (!$post_type) {
   <section class="bg-white">
     <div class="container mx-auto max-w-7xl">
 
-      <?php if ($post_type != 'post') { ?>
+      <?php if ($post_type == 'post') { ?>
+        <div class="text-center">
+          <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
+          <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
+          <h3 class="text-4xl my-6 text-primary font-quincy">Suzanne Clothier’s Blog</h3>
+          <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
+        </div>
+        <div class="max-w-sm mx-auto my-12">
+
+          <?php
+          $args = array(
+            'exclude' => array(get_category_by_slug('videos')->term_id, get_category_by_slug('uncategorized')->term_id)
+          );
+          $categories = get_categories($args);
+          ?>
+          <form class="flex bg-gray-50 shadow-md rounded-full">
+            <select class="cat-list w-full py-3 px-6 bg-transparent rounded-full border-0 focus:outline-none focus:ring-0">
+              <option value="">All</option>
+              <?php foreach ($categories as $category) : ?>
+                <option value="<?php echo $category->slug; ?>">
+                  <?php echo $category->name; ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
+            <!-- <button class="filter-btn py-3 px-10 rounded-full bg-primary font-semibold text-white uppercase">Filter</button> -->
+          </form>
+        </div>
+      <?php } else { ?>
         <div class="text-center">
           <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
           <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
@@ -100,33 +167,24 @@ if (!$post_type) {
             <li><a class="<?php echo $link_class_french ?>" href="/articles-in-french">Articles in French</a></li>
           </ul>
         </div>
-      <?php } ?>
 
-      <?php if ($post_type == 'post') { ?>
-        <div class="text-center">
-          <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
-          <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-          <h3 class="text-4xl my-6 text-primary font-quincy">Suzanne Clothier’s Blog</h3>
-          <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
-        </div>
         <div class="max-w-sm mx-auto my-12">
-
           <?php
-          $args = array(
-            'exclude' => array(get_category_by_slug('videos')->term_id, get_category_by_slug('uncategorized')->term_id)
-          );
-          $categories = get_categories($args);
+          // $args = array(
+          //   'exclude' => array(get_category_by_slug('videos')->term_id, get_category_by_slug('uncategorized')->term_id)
+          // );
+          $categories = get_categories_for_post_type($post_type, 'category');
+
           ?>
           <form class="flex bg-gray-50 shadow-md rounded-full">
-            <select class="cat-list w-full py-3 px-6 bg-transparent rounded-full border-0 focus:outline-none focus:ring-0">
+            <select class="article-cat-list w-full py-3 px-6 bg-transparent rounded-full border-0 focus:outline-none focus:ring-0">
               <option value="">All</option>
               <?php foreach ($categories as $category) : ?>
-                <option value="<?php echo $category->slug; ?>">
+                <option data-post="<?php echo $post_type ?>" value="<?php echo $category->slug; ?>">
                   <?php echo $category->name; ?>
                 </option>
               <?php endforeach; ?>
             </select>
-            <!-- <button class="filter-btn py-3 px-10 rounded-full bg-primary font-semibold text-white uppercase">Filter</button> -->
           </form>
         </div>
       <?php } ?>
