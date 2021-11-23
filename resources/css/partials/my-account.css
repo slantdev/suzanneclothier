@@ -49,3 +49,45 @@
     }
   }
 }
+
+#copyText {
+  @apply inline-flex w-auto text-xl py-4 px-6;
+}
+
+.copyTooltip {
+  @apply inline-flex;
+  button {
+    @apply text-xl flex relative p-2 justify-center align-middle w-12 -ml-12;
+  }
+  .copyTooltipText {
+    @apply text-sm font-sans;
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+    }
+  }
+  &:hover .copyTooltipText {
+    visibility: visible;
+    opacity: 1;
+  }
+}

@@ -357,6 +357,7 @@ function sc_add_my_account_endpoint()
   add_rewrite_endpoint('#articles', EP_ROOT | EP_PAGES, false);
   add_rewrite_endpoint('community', EP_ROOT | EP_PAGES, false);
   add_rewrite_endpoint('my-membership', EP_ROOT | EP_PAGES);
+  add_rewrite_endpoint('coupon', EP_ROOT | EP_PAGES);
 }
 
 function sc_insert_after_helper($items, $new_items, $after)
@@ -382,6 +383,7 @@ function sc_add_my_account_link($items)
   $new_items['#articles'] = 'Articles';
   $new_items['community'] = 'Community';
   $new_items['my-membership'] = 'My Membership';
+  $new_items['coupon'] = 'Coupon';
 
 
   return sc_insert_after_helper($items, $new_items, 'dashboard');
@@ -409,4 +411,32 @@ add_action('woocommerce_account_my-membership_endpoint', 'sc_my_membership_endpo
 function sc_my_membership_endpoint_content()
 {
   echo do_shortcode('[subscription_details]');
+}
+
+add_action('woocommerce_account_coupon_endpoint', 'sc_my_coupon_endpoint_content');
+function sc_my_coupon_endpoint_content()
+{
+  echo '<h3 class="text-2xl font-bold mt-4 mb-8">Silver Member Coupon Code</h3>';
+  echo '<div class="">';
+  echo '<input type="text" value="SILVER5" id="copyText" readonly>';
+  echo '<div class="copyTooltip">';
+  echo '<button onclick="copyFunction()" onmouseout="outFunc()"><span class="copyTooltipText" id="copyTooltip">Copy to clipboard</span><ion-icon name="clipboard-outline"></ion-icon></button>';
+  echo '</div>';
+  echo '</div>';
+  echo '<script>';
+  echo 'function copyFunction() {
+    var copyText = document.getElementById("copyText");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+
+    var copyTooltip = document.getElementById("copyTooltip");
+    copyTooltip.innerHTML = "Copied: " + copyText.value;
+  }
+
+  function outFunc() {
+    var copyTooltip = document.getElementById("copyTooltip");
+    copyTooltip.innerHTML = "Copy to clipboard";
+  }';
+  echo '</script>';
 }
