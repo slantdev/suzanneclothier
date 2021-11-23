@@ -416,9 +416,20 @@ function sc_my_membership_endpoint_content()
 add_action('woocommerce_account_coupon_endpoint', 'sc_my_coupon_endpoint_content');
 function sc_my_coupon_endpoint_content()
 {
-  echo '<h3 class="text-2xl font-bold mt-4 mb-8">Silver Member Coupon Code</h3>';
-  echo '<div class="">';
-  echo '<input type="text" value="SILVER5" id="copyText" readonly>';
+  $rcp_customer_membership = rcp_get_customer_membership_level_ids();
+  $coupon_code = '';
+  $member_level = '';
+
+  if (in_array(1, $rcp_customer_membership)) {
+    $member_level = 'Silver Member';
+    $coupon_code = get_field('silver_member_coupon_code', 'option');
+  } else if (in_array(2, $rcp_customer_membership)) {
+    $member_level = 'Gold Member';
+    $coupon_code = get_field('gold_member_coupon_code', 'option');
+  }
+  echo '<h3 class="text-2xl font-bold mt-4 mb-8">' . $member_level . ' Coupon Code</h3>';
+  echo '<div>';
+  echo '<input type="text" value="' . $coupon_code . '" id="copyText" readonly>';
   echo '<div class="copyTooltip">';
   echo '<button onclick="copyFunction()" onmouseout="outFunc()"><span class="copyTooltipText" id="copyTooltip">Copy to clipboard</span><ion-icon name="clipboard-outline"></ion-icon></button>';
   echo '</div>';
