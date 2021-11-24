@@ -194,6 +194,14 @@ body {
   --transform-rotate: -180deg;
 }
 
+.faq {
+  .faq-content {
+    p {
+      @apply mb-4;
+    }
+  }
+}
+
 .learning-path-intro {
   .intro-text {
     @apply font-medium;

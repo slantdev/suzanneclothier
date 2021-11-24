@@ -60,6 +60,7 @@ get_header();
     $contact_image = get_field('contact_image');
     $contact_body_text = get_field('contact_body_text');
     $phone_number = get_field('phone_number');
+    $address = get_field('address');
     $email = get_field('email');
     $linkedin_url = get_field('linkedin_url');
     $form_shortcode = get_field('form_shortcode');
@@ -81,6 +82,35 @@ get_header();
           <div class="text-area">
             <?php echo $contact_body_text ?>
           </div>
+
+          <?php if (have_rows('faqs')) : ?>
+
+            <div class="my-8">
+              <?php while (have_rows('faqs')) : the_row();
+                $faq_title = get_sub_field('faq_title');
+                $faq_content = get_sub_field('faq_content');
+              ?>
+
+                <div class="faq group outline-none accordion-section rounded-3xl border border-gray-200 shadow-lg bg-gray-100 mb-6" tabindex="<?php echo get_row_index(); ?>">
+                  <div class="group bg-white border border-gray-200 -my-px -mx-px rounded-3xl flex justify-between px-6 py-4 items-center text-gray-800 transition ease duration-500 cursor-pointer pr-10 relative">
+                    <div class="font-bold uppercase">
+                      <?php echo $faq_title ?>
+                    </div>
+                    <div class="h-8 w-8 text-primary-light text-lg rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:-rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-3 mr-3">
+                      <ion-icon name="chevron-down-outline"></ion-icon>
+                    </div>
+                  </div>
+                  <div class="group-focus:max-h-screen max-h-0 bg-gray-100 px-6 overflow-hidden ease duration-500 text-gray-800 text-justify rounded-b-3xl rounded-l-3xl">
+                    <div class="py-6 text-gray-800 faq-content">
+                      <?php echo $faq_content ?>
+                    </div>
+                  </div>
+                </div>
+
+              <?php endwhile; ?>
+            </div>
+          <?php endif; ?>
+
         </div>
       </div>
       <div class="flex pb-28">
@@ -89,18 +119,30 @@ get_header();
             <h3 class="mb-8 text-4xl text-primary font-quincy">Our Details</h3>
             <div>
               <ul class="list-none flex flex-col gap-4 leading-none">
-                <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
-                  <ion-icon class="text-3xl" name="mail"></ion-icon>
-                  <a href="mailto:<?php echo $email ?>" target="_blank"><?php echo $email ?></a>
-                </li>
-                <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
-                  <ion-icon class="text-3xl" name="logo-linkedin"></ion-icon>
-                  <a href="<?php echo $linkedin_url ?>" target="_blank"><?php echo $linkedin_url ?></a>
-                </li>
-                <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
-                  <ion-icon class="text-3xl" name="call"></ion-icon>
-                  <a href="tel:<?php echo $phone_number ?>" target="_blank"><?php echo $phone_number ?></a>
-                </li>
+                <?php if ($email) { ?>
+                  <li class="flex items-start gap-4 border-b border-black border-opacity-10 pb-4">
+                    <ion-icon class="text-3xl" name="mail"></ion-icon>
+                    <div class="pt-2"><a href="mailto:<?php echo $email ?>" target="_blank"><?php echo $email ?></a></div>
+                  </li>
+                <?php } ?>
+                <?php if ($address) { ?>
+                  <li class="flex items-start gap-4 border-b border-black border-opacity-10 pb-4">
+                    <ion-icon class="text-3xl" name="location"></ion-icon>
+                    <div class="leading-relaxed"><?php echo $address ?></div>
+                  </li>
+                <?php } ?>
+                <?php if ($linkedin_url) { ?>
+                  <li class="flex items-start gap-4 border-b border-black border-opacity-10 pb-4">
+                    <ion-icon class="text-3xl" name="logo-linkedin"></ion-icon>
+                    <div class="pt-2"><a href="<?php echo $linkedin_url ?>" target="_blank"><?php echo $linkedin_url ?></a></div>
+                  </li>
+                <?php } ?>
+                <?php if ($phone_number) { ?>
+                  <li class="flex items-start gap-4 border-b border-black border-opacity-10 pb-4">
+                    <ion-icon class="text-3xl" name="call"></ion-icon>
+                    <div class="pt-2"><a href="tel:<?php echo $phone_number ?>" target="_blank"><?php echo $phone_number ?></a></div>
+                  </li>
+                <?php } ?>
               </ul>
             </div>
           </div>

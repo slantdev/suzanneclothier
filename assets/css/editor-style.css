@@ -36688,6 +36688,10 @@ body {
   --transform-rotate: -180deg;
 }
 
+.faq .faq-content p {
+      margin-bottom: 1rem;
+    }
+
 .learning-path-intro .intro-text {
     font-weight: 500;
   }
