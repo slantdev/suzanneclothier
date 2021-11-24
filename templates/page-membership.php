@@ -53,23 +53,31 @@ if ($background_image_desktop) {
     </div>
   </section>
 
-  <section class="bg-white pb-8">
-    <div class="container mx-auto max-w-7xl">
-      <div class="text-center">
-        <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
-        <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-quincy">Membership Packages</h3>
-        <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
+  <?php
+  $intro_title = get_field('intro_title');
+  $intro_description = get_field('intro_description');
+  ?>
+  <?php if ($intro_title) { ?>
+    <section class="bg-white pb-8">
+      <div class="container mx-auto max-w-7xl">
+        <div class="text-center">
+          <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
+          <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
+          <h3 class="text-4xl my-6 text-primary font-quincy"><?php echo $intro_title ?></h3>
+          <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <?php } ?>
 
   <section class="bg-secondary-light">
     <div class="container mx-auto py-20 max-w-7xl">
 
-      <div class="max-w-lg text-center mb-8 mx-auto">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus dictum at tempor commodo.</p>
-      </div>
+      <?php if ($intro_description) { ?>
+        <div class="max-w-lg text-center mb-8 mx-auto">
+          <?php echo $intro_description ?>
+        </div>
+      <?php } ?>
 
       <?php if (have_posts()) : ?>
         <?php

@@ -353,7 +353,7 @@ add_action('init', 'sc_add_my_account_endpoint');
 function sc_add_my_account_endpoint()
 {
   add_rewrite_endpoint('#courses', EP_ROOT | EP_PAGES, false);
-  add_rewrite_endpoint('#on-demand', EP_ROOT | EP_PAGES, false);
+  add_rewrite_endpoint('#video-library', EP_ROOT | EP_PAGES, false);
   add_rewrite_endpoint('#articles', EP_ROOT | EP_PAGES, false);
   add_rewrite_endpoint('community', EP_ROOT | EP_PAGES, false);
   add_rewrite_endpoint('my-membership', EP_ROOT | EP_PAGES);
@@ -379,7 +379,7 @@ function sc_add_my_account_link($items)
   $new_items = array();
 
   $new_items['#courses'] = 'Courses';
-  $new_items['#on-demand'] = 'On Demand';
+  $new_items['#video-library'] = 'Video Library';
   $new_items['#articles'] = 'Articles';
   $new_items['community'] = 'Community';
   $new_items['my-membership'] = 'My Membership';
@@ -396,7 +396,7 @@ function sc_hook_endpoint($url, $endpoint, $value, $permalink)
     $url = site_url() . '/my-account/#courses';
   }
   if ($endpoint === '#on-demand') {
-    $url = site_url() . '/my-account/#on-demand';
+    $url = site_url() . '/my-account/#video-library';
   }
   if ($endpoint === '#articles') {
     $url = site_url() . '/my-account/#articles';
