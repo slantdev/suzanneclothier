@@ -91,7 +91,7 @@ if (rcp_user_has_active_membership()) {
   echo '</div>';
 
   // Member Videos
-  echo '<div id="articles" class="section-anchor">';
+  echo '<div id="video-library" class="section-anchor">';
   echo '<div class="container">';
 
 
