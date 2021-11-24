@@ -43,6 +43,10 @@ $queried_object = get_queried_object();
 $hero_image = get_field('hero_image', $queried_object);
 $hero_overlay = get_field('hero_overlay', $queried_object);
 
+$show_intro = get_field('show_intro', $queried_object);
+$intro_image = get_field('intro_image', $queried_object);
+$intro_text = get_field('intro_text', $queried_object);
+
 ?>
 
 <section class="woocommerce-products-header hero flex flex-col items-center" style="background-image: url(<?php echo $hero_image ?>)">
@@ -74,24 +78,24 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
   </div>
 </section>
 
-<section class="bg-secondary-light">
-  <div class="container">
-    <div class="flex pt-14 pb-20 gap-12 items-center">
-      <div class="w-1/2">
-        <div class="px-14">
-          <div class="mb-8 max-w-md ml-auto"><img src="<?php echo get_home_url() ?>/wp-content/themes/suzanneclothier/assets/images/learning-path/learningpath-intro.jpg" class="rounded-full mx-auto" /></div>
+<?php if ($show_intro) { ?>
+  <section class="bg-secondary-light learning-path-intro">
+    <div class="container">
+      <div class="flex pt-14 pb-20 gap-12 items-center">
+        <div class="w-1/2">
+          <div class="px-14">
+            <div class="mb-8 max-w-md ml-auto"><img src="<?php echo $intro_image ?>" class="rounded-full mx-auto" /></div>
+          </div>
         </div>
-      </div>
-      <div class="w-1/2">
-        <div class="font-medium">
-          <p class="text-xl mb-4">Suzanne Clothier is an internationally respected dog trainer, and the author of many publications, including Bones Would Rain from the Sky: Deepening Our Relationships with Dogs. She teaches seminars throughout the US & internationally on a wide range of topics.</p>
-
-          <p class="mb-4">Suzanne’s approach to dog training, Relationship Centered Training™ (RCT), blends science and heart in a satisfying blend that has helped countless people and dogs create healthy, happy relationships.</p>
+        <div class="w-1/2">
+          <div class="intro-text">
+            <?php echo $intro_text ?>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+<?php } ?>
 
 <div class="sticky top-0 z-30 bg-primary">
   <div class="container">

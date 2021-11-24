@@ -36674,6 +36674,33 @@ body {
       padding-left: 1.25rem;
     }
 
+.group:focus .group-focus\:max-h-screen {
+  max-height: 100vh;
+}
+
+.group:focus .group-focus\:text-white {
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+}
+
+.group:focus .group-focus\:-rotate-180 {
+  --transform-rotate: -180deg;
+}
+
+.learning-path-intro .intro-text {
+    font-weight: 500;
+  }
+
+.learning-path-intro .intro-text p {
+      margin-bottom: 1rem;
+    }
+
+.learning-path-intro .intro-text p:first-child {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+
 .block-editor__typewriter {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
