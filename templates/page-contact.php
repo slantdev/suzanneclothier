@@ -96,7 +96,7 @@ get_header();
                     <div class="font-bold uppercase">
                       <?php echo $faq_title ?>
                     </div>
-                    <div class="h-8 w-8 text-primary-light text-lg rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:-rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-3 mr-3">
+                    <div class="h-8 w-8 text-primary-light text-lg rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-3 mr-3">
                       <ion-icon name="chevron-down-outline"></ion-icon>
                     </div>
                   </div>
@@ -155,31 +155,6 @@ get_header();
               echo do_shortcode($form_shortcode);
             }
             ?>
-            <!-- <form>
-              <div class="grid grid-cols-2 gap-4">
-                <div>
-                  <input type="text" placeholder="First Name" class="bg-white rounded-full w-full shadow py-3 px-5 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
-                </div>
-                <div>
-                  <input type="text" placeholder="Last Name" class="bg-white rounded-full w-full shadow py-3 px-5 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
-                </div>
-                <div>
-                  <input type="text" placeholder="Phone Number" class="bg-white rounded-full w-full shadow py-3 px-5 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
-                </div>
-                <div>
-                  <input type="text" placeholder="Email" class="bg-white rounded-full w-full shadow py-3 px-5 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
-                </div>
-                <div class="col-span-2">
-                  <textarea placeholder="Message" class="h-32 bg-white rounded-3xl w-full shadow py-5 px-5 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"></textarea>
-                </div>
-                <div class="col-span-2">
-                  <button type="submit" class="w-44 inline-flex items-center justify-between leading-none py-2 pl-6 pr-2 rounded-full bg-primary text-white font-semibold shadow-md hover:shadow-lg transition-all">
-                    <span class="inline-block whitespace-nowrap font-sans mr-4">Submit</span>
-                    <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
-                  </button>
-                </div>
-              </div>
-            </form> -->
           </div>
         </div>
       </div>

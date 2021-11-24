@@ -182,16 +182,13 @@ body {
 }
 
 .group:focus .group-focus\:max-h-screen {
-  max-height: 100vh;
-}
-
-.group:focus .group-focus\:text-white {
-  --text-opacity: 1;
-  color: #fff;
-  color: rgba(255, 255, 255, var(--text-opacity));
+  @apply max-h-screen;
 }
 .group:focus .group-focus\:-rotate-180 {
-  --transform-rotate: -180deg;
+  @apply -rotate-180;
+}
+.group:focus .group-focus\:rotate-180 {
+  @apply rotate-180;
 }
 
 .faq {

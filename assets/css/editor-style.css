@@ -36678,14 +36678,12 @@ body {
   max-height: 100vh;
 }
 
-.group:focus .group-focus\:text-white {
-  --text-opacity: 1;
-  color: #fff;
-  color: rgba(255, 255, 255, var(--text-opacity));
+.group:focus .group-focus\:-rotate-180 {
+  --tw-rotate: -180deg;
 }
 
-.group:focus .group-focus\:-rotate-180 {
-  --transform-rotate: -180deg;
+.group:focus .group-focus\:rotate-180 {
+  --tw-rotate: 180deg;
 }
 
 .faq .faq-content p {
