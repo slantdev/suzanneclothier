@@ -21,7 +21,8 @@
                 "articles_french": "Article in French",
                 "article_norway": "Article in Norwegian",
                 "article_dutch": "Article in Dutch",
-                "article_it": "Article in Italian"
+                "article_it": "Article in Italian",
+                "testimonial": "Testimonial"
             },
             "default_value": false,
             "allow_null": 0,
@@ -49,5 +50,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637379848
+    "modified": 1637745660
 }

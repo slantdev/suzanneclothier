@@ -91,9 +91,22 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
     </div>
     <div class="w-full bg-white bg-opacity-90 z-10">
       <div class="container h-12 flex items-center mx-auto max-w-7xl">
-        <div class="breadcrumb -mx-1">
-          <span class="inline-block px-1"><a href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Blog</span>
-        </div>
+        <?php if ($post_type == 'post') { ?>
+          <div class="breadcrumb -mx-1">
+            <span class="inline-block px-1"><a href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Blog</span>
+          </div>
+        <?php } ?>
+        <?php if ($post_type != 'post') { ?>
+          <?php if ($post_type == 'testimonial') { ?>
+            <div class="breadcrumb -mx-1">
+              <span class="inline-block px-1"><a href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Testimonials</span>
+            </div>
+          <?php } else { ?>
+            <div class="breadcrumb -mx-1">
+              <span class="inline-block px-1"><a href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Articles</span>
+            </div>
+          <?php } ?>
+        <?php } ?>
       </div>
     </div>
   </section>
@@ -128,65 +141,75 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
             <!-- <button class="filter-btn py-3 px-10 rounded-full bg-primary font-semibold text-white uppercase">Filter</button> -->
           </form>
         </div>
-      <?php } else { ?>
-        <div class="text-center">
-          <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
-          <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-          <h3 class="text-4xl my-6 text-primary font-quincy">Suzanne Clothier’s Articles</h3>
-          <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
-        </div>
-        <div class="text-center my-12">
-          <?php
-          $link_class_english = 'text-link hover:text-link-hover';
-          $link_class_french = 'text-link hover:text-link-hover';
-          $link_class_norway = 'text-link hover:text-link-hover';
-          $link_class_dutch = 'text-link hover:text-link-hover';
-          $link_class_italian = 'text-link hover:text-link-hover';
+      <?php } ?>
+      <?php if ($post_type != 'post') { ?>
+        <?php if ($post_type == 'testimonial') { ?>
+          <div class="text-center">
+            <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
+            <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
+            <h3 class="text-4xl my-6 text-primary font-quincy">Suzanne Clothier Testimonials</h3>
+            <div class="w-14 h-1 mt-6 mb-16 bg-secondary mx-auto"></div>
+          </div>
+        <?php } else { ?>
+          <div class="text-center">
+            <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
+            <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
+            <h3 class="text-4xl my-6 text-primary font-quincy">Suzanne Clothier’s Articles</h3>
+            <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
+          </div>
+          <div class="text-center my-12">
+            <?php
+            $link_class_english = 'text-link hover:text-link-hover';
+            $link_class_french = 'text-link hover:text-link-hover';
+            $link_class_norway = 'text-link hover:text-link-hover';
+            $link_class_dutch = 'text-link hover:text-link-hover';
+            $link_class_italian = 'text-link hover:text-link-hover';
 
-          if ($post_type == 'article') {
-            $link_class_english = 'font-bold';
-          }
-          if ($post_type == 'articles_french') {
-            $link_class_french = 'font-bold';
-          }
-          if ($post_type == 'article_norway') {
-            $link_class_norway = 'font-bold';
-          }
-          if ($post_type == 'article_dutch') {
-            $link_class_dutch = 'font-bold';
-          }
-          if ($post_type == 'article_it') {
-            $link_class_italian = 'font-bold';
-          }
-          ?>
-          <ul class="flex justify-center gap-y-4 gap-x-16 border-t border-b py-6 border-solid border-gray-200">
-            <li><a class="<?php echo $link_class_english ?>" href="/articles-in-english">Articles in English</a></li>
-            <li><a class="<?php echo $link_class_dutch ?>" href="/articles-in-dutch">Articles in Dutch</a></li>
-            <li><a class="<?php echo $link_class_italian ?>" href="/articles-in-italian">Articles in Italian</a></li>
-            <li><a class="<?php echo $link_class_norway ?>" href="/articles-in-norwegian">Articles in Norwegian</a></li>
-            <li><a class="<?php echo $link_class_french ?>" href="/articles-in-french">Articles in French</a></li>
-          </ul>
-        </div>
+            if ($post_type == 'article') {
+              $link_class_english = 'font-bold';
+            }
+            if ($post_type == 'articles_french') {
+              $link_class_french = 'font-bold';
+            }
+            if ($post_type == 'article_norway') {
+              $link_class_norway = 'font-bold';
+            }
+            if ($post_type == 'article_dutch') {
+              $link_class_dutch = 'font-bold';
+            }
+            if ($post_type == 'article_it') {
+              $link_class_italian = 'font-bold';
+            }
+            ?>
+            <ul class="flex justify-center gap-y-4 gap-x-16 border-t border-b py-6 border-solid border-gray-200">
+              <li><a class="<?php echo $link_class_english ?>" href="/articles-in-english">Articles in English</a></li>
+              <li><a class="<?php echo $link_class_dutch ?>" href="/articles-in-dutch">Articles in Dutch</a></li>
+              <li><a class="<?php echo $link_class_italian ?>" href="/articles-in-italian">Articles in Italian</a></li>
+              <li><a class="<?php echo $link_class_norway ?>" href="/articles-in-norwegian">Articles in Norwegian</a></li>
+              <li><a class="<?php echo $link_class_french ?>" href="/articles-in-french">Articles in French</a></li>
+            </ul>
+          </div>
 
-        <div class="max-w-sm mx-auto my-12">
-          <?php
-          // $args = array(
-          //   'exclude' => array(get_category_by_slug('videos')->term_id, get_category_by_slug('uncategorized')->term_id)
-          // );
-          $categories = get_categories_for_post_type($post_type, 'category');
+          <div class="max-w-sm mx-auto my-12">
+            <?php
+            // $args = array(
+            //   'exclude' => array(get_category_by_slug('videos')->term_id, get_category_by_slug('uncategorized')->term_id)
+            // );
+            $categories = get_categories_for_post_type($post_type, 'category');
 
-          ?>
-          <form class="flex bg-gray-50 shadow-md rounded-full">
-            <select class="article-cat-list w-full py-3 px-6 bg-transparent rounded-full border-0 focus:outline-none focus:ring-0">
-              <option value="">All</option>
-              <?php foreach ($categories as $category) : ?>
-                <option data-post="<?php echo $post_type ?>" value="<?php echo $category->slug; ?>">
-                  <?php echo $category->name; ?>
-                </option>
-              <?php endforeach; ?>
-            </select>
-          </form>
-        </div>
+            ?>
+            <form class="flex bg-gray-50 shadow-md rounded-full">
+              <select class="article-cat-list w-full py-3 px-6 bg-transparent rounded-full border-0 focus:outline-none focus:ring-0">
+                <option value="">All</option>
+                <?php foreach ($categories as $category) : ?>
+                  <option data-post="<?php echo $post_type ?>" value="<?php echo $category->slug; ?>">
+                    <?php echo $category->name; ?>
+                  </option>
+                <?php endforeach; ?>
+              </select>
+            </form>
+          </div>
+        <?php } ?>
       <?php } ?>
 
       <?php
