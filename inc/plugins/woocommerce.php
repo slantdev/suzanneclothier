@@ -395,7 +395,7 @@ function sc_hook_endpoint($url, $endpoint, $value, $permalink)
   if ($endpoint === '#courses') {
     $url = site_url() . '/my-account/#courses';
   }
-  if ($endpoint === '#on-demand') {
+  if ($endpoint === '#video-library') {
     $url = site_url() . '/my-account/#video-library';
   }
   if ($endpoint === '#articles') {
