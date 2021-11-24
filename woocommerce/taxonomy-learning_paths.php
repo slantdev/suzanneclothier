@@ -97,7 +97,7 @@ $intro_text = get_field('intro_text', $queried_object);
   </section>
 <?php } ?>
 
-<div class="sticky top-0 z-30 bg-primary">
+<div class="sticky top-0 z-10 bg-primary">
   <div class="container">
     <?php
 
