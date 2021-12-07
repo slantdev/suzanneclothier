@@ -1,10 +1,10 @@
 {
     "key": "group_619d9531d31cd",
-    "title": "FAQ",
+    "title": "Accordion",
     "fields": [
         {
             "key": "field_619d954064643",
-            "label": "FAQs",
+            "label": "Accordion",
             "name": "faqs",
             "type": "repeater",
             "instructions": "",
@@ -19,11 +19,11 @@
             "min": 0,
             "max": 0,
             "layout": "block",
-            "button_label": "Add FAQ",
+            "button_label": "Add Accordion",
             "sub_fields": [
                 {
                     "key": "field_619d955d64644",
-                    "label": "FAQ Title",
+                    "label": "Accordion Title",
                     "name": "faq_title",
                     "type": "text",
                     "instructions": "",
@@ -42,7 +42,7 @@
                 },
                 {
                     "key": "field_619d956564645",
-                    "label": "FAQ Content",
+                    "label": "Accordion Content",
                     "name": "faq_content",
                     "type": "wysiwyg",
                     "instructions": "",
@@ -79,5 +79,5 @@
     "hide_on_screen": "",
     "active": false,
     "description": "",
-    "modified": 1637717626
+    "modified": 1638896084
 }

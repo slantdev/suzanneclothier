@@ -37,14 +37,14 @@
                 "value": "templates\/page-homepage.php"
             },
             {
-                "param": "page",
+                "param": "page_template",
                 "operator": "!=",
-                "value": "8"
+                "value": "templates\/page-about.php"
             },
             {
-                "param": "page",
+                "param": "page_template",
                 "operator": "!=",
-                "value": "17"
+                "value": "templates\/page-contact.php"
             }
         ]
     ],
@@ -56,5 +56,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637379632
+    "modified": 1638896165
 }

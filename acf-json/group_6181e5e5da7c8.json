@@ -169,14 +169,51 @@
             },
             "default_value": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_61af8fd48b162",
+            "label": "Accordion Section",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_61af90a000f38",
+            "label": "Accordion Content",
+            "name": "accordion_content",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_619d9531d31cd"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
         [
             {
-                "param": "page",
+                "param": "page_template",
                 "operator": "==",
-                "value": "8"
+                "value": "templates\/page-about.php"
             }
         ]
     ],
@@ -190,5 +227,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1635906023
+    "modified": 1638895959
 }

@@ -95,6 +95,35 @@ get_header();
           <div class="text-area">
             <?php echo $about_body_text ?>
           </div>
+
+          <?php if (have_rows('faqs')) : ?>
+
+            <div class="my-8">
+              <?php while (have_rows('faqs')) : the_row();
+                $faq_title = get_sub_field('faq_title');
+                $faq_content = get_sub_field('faq_content');
+              ?>
+
+                <div class="faq group outline-none accordion-section rounded-3xl border border-gray-200 shadow-lg bg-gray-100 mb-6" tabindex="<?php echo get_row_index(); ?>">
+                  <div class="group bg-white border border-gray-200 -my-px -mx-px rounded-3xl flex justify-between px-6 py-4 items-center text-gray-800 transition ease duration-500 cursor-pointer pr-10 relative">
+                    <div class="font-bold uppercase">
+                      <?php echo $faq_title ?>
+                    </div>
+                    <div class="h-8 w-8 text-primary-light text-lg rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-3 mr-3">
+                      <ion-icon name="chevron-down-outline"></ion-icon>
+                    </div>
+                  </div>
+                  <div class="group-focus:max-h-screen max-h-0 bg-gray-100 px-6 overflow-hidden ease duration-500 text-gray-800 text-justify rounded-b-3xl rounded-l-3xl">
+                    <div class="py-6 text-gray-800 faq-content">
+                      <?php echo $faq_content ?>
+                    </div>
+                  </div>
+                </div>
+
+              <?php endwhile; ?>
+            </div>
+          <?php endif; ?>
+
         </div>
       </div>
     </div>
