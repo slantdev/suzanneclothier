@@ -10,7 +10,7 @@ add_action('twp_header', 'site_header');
 
 function site_header_top()
 { ?>
-  <div class="site-header-top bg-white py-3">
+  <div class="site-header-top hidden lg:block bg-white py-3">
     <div class="container">
       <div class="flex justify-between">
         <div class="text-sm text-primary font-sans">Welcome to Suzanne Clothier | RCT</div>
@@ -32,15 +32,19 @@ function site_header_bottom()
 {
 ?>
   <div class="site-header-bottom">
-    <div class="relative container py-4">
+    <div class="relative container py-2 lg:py-4 px-0 lg:px-4">
       <div class="flex justify-between items-center">
-        <div class="max-w-1/5 pr-5">
-          <a href="/"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-suzanneclothier.svg" class="site-logo" /></a>
+        <div class="pl-4 lg:pl-0 pr-5">
+          <a href="/"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-suzanneclothier.svg" class="site-logo max-h-12 lg:max-h-16" /></a>
         </div>
-        <div class="flex items-center">
-          <?php echo site_navigation(); ?>
-          <?php echo site_header_buttons(); ?>
-          <?php echo site_header_icon_links(); ?>
+        <div class="flex items-center pr-1 lg:pr-0">
+          <div class="flex flex-none order-last lg:order-1">
+            <?php echo site_navigation(); ?>
+          </div>
+          <div class="flex items-center lg:order-2">
+            <?php echo site_header_buttons(); ?>
+            <?php echo site_header_icon_links(); ?>
+          </div>
         </div>
       </div>
     </div>
@@ -77,17 +81,26 @@ function primary_menu_a_atts($atts)
 
 function site_header_buttons()
 { ?>
-  <ul class="flex text-sm font-semibold border-r border-primary-light pr-2 mr-2">
+  <ul class="hidden xl:flex lg:border-r lg:border-primary-light lg:pr-2 lg:mr-2">
     <?php if (!is_user_logged_in()) { ?>
-      <li class="px-1"><a href="/membership" class="whitespace-nowrap rounded-full px-4 py-3 inline-block bg-primary text-white">Become a Member</a></li>
-      <li class="px-1"><a href="/my-account" class="whitespace-nowrap rounded-full px-4 py-3 inline-block bg-secondary text-primary">Member Login</a></li>
+      <li class="px-1"><a href="/membership" class="block"><span class="text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 inline-block bg-primary text-white">Become a Member</span></a></li>
+      <li class="px-1">
+        <a href="/my-account" class="block">
+          <span class="inline-block text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 bg-secondary text-primary">Member Login</span>
+        </a>
+      </li>
+
     <?php } else { ?>
       <?php if (function_exists('rcp_user_has_active_membership')) {
         if (!rcp_user_has_active_membership()) {
-          echo '<li class="px-1"><a href="/membership" class="whitespace-nowrap rounded-full px-4 py-3 inline-block bg-primary text-white">Become a Member</a></li>';
+          echo '<li class="px-1"><a href="/membership" class="inline-block text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 bg-primary text-white">Become a Member</a></li>';
         }
       } ?>
-      <li class="px-1"><a href="/my-account" class="whitespace-nowrap rounded-full px-4 py-3 inline-block bg-secondary text-primary">My Account</a></li>
+      <li class="px-1 leading-none">
+        <a href="/my-account" class="block">
+          <span class="inline-block text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 bg-secondary text-primary">My Account</span>
+        </a>
+      </li>
     <?php } ?>
   </ul>
 <?php
@@ -99,7 +112,12 @@ function site_header_icon_links()
   //echo '< id="mini-cart-count"><?php echo $items_count ? $items_count : '&nbsp;';
 ?>
   <ul class="flex leading-none">
-    <li><button class="inline-flex p-1" type="button">
+    <li class="xl:hidden">
+      <a href="/my-account" class="inline-flex p-1">
+        <ion-icon name="person-circle-outline" class="text-2xl leading-none"></ion-icon>
+      </a>
+    </li>
+    <li><button class="hidden lg:inline-flex p-1" type="button">
         <ion-icon name="search" class="text-2xl leading-none"></ion-icon>
       </button></li>
     <li><a href="/cart" class="inline-flex p-1">

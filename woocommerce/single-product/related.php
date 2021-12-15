@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 
 if ($related_products) : ?>
 
-  <section class="related-products pt-20 pb-24 bg-secondary-light">
+  <section class="related-products pt-12 lg:pt-20 pb-12 lg:pb-24 bg-secondary-light">
     <div class="container">
 
       <?php

@@ -131,8 +131,8 @@ do_action('woocommerce_before_cart'); ?>
       <tr>
         <td colspan="6" class="actions">
 
-          <div class="flex w-full justify-between">
-            <div>
+          <div class="block lg:flex w-full lg:justify-between">
+            <div class="w-full lg:w-auto mb-4 lg:mb-0">
               <?php if (wc_coupons_enabled()) { ?>
                 <div class="coupon">
                   <label for="coupon_code"><?php esc_html_e('Coupon:', 'woocommerce'); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" /> <button type="submit" class="button font-montserrat" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_attr_e('Apply coupon', 'woocommerce'); ?></button>
@@ -141,7 +141,7 @@ do_action('woocommerce_before_cart'); ?>
               <?php } ?>
             </div>
 
-            <button type="submit" class="button ml-auto font-montserrat" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
+            <button type="submit" class="button lg:ml-auto font-montserrat" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
 
           </div>
           <?php do_action('woocommerce_cart_actions'); ?>

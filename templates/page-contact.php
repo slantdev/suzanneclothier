@@ -34,9 +34,9 @@ get_header();
       echo '<div class="absolute inset-0" style="background-color: ' . $background_overlay . '"></div>';
     } ?>
     <div class="container pt-32 pb-8 z-10 mx-auto max-w-7xl">
-      <div class="flex">
-        <div class="w-3/5 pb-20">
-          <h2 class="text-6xl font-quincy text-white mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
+      <div class="block lg:flex">
+        <div class="w-full lg:w-2/5 pb-20">
+          <h2 class="text-5xl lg:text-6xl font-quincy text-white mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
           <?php if ($hero_description) {
             echo '<div class="text-white">';
             echo $hero_description;
@@ -72,13 +72,13 @@ get_header();
         <h3 class="text-4xl my-6 text-primary font-quincy"><?php echo $contact_title ?></h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>
-      <div class="flex pt-14 pb-20 gap-12">
-        <div class="w-1/2">
-          <div class="px-14">
-            <div class="mb-8"><img src="<?php echo $contact_image ?>" class="rounded-full mx-auto" /></div>
+      <div class="block lg:flex pt-14 pb-16 lg:pb-20 gap-12">
+        <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+          <div class="px-0 lg:px-14">
+            <div class="mb-5 lg:mb-8"><img src="<?php echo $contact_image ?>" class="rounded-full mx-auto" /></div>
           </div>
         </div>
-        <div class="w-1/2">
+        <div class="w-full lg:w-1/2">
           <div class="text-area">
             <?php echo $contact_body_text ?>
           </div>
@@ -113,9 +113,9 @@ get_header();
 
         </div>
       </div>
-      <div class="flex pb-28">
-        <div class="w-1/2">
-          <div class="px-14">
+      <div class="block lg:flex pb-16 lg:pb-28">
+        <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+          <div class="px-0 lg:px-14">
             <h3 class="mb-8 text-4xl text-primary font-quincy">Our Details</h3>
             <div>
               <ul class="list-none flex flex-col gap-4 leading-none">

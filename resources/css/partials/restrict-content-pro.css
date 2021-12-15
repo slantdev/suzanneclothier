@@ -131,4 +131,21 @@
       @apply px-6 py-4 whitespace-nowrap;
     }
   }
+  tfoot {
+    td {
+      @apply px-6 whitespace-nowrap;
+    }
+    tr {
+      &:first-child {
+        td {
+          @apply pt-3;
+        }
+      }
+      &:last-child {
+        td {
+          @apply pb-3;
+        }
+      }
+    }
+  }
 }

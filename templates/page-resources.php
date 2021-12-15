@@ -78,9 +78,9 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
       echo '<div class="absolute inset-0" style="background-color: ' . $background_overlay . '"></div>';
     } ?>
     <div class="container pt-32 pb-8 z-10 mx-auto max-w-7xl">
-      <div class="flex">
-        <div class="w-2/5 pb-20 text-white">
-          <h2 class="text-6xl font-quincy mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
+      <div class="block lg:flex">
+        <div class="w-full lg:w-2/5 pb-20 text-white">
+          <h2 class="text-5xl lg:text-6xl font-quincy mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
           <?php if ($hero_description) {
             echo '<div>';
             echo $hero_description;
@@ -90,7 +90,7 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
       </div>
     </div>
     <div class="w-full bg-white bg-opacity-90 z-10">
-      <div class="container h-12 flex items-center mx-auto max-w-7xl">
+      <div class="container py-3 flex items-center mx-auto max-w-7xl">
         <?php if ($post_type == 'post') { ?>
           <div class="breadcrumb -mx-1">
             <span class="inline-block px-1"><a href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Blog</span>
@@ -122,7 +122,6 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
           <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
         </div>
         <div class="max-w-sm mx-auto my-12">
-
           <?php
           $args = array(
             'exclude' => array(get_category_by_slug('videos')->term_id, get_category_by_slug('uncategorized')->term_id)
@@ -181,12 +180,12 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
               $link_class_italian = 'font-bold';
             }
             ?>
-            <ul class="flex justify-center gap-y-4 gap-x-16 border-t border-b py-6 border-solid border-gray-200">
-              <li><a class="<?php echo $link_class_english ?>" href="/articles-in-english">Articles in English</a></li>
-              <li><a class="<?php echo $link_class_dutch ?>" href="/articles-in-dutch">Articles in Dutch</a></li>
-              <li><a class="<?php echo $link_class_italian ?>" href="/articles-in-italian">Articles in Italian</a></li>
-              <li><a class="<?php echo $link_class_norway ?>" href="/articles-in-norwegian">Articles in Norwegian</a></li>
-              <li><a class="<?php echo $link_class_french ?>" href="/articles-in-french">Articles in French</a></li>
+            <ul class="flex justify-start lg:justify-center gap-y-4 gap-x-8 text-sm lg:text-base lg:gap-x-12 xl:gap-x-16 border-t border-b py-6 border-solid border-gray-200 overflow-x-auto">
+              <li><a class="<?php echo $link_class_english ?> whitespace-nowrap" href="/articles-in-english">Articles in English</a></li>
+              <li><a class="<?php echo $link_class_dutch ?> whitespace-nowrap" href="/articles-in-dutch">Articles in Dutch</a></li>
+              <li><a class="<?php echo $link_class_italian ?> whitespace-nowrap" href="/articles-in-italian">Articles in Italian</a></li>
+              <li><a class="<?php echo $link_class_norway ?> whitespace-nowrap" href="/articles-in-norwegian">Articles in Norwegian</a></li>
+              <li><a class="<?php echo $link_class_french ?> whitespace-nowrap" href="/articles-in-french">Articles in French</a></li>
             </ul>
           </div>
 
@@ -222,7 +221,7 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
       $posts_query = new WP_Query($args);
 
       if ($posts_query->have_posts()) {
-        echo '<div class="blog-grid grid grid-cols-3 pb-12 gap-8">';
+        echo '<div class="blog-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-12 gap-8">';
         while ($posts_query->have_posts()) {
           $posts_query->the_post();
           get_template_part('template-parts/blog-list-item');

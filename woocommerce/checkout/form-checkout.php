@@ -26,9 +26,9 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 ?>
 
-<form name="checkout" method="post" class="checkout woocommerce-checkout flex font-sans" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+<form name="checkout" method="post" class="checkout woocommerce-checkout flex flex-wrap font-sans" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 
-  <div class="w-3/5 pr-16">
+  <div class="w-full lg:w-3/5 lg:pr-8 xl:pr-16">
     <?php if ($checkout->get_checkout_fields()) : ?>
 
       <?php do_action('woocommerce_checkout_before_customer_details'); ?>
@@ -48,7 +48,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
     <?php endif; ?>
   </div>
 
-  <div class="w-2/5">
+  <div class="w-full lg:w-2/5">
 
     <?php do_action('woocommerce_checkout_before_order_review_heading'); ?>
 

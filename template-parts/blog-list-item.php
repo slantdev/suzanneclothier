@@ -14,11 +14,11 @@
       </div>
     </a>
   </div>
-  <div class="pt-5 pb-4 px-6 flex flex-col flex-grow">
-    <h3 class="mb-4 text-lg font-semibold">
+  <div class="pt-4 pb-4 lg:pt-5 px-4 lg:px-6 flex flex-col flex-grow">
+    <h3 class="mb-3 lg:mb-4 text-lg font-semibold">
       <a href="<?php echo get_the_permalink(); ?>" class="text-primary transition hover:text-primary-light"><?php echo get_the_title(); ?></a>
     </h3>
-    <div class="text-sm mb-2"><?php echo get_the_excerpt(); ?></div>
+    <div class="text-sm mb-2 break-words"><?php echo get_the_excerpt(); ?></div>
     <div class="text-right leading-none mt-auto -mr-2">
       <a href="<?php echo get_the_permalink(); ?>" class="inline-block leading-none text-primary transition hover:text-primary-light">
         <ion-icon name="add-circle" class="text-right text-4xl leading-none"></ion-icon>

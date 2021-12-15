@@ -91,6 +91,15 @@
 .ubermenu .ubermenu-nav .ubermenu-column-1-5 {
   @apply px-2;
 }
+.ubermenu-responsive-toggle {
+  @apply p-0;
+}
+.ubermenu-skin-minimal.ubermenu-responsive-toggle {
+  @apply text-sm leading-none px-1 py-2;
+  .fas {
+    @apply text-lg leading-none;
+  }
+}
 @media (min-width: 1536px) {
   .ubermenu-main .ubermenu-item-level-0 > .ubermenu-target {
     padding-left: 20px !important;
@@ -100,6 +109,22 @@
     .ubermenu-item-level-0.ubermenu-has-submenu-drop
     > .ubermenu-target:not(.ubermenu-noindicator) {
     padding-right: 24px !important;
+  }
+}
+@media (max-width: 1023px) {
+  .ubermenu-main .ubermenu-item-level-0 > .ubermenu-target,
+  .ubermenu-main
+    .ubermenu-item-level-0
+    > .ubermenu-target.ubermenu-item-notext
+    > .ubermenu-icon {
+    line-height: 48px !important;
+  }
+  .ubermenu-main .ubermenu-item-level-0 > .ubermenu-target {
+    padding: 0px 16px !important;
+    font-size: 16px !important;
+  }
+  .ubermenu-responsive-default.ubermenu.ubermenu-mobile-modal .ubermenu-nav {
+    padding: 20px 0 !important;
   }
 }
 

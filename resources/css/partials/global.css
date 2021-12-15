@@ -49,9 +49,13 @@ body {
 }
 
 .hero {
-  margin-top: -149px;
-  padding-top: 149px;
+  margin-top: -64px;
+  padding-top: 64px;
   @apply relative z-10 bg-no-repeat bg-cover;
+  @media (min-width: 1024px) {
+    margin-top: -149px;
+    padding-top: 149px;
+  }
 }
 
 .learning-path--item {

@@ -36,7 +36,7 @@ get_header();
       <div class="container pt-24 pb-8 z-10 mx-auto max-w-7xl">
         <div class="flex">
           <div class="w-full pb-16">
-            <h2 class="text-5xl text-white text-left font-quincy text-primary mb-5">Hi <?php echo esc_html($current_user->display_name) ?></h2>
+            <h2 class="text-5xl text-left font-quincy text-primary mb-5">Hi <?php echo esc_html($current_user->display_name) ?></h2>
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@ get_header();
   <?php } ?>
 
   <section class="bg-white">
-    <div class="container mx-auto pt-10 pb-20">
+    <div class="container mx-auto pt-10 pb-10 lg:pb-20">
 
       <?php if (have_posts()) : ?>
         <?php

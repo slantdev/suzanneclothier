@@ -1,6 +1,6 @@
 #rpt_pricr {
   > div {
-    @apply grid grid-cols-2 gap-28 px-12;
+    @apply grid gap-6 md:grid-cols-2 md:gap-12 xl:gap-28 xl:px-12;
     .rpt_plan {
       @apply float-none w-auto mr-0;
     }
@@ -10,7 +10,10 @@
     background-repeat: no-repeat;
     background-position: center 20px; */
     background-color: #baced0;
-    @apply bg-contain p-12 rounded-xl relative my-8;
+    @apply bg-contain p-5 md:p-6 lg:p-8 xl:p-12 rounded-xl relative my-8;
+    @media (max-width: 640px) {
+      margin: 0px !important;
+    }
     &:before {
       content: '';
       background-image: url(/wp-content/themes/suzanneclothier/assets/images/logo-icon-white.svg);
@@ -25,6 +28,9 @@
     .rpt_title {
       margin-bottom: 0px !important;
       @apply p-0 bg-transparent border-0 rounded-none text-primary text-4xl font-quincy leading-tight relative z-10;
+      @media (max-width: 640px) {
+        font-size: 36px !important;
+      }
       &:after {
         content: '';
         @apply block h-1 w-10 bg-white mt-2;
@@ -34,7 +40,11 @@
       background: none;
       @apply bg-transparent border-0 relative z-10;
       .rpt_price {
-        @apply py-8 pr-0 pl-2 text-5xl leading-none font-semibold text-left text-black;
+        @apply py-8 pr-0 pl-2 text-4xl leading-none font-semibold text-left text-black md:text-4_25xl lg:text-5xl;
+        @media (max-width: 640px) {
+          font-size: 46px !important;
+          line-height: 1.2em !important;
+        }
         .rpt_currency {
           position: relative;
           top: 3px !important;

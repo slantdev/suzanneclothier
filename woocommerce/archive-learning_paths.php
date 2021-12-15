@@ -33,8 +33,8 @@ do_action('woocommerce_before_main_content');
 
 <header class="woocommerce-products-header hero flex flex-col items-center bg-cover bg-center bg-primary bg-opacity-30">
   <div class="container pt-20 pb-12 z-10">
-    <div class="flex">
-      <div class="w-2/3">
+    <div class="block lg:flex">
+      <div class="w-full lg:w-2/3">
         <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
           <h1 class="woocommerce-products-header__title page-title text-6xl font-sans mb-5 text-primary"><?php woocommerce_page_title(); ?></h1>
         <?php endif; ?>

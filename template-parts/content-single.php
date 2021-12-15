@@ -9,9 +9,9 @@ if (!$thumbnail_medium) {
 ?>
 <section class="hero flex flex-col items-center bg-cover bg-center bg-primary bg-opacity-30">
   <div class="container pt-32 pb-8 z-10 max-w-7xl mx-auto">
-    <div class="flex">
-      <div class="w-2/3 pb-14">
-        <h1 class="text-6xl font-quincy mb-5 text-primary"><?php the_title(); ?></h1>
+    <div class="block lg:flex">
+      <div class="w-full lg:w-2/5 pb-14">
+        <h1 class="text-5xl lg:text-6xl font-quincy mb-5 text-primary"><?php the_title(); ?></h1>
         <?php
         $article_in_other_language = get_field('article_in_other_language');
         if ($article_in_other_language) {
@@ -29,8 +29,8 @@ if (!$thumbnail_medium) {
     </div>
   </div>
   <div class="w-full bg-white bg-opacity-90 z-10">
-    <div class="container h-12 flex items-center max-w-7xl mx-auto">
-      <div class="breadcrumb -mx-1">
+    <div class="container flex items-center max-w-7xl mx-auto">
+      <div class="breadcrumb py-2 -mx-1 text-sm lg:text-base">
         <span class="inline-block px-1"><a href="/">Home</a></span>
         <span class="inline-block px-1"> / </span>
         <span class="inline-block px-1"><a href="/">Blog</a></span>
@@ -42,21 +42,32 @@ if (!$thumbnail_medium) {
 </section>
 
 <section class="bg-white">
-  <div class="container pt-20 pb-28 max-w-7xl mx-auto">
-    <div class="flex gap-16">
-      <div class="w-2/3">
+  <div class="container pt-10 lg:pt-20 pb-14 lg:pb-28 max-w-7xl mx-auto">
+    <div class="block lg:flex gap-16">
+      <div class="w-full lg:w-2/3">
+        <?php
+        if ($thumbnail_medium) {
+        ?>
+          <div class="mb-8 lg:hidden">
+            <div class="aspect-w-1 aspect-h-1">
+              <img src="<?php echo $thumbnail_medium ?>" class="w-full h-full object-cover object-center rounded-full">
+            </div>
+          </div>
+        <?php
+        }
+        ?>
         <div class="entry-content">
           <article id="post-<?php the_ID(); ?>" <?php post_class('prose xl:prose-lg font-sans'); ?>>
             <?php the_content(); ?>
           </article>
         </div>
       </div>
-      <div class="w-1/3">
-        <div class="px-8">
+      <div class="w-full pt-10 mt-10 border-t border-gray-200 border-solid lg:border-0 lg:pt-0 lg:mt-0 lg:w-1/3">
+        <div class="px-0 lg:px-8">
           <?php
           if ($thumbnail_medium) {
           ?>
-            <div class="mb-12">
+            <div class="hidden lg:block mb-12">
               <div class="aspect-w-1 aspect-h-1">
                 <img src="<?php echo $thumbnail_medium ?>" class="w-full h-full object-cover object-center rounded-full">
               </div>

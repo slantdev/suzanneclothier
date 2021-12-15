@@ -53,11 +53,11 @@ $intro_text = get_field('intro_text', $queried_object);
   <?php if ($hero_overlay) {
     echo '<div class="absolute inset-0" style="background-color: ' . $hero_overlay . '"></div>';
   } ?>
-  <div class="container pt-36 pb-20 z-10 mx-auto max-w-7xl">
+  <div class="container pt-24 lg:pt-36 pb-14 lg:pb-20 z-10 mx-auto max-w-7xl">
     <div class="flex">
-      <div class="w-2/5">
+      <div class="w-full lg:w-2/5">
         <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-          <h1 class="woocommerce-products-header__title page-title text-6xl font-quincy mb-5 text-primary"><?php woocommerce_page_title(); ?></h1>
+          <h1 class="woocommerce-products-header__title page-title text-5xl lg:text-6xl font-quincy mb-5 text-primary"><?php woocommerce_page_title(); ?></h1>
         <?php endif; ?>
         <?php
         /**
@@ -72,7 +72,7 @@ $intro_text = get_field('intro_text', $queried_object);
     </div>
   </div>
   <div class="w-full bg-white bg-opacity-90 z-10">
-    <div class="container h-12 flex items-center mx-auto max-w-7xl">
+    <div class="container py-3 text-sm lg:text-base flex items-center mx-auto max-w-7xl">
       <?php woocommerce_breadcrumb(); ?>
     </div>
   </div>
@@ -98,7 +98,7 @@ $intro_text = get_field('intro_text', $queried_object);
 <?php } ?>
 
 <div class="sticky top-0 z-10 bg-primary">
-  <div class="container">
+  <div class="container px-0 lg:px-4">
     <?php
 
     $queried_object = get_queried_object();
@@ -145,8 +145,7 @@ $intro_text = get_field('intro_text', $queried_object);
     // echo '</pre>';
 
     if (!empty($categories)) {
-      echo '<ul class="flex bg-primary overflow-x-auto items-center justify-center">';
-      //echo '<li class="px-8 py-3 bg-secondary text-primary font-bold font-quincy text-xl">' . $queried_object->name . '</li>';
+      echo '<ul class="flex bg-primary overflow-x-auto items-center justify-start lg:justify-center">';
       foreach ($categories as $key => $category) {
         echo '<li>';
         echo '<a href="#' . $category->slug . '" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">';
@@ -211,8 +210,8 @@ if (!empty($product_categories)) {
       echo '<div id="' . $category->slug . '" class="section-anchor ' . (++$count % 2 ? "" : " bg-secondary-light") . '">';
       echo '<div class="container">';
 
-      echo '<div class="text-center mb-20">
-        <div class="h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
+      echo '<div class="text-center mb-10 lg:mb-20">
+        <div class="h-10 lg:h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
         <div class="my-8"><img src="' . get_stylesheet_directory_uri() . '/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
         <h3 class="text-4_25xl my-6 text-primary font-quincy">' . $category->name . '</h3>
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
@@ -233,15 +232,8 @@ if (!empty($product_categories)) {
 
       woocommerce_product_loop_end();
 
-      // echo '<div class="flex justify-center mt-12">';
-      // echo '<a href="' . get_term_link($category) . '" class="w-44 inline-flex items-center justify-between leading-none py-2 pl-6 pr-2 rounded-full bg-secondary text-primary font-semibold shadow-md hover:shadow-lg transition-all">
-      // <span class="inline-block whitespace-nowrap font-sans mr-4">Load More</span>
-      // <ion-icon name="add-circle" class="text-4xl text-white leading-none md hydrated" role="img" aria-label="add-circle"></ion-icon>
-      // </a>';
-      // echo '</div>';
-
       echo '<div class="text-center mt-16">
-        <div class="h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
+        <div class="h-10 lg:h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
       </div>';
 
       echo '</div>';

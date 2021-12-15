@@ -92,7 +92,7 @@ if (rcp_user_has_active_membership()) {
 
   // Member Videos
   echo '<div id="video-library" class="section-anchor">';
-  echo '<div class="container">';
+  echo '<div class="container px-0 lg:px-4">';
 
 
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -113,7 +113,7 @@ if (rcp_user_has_active_membership()) {
       <h3 class="text-4_25xl my-6 text-primary font-quincy">Member Video Library</h3>
       <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
     </div>';
-    echo '<div class="blog-grid grid grid-cols-4 pb-12 gap-8">';
+    echo '<div class="blog-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 pb-12 gap-8">';
     while ($posts_query->have_posts()) {
       $posts_query->the_post();
       get_template_part('template-parts/blog-list-item');
@@ -126,7 +126,7 @@ if (rcp_user_has_active_membership()) {
 
   // Articles
   echo '<div id="articles" class="section-anchor">';
-  echo '<div class="container">';
+  echo '<div class="container px-0 lg:px-4">';
 
   echo '<div class="text-center mb-10">
     <h3 class="text-4_25xl my-6 text-primary font-quincy">Member Articles</h3>
@@ -147,7 +147,7 @@ if (rcp_user_has_active_membership()) {
   $posts_query = new WP_Query($args);
 
   if ($posts_query->have_posts()) {
-    echo '<div class="blog-grid grid grid-cols-4 pb-12 gap-8">';
+    echo '<div class="blog-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 pb-12 gap-8">';
     while ($posts_query->have_posts()) {
       $posts_query->the_post();
       get_template_part('template-parts/blog-list-item');

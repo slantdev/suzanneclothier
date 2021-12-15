@@ -50,19 +50,19 @@ function learning_path_item($background, $title, $text, $url)
   $home_hero_button_url = get_field('home_hero_button_url');
   ?>
 
-  <section class="hero min-h-screen-85 flex items-center" style="background-image: url(<?php echo $home_hero_background_image ?>)">
+  <section class="hero min-h-screen lg:min-h-screen-85 flex items-center" style="background-image: url(<?php echo $home_hero_background_image ?>)">
     <div class="container max-w-7xl mx-auto">
       <div class="flex">
-        <div class="w-1/2 pb-20">
+        <div class="w-full lg:w-1/2 pb-24 lg:pb-20">
           <?php if ($home_hero_title) { ?>
-            <h2 class="text-6xl text-primary font-quincy mb-5"><?php echo $home_hero_title ?></h2>
+            <h2 class="text-4_25xl lg:text-5xl xl:text-6xl text-primary font-quincy mb-5"><?php echo $home_hero_title ?></h2>
           <?php } ?>
           <?php if ($home_hero_description) { ?>
             <p class="mb-5"><?php echo $home_hero_description ?></p>
           <?php } ?>
           <?php if ($home_hero_button_text) { ?>
             <a href="<?php echo $home_hero_button_url ?>" class="inline-flex items-center leading-none py-2 pl-6 pr-2 rounded-full bg-secondary text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-4"><?php echo $home_hero_button_text ?></span>
-              <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
+              <ion-icon name="arrow-forward-circle" class="text-4xl lg:text-5xl leading-none"></ion-icon>
             </a>
           <?php } ?>
         </div>
@@ -79,21 +79,21 @@ function learning_path_item($background, $title, $text, $url)
       $cta_button_url = get_field('cta_button_url');
       ?>
       <div class="cta-box -mt-24 relative z-20">
-        <div class="flex items-center bg-primary text-white rounded-2xl shadow-md px-16 py-16">
-          <div class="inline-flex pr-8">
-            <h3 class="text-4_25xl font-quincy whitespace-nowrap"><?php echo $cta_title ?></h3>
+        <div class="block lg:flex items-center bg-primary text-white rounded-2xl shadow-md px-5 py-5 lg:px-16 lg:py-16">
+          <div class="block lg:inline-flex lg:pr-8 mb-4 lg:mb-0">
+            <h3 class="text-3xl lg:text-4_25xl font-quincy whitespace-nowrap"><?php echo $cta_title ?></h3>
           </div>
-          <div class="inline-flex px-8 border-l border-white border-opacity-10">
-            <div><?php echo $cta_description ?></div>
+          <div class="block lg:inline-flex lg:px-8 lg:border-l border-white border-opacity-10">
+            <div class="text-sm lg:text-base mb-4 lg:mb-0"><?php echo $cta_description ?></div>
           </div>
-          <div class="inline-flex ml-auto">
+          <div class="block lg:inline-flex ml-auto">
             <a href="<?php echo $cta_button_url ?>" class="inline-flex min-w-full items-center justify-between leading-none py-2 pl-6 pr-2 rounded-full bg-white text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-4"><?php echo $cta_button_text ?></span>
-              <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
+              <ion-icon name="arrow-forward-circle" class="text-4xl lg:text-5xl leading-none"></ion-icon>
             </a>
           </div>
         </div>
       </div>
-      <div class="container max-w-7xl mx-auto">
+      <div class="container px-0 lg:px-4 max-w-7xl mx-auto">
         <?php
         $about_title = get_field('about_title');
         $about_image = get_field('about_image');
@@ -110,10 +110,10 @@ function learning_path_item($background, $title, $text, $url)
           <h3 class="text-4xl my-6 text-primary font-quincy"><?php echo $about_title ?></h3>
           <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
         </div>
-        <div class="flex items-center pt-14 pb-20 gap-12">
-          <div class="w-1/2">
+        <div class="block lg:flex items-center pt-8 lg:pt-14 pb-12 lg:pb-20 gap-12">
+          <div class="w-full lg:w-1/2">
             <div class="mb-8"><img src="<?php echo $about_image ?>" class="rounded-full mx-auto" /></div>
-            <div>
+            <div class="mb-8 lg:mb-0">
               <ul class="list-none flex justify-center gap-4 leading-none">
                 <li><a href="tel:<?php echo $phone_number ?>" target="_blank">
                     <ion-icon class="text-3xl" name="call"></ion-icon>
@@ -127,13 +127,13 @@ function learning_path_item($background, $title, $text, $url)
               </ul>
             </div>
           </div>
-          <div class="w-1/2">
+          <div class="w-full lg:w-1/2">
             <div class="text-area">
               <?php echo $about_body_text ?>
             </div>
             <div class="mt-8">
               <a href="<?php echo $learn_more_url ?>" class="inline-flex items-center justify-between leading-none py-1 pl-6 pr-2 rounded-full bg-white text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-8">Learn more</span>
-                <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
+                <ion-icon name="arrow-forward-circle" class="text-4xl lg:text-5xl leading-none"></ion-icon>
               </a>
             </div>
           </div>
@@ -143,7 +143,7 @@ function learning_path_item($background, $title, $text, $url)
 
   <section id="learning-path" class="bg-secondary-light">
     <div class="container pb-20">
-      <div class="text-center mb-20">
+      <div class="text-center mb-10 lg:mb-20">
         <div class="h-8 w-px bg-primary bg-opacity-50 mx-auto"></div>
         <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
         <h3 class="text-4xl my-6 text-primary font-quincy">Choose your Learning Path</h3>
@@ -152,7 +152,7 @@ function learning_path_item($background, $title, $text, $url)
       <?php
       if (have_rows('learning_path_item')) :
 
-        echo '<div class="grid grid-cols-4 gap-4">';
+        echo '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">';
 
         while (have_rows('learning_path_item')) : the_row();
 
@@ -166,7 +166,6 @@ function learning_path_item($background, $title, $text, $url)
           $text = get_sub_field('lp_description');
           $url = get_sub_field('lp_url');
           echo learning_path_item($background, $title, $text, $url);
-
 
         endwhile;
 
@@ -191,13 +190,13 @@ function learning_path_item($background, $title, $text, $url)
             $slide_background = get_sub_field('slide_background');
             $slide_button = get_sub_field('slide_button');
             ?>
-            <div class="swiper-slide relative bg-black py-28 bg-cover bg-no-repeat bg-center" style="background-image: url(<?php echo $slide_background['background_image']['url'] ?>)">
+            <div class="swiper-slide relative bg-black py-20 lg:py-28 bg-cover bg-no-repeat bg-center" style="background-image: url(<?php echo $slide_background['background_image']['url'] ?>)">
               <?php if ($slide_background['background_overlay']) {
                 echo '<div class="absolute z-0 w-full h-full inset-0" style="background-color: ' . $slide_background['background_overlay'] . '"></div>';
               } ?>
               <div class="container relative z-10 max-w-7xl mx-auto">
-                <div class="flex">
-                  <div class="w-1/2">
+                <div class="block lg:flex">
+                  <div class="w-full lg:w-1/2">
                     <div class="text-white">
                       <h2 class="text-4xl font-quincy">Featured Course</h2>
                       <div class="w-14 h-1 my-6 bg-secondary"></div>
@@ -209,7 +208,7 @@ function learning_path_item($background, $title, $text, $url)
                       } ?>
                       <?php if ($slide_button['button_url']) {
                         echo '<a href="' . $slide_button['button_url'] . '" class="inline-flex items-center leading-none py-2 pl-6 pr-2 rounded-full bg-secondary text-primary font-semibold shadow-md hover:shadow-lg transition-all"><span class="inline-block whitespace-nowrap font-sans mr-4 uppercase">' . $slide_button['button_text'] . '</span>
-                        <ion-icon name="arrow-forward-circle" class="text-5xl leading-none"></ion-icon>
+                        <ion-icon name="arrow-forward-circle" class="text-4xl lg:text-5xl leading-none"></ion-icon>
                       </a >';
                       } ?>
                     </div>
@@ -220,8 +219,8 @@ function learning_path_item($background, $title, $text, $url)
           <?php endwhile; ?>
         </div>
 
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev hidden lg:block"></div>
+        <div class="swiper-button-next hidden lg:block"></div>
 
       </div>
     <?php endif; ?>
@@ -241,10 +240,10 @@ function learning_path_item($background, $title, $text, $url)
     </script>
   </section>
 
-  <section id="latest-posts" class="py-28">
+  <section id="latest-posts" class="py-16 lg:py-28">
     <div class="container max-w-7xl mx-auto">
-      <div class="flex gap-12 divide-x divide-black divide-opacity-10">
-        <div class="w-3/5">
+      <div class="block lg:flex lg:gap-12 lg:divide-x lg:divide-black lg:divide-opacity-10">
+        <div class="w-full lg:w-3/5">
           <div class="mb-8">
             <div class="flex justify-between items-center">
               <h4 class="text-3xl text-primary font-quincy">Latest Post</h4>
@@ -263,12 +262,12 @@ function learning_path_item($background, $title, $text, $url)
           $posts_query = new WP_Query($args);
 
           if ($posts_query->have_posts()) {
-            echo '<div class="flex flex-col gap-8 mb-8">';
+            echo '<div class="flex flex-col gap-8 mb-5 lg:mb-8">';
             while ($posts_query->have_posts()) {
               $posts_query->the_post();
           ?>
-              <div class="flex gap-8">
-                <div class="w-1/3">
+              <div class="block md:flex md:gap-8">
+                <div class="w-full md:w-1/3">
                   <a href="<?php echo get_the_permalink(); ?>" class="block">
                     <div class="aspect-w-5 aspect-h-4 bg-primary-light bg-opacity-10 shadow-md rounded-xl overflow-hidden">
                       <?php
@@ -281,13 +280,13 @@ function learning_path_item($background, $title, $text, $url)
                     </div>
                   </a>
                 </div>
-                <div class="w-2/3">
-                  <h4 class="text-2xl font-semibold text-primary mb-4 mt-4">
+                <div class="w-full md:w-2/3">
+                  <h4 class="text-xl md:text-2xl font-semibold text-primary mb-2 md:mb-4 mt-4">
                     <a href="<?php echo get_the_permalink(); ?>" class="text-primary transition hover:text-primary-light">
                       <?php echo get_the_title(); ?>
                     </a>
                   </h4>
-                  <div class="text-sm">
+                  <div class="text-sm break-words">
                     <?php echo get_the_excerpt(); ?>
                   </div>
                 </div>
@@ -297,15 +296,15 @@ function learning_path_item($background, $title, $text, $url)
             echo '</div>';
           } else {
             ?>
-            <div class="text-center text-3xl">Sorry, there's no post in this category.</div>
+            <div class="text-center text-2xl lg:text-3xl">Sorry, there's no post in this category.</div>
           <?php
           }
           wp_reset_postdata();
           ?>
-          <div class="bg-secondary-light py-1 px-4 text-right mt-8"><a href="/resources" class="font-semibold text-primary text-sm">VIEW ALL &raquo;</a></div>
+          <div class="bg-secondary-light py-1 px-4 text-right mt-4 lg:mt-8 mb-12 lg:mb-0"><a href="/resources" class="font-semibold text-primary text-sm">VIEW ALL &raquo;</a></div>
         </div>
 
-        <div class="flex flex-col w-2/5 pl-12">
+        <div class="w-full lg:w-2/5 flex flex-col lg:pl-12">
           <div class="mb-8">
             <div class="flex justify-between items-center">
               <h4 class="text-3xl text-primary font-quincy">Upcoming Events</h4>
@@ -324,13 +323,13 @@ function learning_path_item($background, $title, $text, $url)
           $posts_query = new WP_Query($args);
 
           if ($posts_query->have_posts()) {
-            echo '<div class="flex flex-col gap-8 mb-8">';
+            echo '<div class="flex flex-col gap-8 mb-5 lg:mb-8">';
             while ($posts_query->have_posts()) {
               $posts_query->the_post();
           ?>
-              <div class="flex gap-6">
+              <div class="block md:flex md:gap-6">
 
-                <div class="w-1/3">
+                <div class="w-full md:w-1/3">
                   <a href="<?php echo get_the_permalink(); ?>" class="block">
                     <div class="aspect-w-11 aspect-h-10 shadow-md rounded-xl overflow-hidden">
                       <?php
@@ -343,11 +342,11 @@ function learning_path_item($background, $title, $text, $url)
                     </div>
                   </a>
                 </div>
-                <div class="w-2/3">
-                  <h4 class="text-base leading-tight font-semibold text-primary mb-3 mt-1"><a href="<?php echo get_the_permalink(); ?>" class="text-primary transition hover:text-primary-light">
+                <div class="w-full md:w-2/3">
+                  <h4 class="text-xl md:text-base leading-tight font-semibold text-primary mb-2 md:mb-3 mt-4 md:mt-1"><a href="<?php echo get_the_permalink(); ?>" class="text-primary transition hover:text-primary-light">
                       <?php echo get_the_title(); ?>
                     </a></h4>
-                  <div class="text-xs">
+                  <div class="text-xs break-words">
                     <?php echo get_the_excerpt(); ?>
                   </div>
                 </div>
@@ -357,78 +356,21 @@ function learning_path_item($background, $title, $text, $url)
             echo '</div>';
           } else {
             ?>
-            <div class="text-center text-3xl">Sorry, there's no post in this category.</div>
+            <div class="text-2xl lg:text-3xl">Sorry, there's no post in this category.</div>
           <?php
           }
           wp_reset_postdata();
           ?>
 
-          <div class="bg-secondary-light py-1 px-4 text-right mt-auto"><a href="/events" class="font-semibold text-primary text-sm">VIEW ALL &raquo;</a></div>
+          <div class="bg-secondary-light py-1 px-4 text-right mt-4 lg:mt-auto"><a href="/events" class="font-semibold text-primary text-sm">VIEW ALL &raquo;</a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="testimonial" class="pb-28 bg-primary-light bg-opacity-10">
-    <div class="container">
-      <div class="h-10 w-px bg-black bg-opacity-20 mx-auto"></div>
-      <div class="text-center mb-8">
-        <div class="my-8"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
-        <h3 class="text-4xl my-6 text-primary font-quincy">What our customers say about us</h3>
-        <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
-      </div>
-      <?php
-      $args = array(
-        'post_type' => 'testimonial',
-        'posts_per_page' => 3
-      );
-      $the_query = new WP_Query($args);
-
-      // The Loop
-      if ($the_query->have_posts()) {
-        echo '<div id="testimonials" class="swiper"><div class="swiper-wrapper">';
-        while ($the_query->have_posts()) {
-          $the_query->the_post();
-      ?>
-          <div class="swiper-slide">
-            <div class="max-w-3xl mx-auto text-sm bg-white rounded-2xl shadow-md mb-4">
-              <div class="w-full flex py-10 px-10 gap-10">
-                <div class="w-1/5">
-                  <div class="rounded-full overflow-hidden mb-4 w-32 h-32 mx-auto">
-                    <img src="<?php the_post_thumbnail_url() ?>" class="object-cover object-center w-full h-full">
-                  </div>
-                  <h4 class="text-2xl text-primary font-semibold text-center"><?php the_title() ?></h4>
-                </div>
-                <div class="w-4/5">
-                  <?php the_content() ?>
-                </div>
-              </div>
-            </div>
-          </div>
-      <?php
-        }
-        echo '</div>';
-        echo '<div class="swiper-button-prev"></div>';
-        echo '<div class="swiper-button-next"></div>';
-
-        echo '</div></div>';
-      }
-      wp_reset_postdata();
-
-      ?>
-
-    </div>
-    <script>
-      const testimonialSwiper = new Swiper('#testimonials', {
-        direction: 'horizontal',
-        loop: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      });
-    </script>
-  </section>
+  <?php
+  get_template_part('template-parts/section-testimonial-slider');
+  ?>
 
 </main>
 

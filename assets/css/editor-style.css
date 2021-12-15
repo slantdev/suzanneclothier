@@ -36484,13 +36484,22 @@ body {
     }
 
 .hero {
-  margin-top: -149px;
-  padding-top: 149px;
+  margin-top: -64px;
+  padding-top: 64px;
   position: relative;
   z-index: 10;
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+@media (min-width: 1024px) {
+
+.hero {
+    margin-top: -149px;
+
+    padding-top: 149px
+}
+  }
 
 .learning-path--item .learning-path--link .bg-overlay {
       position: absolute;

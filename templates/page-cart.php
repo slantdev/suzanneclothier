@@ -30,10 +30,10 @@ get_header();
   <?php if ($background_overlay) {
     echo '<div class="absolute inset-0" style="background-color: ' . $background_overlay . '"></div>';
   } ?>
-  <div class="container pt-32 pb-8 z-10 mx-auto">
+  <div class="container pt-12 lg:pt-32 pb-8 z-10 mx-auto">
     <div class="flex">
-      <div class="w-2/5 pb-20">
-        <h2 class="text-6xl font-quincy text-primary mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
+      <div class="w-full lg:w-2/5 pb-4 lg:pb-20">
+        <h2 class="text-5xl lg:text-6xl font-quincy text-primary mb-0 lg:mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
         <?php if ($hero_description) {
           echo '<div>';
           echo $hero_description;

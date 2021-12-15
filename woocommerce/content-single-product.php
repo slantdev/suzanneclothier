@@ -26,27 +26,27 @@ if (post_password_required()) {
 }
 ?>
 <section class="hero flex flex-col items-center bg-cover bg-center bg-primary bg-opacity-30">
-  <div class="container pt-20 pb-12 z-10">
+  <div class="container pt-16 lg:pt-20 pb-12 z-10">
     <div class="flex">
-      <div class="w-2/3">
-        <h1 class="text-6xl font-quincy mb-5 text-primary"><?php the_title(); ?></h1>
+      <div class="w-full lg:w-2/3">
+        <h1 class="text-4xl lg:text-6xl font-quincy mb-5 text-primary"><?php the_title(); ?></h1>
       </div>
     </div>
   </div>
   <div class="w-full bg-white bg-opacity-90 z-10">
-    <div class="container h-12 flex items-center">
+    <div class="container py-3 flex items-center">
       <?php woocommerce_breadcrumb(); ?>
     </div>
   </div>
 </section>
 
 <section class="bg-white">
-  <div class="container pt-20 pb-28">
+  <div class="container pt-12 lg:pt-20 pb-12 lg:pb-28">
     <?php woocommerce_output_all_notices(); ?>
     <div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
 
-      <div class="flex gap-12">
-        <div class="w-1/2">
+      <div class="flex flex-wrap lg:flex-nowrap gap-6 lg:gap-12">
+        <div class="w-full lg:w-1/2">
 
           <?php
           /**
@@ -58,7 +58,7 @@ if (post_password_required()) {
           do_action('woocommerce_before_single_product_summary');
           ?>
         </div>
-        <div class="w-1/2">
+        <div class="w-full lg:w-1/2">
 
           <div class="entry-content prose">
 

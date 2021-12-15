@@ -19,9 +19,9 @@
 defined('ABSPATH') || exit;
 ?>
 
-<div class="flex gap-8">
+<div class="flex flex-wrap lg:flex-nowrap gap-8">
 
-  <div class="w-1/4">
+  <div class="w-full lg:w-1/3 xl:w-1/4">
     <?php
     /**
      * My Account navigation.
@@ -31,7 +31,7 @@ defined('ABSPATH') || exit;
     do_action('woocommerce_account_navigation'); ?>
   </div>
 
-  <div class="woocommerce-MyAccount-content float-none w-3/4">
+  <div class="woocommerce-MyAccount-content float-none w-full lg:w-2/3 xl:w-3/4">
     <?php
     /**
      * My Account content.

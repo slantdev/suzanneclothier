@@ -49,11 +49,11 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
   <?php if ($hero_overlay) {
     echo '<div class="absolute inset-0" style="background-color: ' . $hero_overlay . '"></div>';
   } ?>
-  <div class="container pt-36 pb-20 z-10 mx-auto max-w-7xl">
-    <div class="flex">
-      <div class="w-2/5">
+  <div class="container pt-24 lg:pt-36 pb-14 lg:pb-20 z-10 mx-auto max-w-7xl">
+    <div class="block lg:flex">
+      <div class="w-full lg:w-2/5">
         <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-          <h1 class="woocommerce-products-header__title page-title text-6xl font-quincy mb-5 text-primary"><?php woocommerce_page_title(); ?></h1>
+          <h1 class="woocommerce-products-header__title page-title text-5xl lg:text-6xl font-quincy mb-5 text-primary"><?php woocommerce_page_title(); ?></h1>
         <?php endif; ?>
         <?php
         /**
@@ -68,7 +68,7 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
     </div>
   </div>
   <div class="w-full bg-white bg-opacity-90 z-10">
-    <div class="container h-12 flex items-center mx-auto max-w-7xl">
+    <div class="container py-3 flex items-center mx-auto max-w-7xl">
       <?php woocommerce_breadcrumb(); ?>
     </div>
   </div>
@@ -85,7 +85,7 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
 </section>
 
 <div class="sticky top-0 z-30 bg-primary text-white">
-  <div class="container">
+  <div class="container px-0 lg:px-4">
     <?php
 
     $queried_object = get_queried_object();
@@ -125,7 +125,7 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
     // echo '</pre>';
 
     if (!empty($filters)) {
-      echo '<ul class="flex bg-primary overflow-x-auto items-center justify-center">';
+      echo '<ul class="flex bg-primary overflow-x-auto items-center justify-start lg:justify-center">';
       echo '<li><a href="#" data-term="' . $term_slug . '" data-slug="" class="filter-button block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">All</a></li>';
       foreach ($filters as $key => $filter) {
         echo '<li>';
@@ -142,7 +142,7 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
 
 </div>
 
-<div class="pt-20 pb-24 bg-secondary-light">
+<div class="pt-12 pb-16 lg:pt-20 lg:pb-24 bg-secondary-light">
   <div class="container">
 
     <?php
@@ -163,7 +163,7 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
     $posts_query = new WP_Query($args);
 
     if ($posts_query->have_posts()) {
-      echo '<div class="product-grid grid grid-cols-4 pb-12 gap-8">';
+      echo '<div class="product-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pb-12 gap-8">';
       while ($posts_query->have_posts()) {
         $posts_query->the_post();
         wc_get_template_part('content', 'product');

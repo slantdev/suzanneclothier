@@ -32,10 +32,10 @@ if ($background_image_desktop) {
     <?php if ($background_overlay) {
       echo '<div class="absolute inset-0" style="background-color: ' . $background_overlay . '"></div>';
     } ?>
-    <div class="container pt-32 pb-8 z-10 mx-auto max-w-7xl">
+    <div class="container pt-24 lg:pt-32 pb-8 z-10 mx-auto max-w-7xl">
       <div class="flex">
-        <div class="w-2/5 pb-20">
-          <h2 class="text-6xl font-quincy text-primary mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
+        <div class="w-full lg:w-2/5 pb-12 lg:pb-20">
+          <h2 class="text-5xl lg:text-6xl font-quincy text-primary mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
           <?php if ($hero_description) {
             echo '<div>';
             echo $hero_description;
@@ -45,7 +45,7 @@ if ($background_image_desktop) {
       </div>
     </div>
     <div class="w-full bg-white bg-opacity-90 z-10">
-      <div class="container h-12 flex items-center mx-auto max-w-7xl">
+      <div class="container py-3 flex items-center mx-auto max-w-7xl">
         <div class="breadcrumb -mx-1">
           <span class="inline-block px-1"><a href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Membership</span>
         </div>
@@ -71,7 +71,7 @@ if ($background_image_desktop) {
   <?php } ?>
 
   <section class="bg-secondary-light">
-    <div class="container mx-auto py-20 max-w-7xl">
+    <div class="container mx-auto py-12 lg:py-20 max-w-7xl">
 
       <?php if ($intro_description) { ?>
         <div class="max-w-lg text-center mb-8 mx-auto">

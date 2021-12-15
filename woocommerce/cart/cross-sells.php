@@ -31,7 +31,7 @@ if ($cross_sells) : ?>
 
     <!-- <?php woocommerce_product_loop_start(); ?> -->
 
-    <div class="grid grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <?php foreach ($cross_sells as $cross_sell) : ?>
 
         <?php
