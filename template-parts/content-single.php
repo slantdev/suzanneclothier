@@ -10,7 +10,7 @@ if (!$thumbnail_medium) {
 <section class="hero flex flex-col items-center bg-cover bg-center bg-primary bg-opacity-30">
   <div class="container pt-32 pb-8 z-10 max-w-7xl mx-auto">
     <div class="block lg:flex">
-      <div class="w-full lg:w-2/5 pb-14">
+      <div class="w-full lg:w-3/5 pb-14">
         <h1 class="text-5xl lg:text-6xl font-quincy mb-5 text-primary"><?php the_title(); ?></h1>
         <?php
         $article_in_other_language = get_field('article_in_other_language');
@@ -28,12 +28,46 @@ if (!$thumbnail_medium) {
       </div>
     </div>
   </div>
+  <?php
+  $post_type = get_post_type();
+  echo $post_type;
+  $post_type_obj = get_post_type_object($post_type);
+  //echo $post_type_obj->labels->singular_name;
+  ?>
   <div class="w-full bg-white bg-opacity-90 z-10">
     <div class="container flex items-center max-w-7xl mx-auto">
       <div class="breadcrumb py-2 -mx-1 text-sm lg:text-base">
         <span class="inline-block px-1"><a href="/">Home</a></span>
-        <span class="inline-block px-1"> / </span>
-        <span class="inline-block px-1"><a href="/">Blog</a></span>
+        <?php
+        if ($post_type == 'post') {
+          echo '<span class="inline-block px-1"> / </span>';
+          echo '<span class="inline-block px-1"><a href="/resources">Blog</a></span>';
+        }
+        if ($post_type == 'article') {
+          echo '<span class="inline-block px-1"> / </span>';
+          echo '<span class="inline-block px-1"><a href="/articles-in-english">Articles in English</a></span>';
+        }
+        if ($post_type == 'article_dutch') {
+          echo '<span class="inline-block px-1"> / </span>';
+          echo '<span class="inline-block px-1"><a href="/articles-in-dutch">Articles in Dutch</a></span>';
+        }
+        if ($post_type == 'article_it') {
+          echo '<span class="inline-block px-1"> / </span>';
+          echo '<span class="inline-block px-1"><a href="/articles-in-italian">Articles in Italian</a></span>';
+        }
+        if ($post_type == 'article_norway') {
+          echo '<span class="inline-block px-1"> / </span>';
+          echo '<span class="inline-block px-1"><a href="/articles-in-norwegian">Articles in Norwegian</a></span>';
+        }
+        if ($post_type == 'articles_french') {
+          echo '<span class="inline-block px-1"> / </span>';
+          echo '<span class="inline-block px-1"><a href="/articles-in-french">Articles in French</a></span>';
+        }
+        if ($post_type == 'testimonial') {
+          echo '<span class="inline-block px-1"> / </span>';
+          echo '<span class="inline-block px-1"><a href="/testimonials">Testimonials</a></span>';
+        }
+        ?>
         <span class="inline-block px-1"> / </span>
         <span class="font-semibold inline-block px-1"><?php the_title(); ?></span>
       </div>
