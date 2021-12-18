@@ -32,14 +32,15 @@ function site_footer()
           </div>
           <div class="px-4 lg:px-10 mb-10 lg:mb-0">
             <h4 class="text-xl font-semibold uppercase mb-5 lg:mb-8">SITEMAP</h4>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Learning Paths</a></li>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">Resources</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
+            <?php
+            wp_nav_menu(
+              array(
+                'theme_location'  => 'footer',
+                'container_class' => 'footer-menu',
+                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+              )
+            );
+            ?>
           </div>
           <div class="px-4 lg:px-10">
             <div class="mb-14">
@@ -68,12 +69,12 @@ function site_footer()
       <div class="container">
         <div class="block lg:flex">
           <div class="w-full lg:w-1/2 text-center lg:text-left flex gap-4 justify-center lg:justify-start mb-4 lg:mb-0">
-            <a href="#" class="inline-block uppercase font-semibold hover:underline">Privacy Policy</a>
+            <a href="/privacy-policy" class="inline-block uppercase font-semibold hover:underline">Privacy Policy</a>
             <span class="inline-block">|</span>
-            <a href="#" class="inline-block uppercase font-semibold hover:underline">Terms of Service</a>
+            <a href="/terms-of-service" class="inline-block uppercase font-semibold hover:underline">Terms of Service</a>
           </div>
           <div class="w-full lg:w-1/2 text-center lg:text-right font-semibold">
-            Copyright © 2018-2021 Suzanne Clothier & Carpe Canem Inc.
+            Copyright © 2018-<?php echo date("Y"); ?> Suzanne Clothier & Carpe Canem Inc.
           </div>
         </div>
       </div>

@@ -37242,6 +37242,13 @@ body {
     color: rgba(36, 137, 168, var(--tw-text-opacity));
   }
 
+.header-menu .menu {
+    margin: 0px;
+    display: flex;
+    list-style-type: none;
+    padding: 0px;
+  }
+
 .header-menu .menu > li:last-child a {
           border-right-width: 0px;
         }
@@ -37474,6 +37481,10 @@ body {
         font-size: 1.25rem;
         line-height: 1.75rem;
       }
+
+.footer-menu a:hover {
+    text-decoration: underline;
+  }
 
 /* Default */
 
