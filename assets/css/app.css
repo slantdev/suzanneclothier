@@ -39097,6 +39097,55 @@ input[type='checkbox']:focus {
       box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     }
 
+.pricing-tabs .pricing-switch-buttons {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center
+  }
+
+@media (min-width: 768px) {
+    .pricing-tabs .pricing-switch-buttons {
+      margin-bottom: 1rem;
+    }
+  }
+
+.pricing-tabs .pricing-switch-buttons li {
+      border-bottom-width: 1px;
+      border-style: solid;
+      --tw-border-opacity: 1;
+      border-color: rgba(212, 212, 212, var(--tw-border-opacity));
+    }
+
+.pricing-tabs .pricing-switch-buttons li a {
+        display: block;
+        border-bottom-width: 2px;
+        border-color: transparent;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        font-weight: 700;
+        --tw-text-opacity: 1;
+        color: rgba(163, 163, 163, var(--tw-text-opacity));
+      }
+
+.pricing-tabs .pricing-switch-button.active {
+      --tw-border-opacity: 1;
+      border-color: rgba(36, 137, 168, var(--tw-border-opacity));
+      --tw-text-opacity: 1;
+      color: rgba(36, 137, 168, var(--tw-text-opacity));
+    }
+
+.pricing-tabs .pricing-tab-content {
+    display: none;
+  }
+
+.pricing-tabs .pricing-tab-content.active {
+      display: block;
+    }
+
 .page-membership-checkout .blockUI.blockOverlay {
       z-index: 1000;
       border: none;

@@ -48,13 +48,13 @@ function sc_add_rcp_member_coupon_code()
     $silver_code = get_field('silver_member_coupon_code', 'option');
     $gold_code = get_field('gold_member_coupon_code', 'option');
 
-    if (in_array(1, $rcp_customer_membership)) {
+    if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
       if (in_array(1, $included_for_member)) {
         echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your <a href="/my-account">Silver Member Library</a>. </div>';
       } else {
         echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Silver Member, please use <strong>' . $silver_code . '</strong> coupon code to get 5% discount upon checkout</div>';
       }
-    } else if (in_array(2, $rcp_customer_membership)) {
+    } else if (in_array(2, $rcp_customer_membership) || in_array(4, $rcp_customer_membership)) {
       if (in_array(2, $included_for_member)) {
         echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your <a href="/my-account">Gold Member Library</a>. </div>';
       } else {
@@ -107,7 +107,7 @@ function sc_add_discounted_price()
     </div>';
   }
   $rcp_customer_membership = rcp_get_customer_membership_level_ids();
-  if (in_array(1, $rcp_customer_membership)) {
+  if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
     $this_product = wc_get_product(get_the_ID());
     $this_price = $this_product->get_price();
     $gold_disc_percent = 10 / 100;
@@ -420,10 +420,10 @@ function sc_my_coupon_endpoint_content()
   $coupon_code = '';
   $member_level = '';
 
-  if (in_array(1, $rcp_customer_membership)) {
+  if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
     $member_level = 'Silver Member';
     $coupon_code = get_field('silver_member_coupon_code', 'option');
-  } else if (in_array(2, $rcp_customer_membership)) {
+  } else if (in_array(2, $rcp_customer_membership) || in_array(4, $rcp_customer_membership)) {
     $member_level = 'Gold Member';
     $coupon_code = get_field('gold_member_coupon_code', 'option');
   }

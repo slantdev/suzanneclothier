@@ -79,17 +79,40 @@ if ($background_image_desktop) {
         </div>
       <?php } ?>
 
-      <?php if (have_posts()) : ?>
-        <?php
-        while (have_posts()) :
-          the_post();
-        ?>
+      <?php
+      if (have_rows('membership_pricing')) {
+      ?>
+        <div id="pricing-tabs" class="pricing-tabs">
+          <div class="pricing-switch">
+            <ul class="pricing-switch-buttons">
 
-          <?php the_content(); ?>
+              <?php
+              while (have_rows('membership_pricing')) : the_row();
+                $billing_duration = get_sub_field('billing_duration');
+                $target = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $billing_duration)));
+                echo '<li><a href="#" class="pricing-switch-button" data-target="pricing-' . $target . '">' . $billing_duration . '</a></li>';
+              endwhile;
+              ?>
 
-        <?php endwhile; ?>
+            </ul>
+          </div>
 
-      <?php endif; ?>
+          <div class="pricing-tab-container">
+            <?php
+            while (have_rows('membership_pricing')) : the_row();
+              $billing_duration = get_sub_field('billing_duration');
+              $pricing_table_shortcode = get_sub_field('pricing_table_shortcode');
+              $target = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $billing_duration)));
+              echo '<div id="pricing-' . $target . '" class="pricing-tab-content">';
+              echo do_shortcode($pricing_table_shortcode);
+              echo '</div>';
+            endwhile;
+            ?>
+          </div>
+        </div>
+      <?php
+      }
+      ?>
 
     </div>
   </section>

@@ -78,3 +78,26 @@
     }
   }
 }
+
+.pricing-tabs {
+  .pricing-switch-buttons {
+    @apply flex justify-center mb-8 md:mb-4;
+    li {
+      @apply border-b border-solid border-gray-300;
+      a {
+        @apply block text-lg text-gray-400 font-bold py-3 px-8 border-b-2 border-transparent;
+      }
+    }
+  }
+  .pricing-switch-button {
+    &.active {
+      @apply text-primary-light border-primary-light;
+    }
+  }
+  .pricing-tab-content {
+    @apply hidden;
+    &.active {
+      @apply block;
+    }
+  }
+}

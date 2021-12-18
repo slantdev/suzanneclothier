@@ -59,5 +59,18 @@ jQuery(document).ready(function ($) {
 
   });
 
+  $('.pricing-switch-buttons > li:first-child > a').addClass('active');
+  $('.pricing-tab-container > .pricing-tab-content:first-child').addClass('active');
+  $('.pricing-switch-button').on('click', function (e) {
+    e.preventDefault();
+    $target = $(this).data('target');
+    //console.log($target);
+    $('#pricing-tabs .pricing-switch-button').removeClass('active');
+    $(this).addClass('active');
+
+    $('#pricing-tabs .pricing-tab-content').removeClass('active');
+    $('#' + $target).addClass('active');
+  });
+
 });
 
