@@ -3,6 +3,10 @@
 add_action('twp_footer', 'site_footer');
 function site_footer()
 {
+
+  $logo_description = get_field('logo_description', 'option');
+  $mailing_address = get_field('mailing_address', 'option');
+  $phone = get_field('phone', 'option');
 ?>
   <footer>
     <div class="bg-primary py-16 lg:py-24">
@@ -12,23 +16,35 @@ function site_footer()
             <div class="mb-5 lg:mb-8 mr-auto md:mx-0">
               <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo-footer.svg" class="max-h-40 xl:max-h-48">
             </div>
-            <div>
-              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
+            <?php
+            if ($logo_description) {
+              echo '<div>
+                <p class="text-sm">' . $logo_description . '</p>
+                </div>';
+            }
+            ?>
           </div>
           <div class="px-4 lg:px-10 mb-10 lg:mb-0">
             <h4 class="text-xl font-semibold uppercase mb-5 lg:mb-8">FIND US</h4>
-            <div class="text-sm mb-5 lg:mb-8">
-              <h5 class="font-semibold mb-4">Mailing Address</h5>
-              <p>Carpe Canem Inc.<br>
-                PO Box 105, St. Johnsville, <br>
-                NY 13452</p>
-            </div>
-            <div class="text-sm">
-              <h5 class="font-semibold mb-4">Phone</h5>
-              <p>1-800-7-FLY-DOG or<br>
-                518-568-3325</p>
-            </div>
+
+            <?php
+            if ($mailing_address) {
+              echo '<div class="text-sm mb-5 lg:mb-8">';
+              echo '<h5 class="font-semibold mb-4">Mailing Address</h5>';
+              echo '<p>' . $mailing_address . '</p>';
+              echo '</div>';
+            }
+            ?>
+
+            <?php
+            if ($phone) {
+              echo '<div class="text-sm">';
+              echo '<h5 class="font-semibold mb-4">Phone</h5>';
+              echo '<p>' . $phone . '</p>';
+              echo '</div>';
+            }
+            ?>
+
           </div>
           <div class="px-4 lg:px-10 mb-10 lg:mb-0">
             <h4 class="text-xl font-semibold uppercase mb-5 lg:mb-8">SITEMAP</h4>
