@@ -19,3 +19,80 @@
     }
   }
 }
+
+.post-type-archive-mec-events {
+  h1 {
+    @apply my-6 text-2xl font-bold lg:text-4xl;
+  }
+  .site-header {
+    @apply border-b border-gray-200 border-solid;
+  }
+}
+
+.mec-container {
+  @apply p-4 mx-auto;
+  @media (max-width: 479px) {
+    @apply w-full;
+  }
+  @media (min-width: 768px) and (max-width: 960px) {
+    @apply w-full;
+  }
+}
+.mec-full-calendar-wrap {
+  .mec-totalcal-box {
+    @media (max-width: 780px) {
+      @apply px-0;
+    }
+  }
+}
+
+.mec-event-list-standard {
+  .mec-col-table-c {
+    &.mec-event-content-wrap {
+      @media only screen and (max-width: 479px) {
+        @apply p-3;
+      }
+      @media (max-width: 960px) {
+        @apply block min-h-0;
+      }
+    }
+    &.mec-event-meta-wrap {
+      @apply pt-4;
+    }
+  }
+  .mec-event-content {
+    /* padding-top: 15px;
+    padding-right: 30px; */
+    @apply p-0;
+    .mec-event-title {
+      @apply my-3 font-bold text-xl tracking-normal;
+    }
+  }
+}
+
+.mec-event-footer {
+  @apply p-3 min-h-0 flex justify-end;
+  .mec-booking-button {
+    /* box-shadow: none;
+    transition: all .21s ease;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #fff;
+    color: #767676;
+    border: 1px solid #e8e8e8;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    padding: 0 16px;
+    line-height: 37px;
+    height: 38px; */
+    @apply relative top-0 right-0;
+  }
+}
+
+.mec-topsec {
+  .mec-event-image {
+  }
+}

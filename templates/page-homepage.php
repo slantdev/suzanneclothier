@@ -267,7 +267,7 @@ function learning_path_item($background, $title, $text, $url)
               $posts_query->the_post();
           ?>
               <div class="block md:flex md:gap-8">
-                <div class="w-full md:w-1/3">
+                <div class="w-full flex-none md:w-1/3">
                   <a href="<?php echo get_the_permalink(); ?>" class="block">
                     <div class="aspect-w-5 aspect-h-4 bg-primary-light bg-opacity-10 shadow-md rounded-xl overflow-hidden">
                       <?php
@@ -329,7 +329,7 @@ function learning_path_item($background, $title, $text, $url)
           ?>
               <div class="block md:flex md:gap-6">
 
-                <div class="w-full md:w-1/3">
+                <div class="w-full flex-none md:w-1/3">
                   <a href="<?php echo get_the_permalink(); ?>" class="block">
                     <div class="aspect-w-11 aspect-h-10 shadow-md rounded-xl overflow-hidden">
                       <?php
