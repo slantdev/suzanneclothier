@@ -36483,6 +36483,27 @@ body {
       --tw-border-opacity: 1;
     }
 
+.header-menu a {
+    display: inline-block;
+    border-right-width: 2px;
+    --tw-border-opacity: 1;
+    border-color: rgba(21, 81, 99, var(--tw-border-opacity));
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    line-height: 1;
+    --tw-text-opacity: 1;
+    color: rgba(21, 81, 99, var(--tw-text-opacity));
+  }
+
+.header-menu a:hover {
+    --tw-text-opacity: 1;
+    color: rgba(36, 137, 168, var(--tw-text-opacity));
+  }
+
+.header-menu .menu > li:last-child a {
+          border-right-width: 0px;
+        }
+
 .hero {
   margin-top: -64px;
   padding-top: 64px;

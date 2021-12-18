@@ -32,6 +32,8 @@ function twp_setup()
   register_nav_menus(
     array(
       'primary' => __('Primary Menu', 'twp'),
+      'header' => __('Header Menu', 'twp'),
+      'footer' => __('Footer Menu', 'twp'),
     )
   );
 

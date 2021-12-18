@@ -48,6 +48,21 @@ body {
   }
 }
 
+.header-menu {
+  a {
+    @apply text-primary inline-block px-3 leading-none border-r-2 border-primary hover:text-primary-light;
+  }
+  .menu {
+    > li {
+      &:last-child {
+        a {
+          @apply border-r-0;
+        }
+      }
+    }
+  }
+}
+
 .hero {
   margin-top: -64px;
   padding-top: 64px;

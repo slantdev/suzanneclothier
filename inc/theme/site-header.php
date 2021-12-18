@@ -14,14 +14,7 @@ function site_header_top()
     <div class="container">
       <div class="flex justify-between">
         <div class="text-sm text-primary font-sans">Welcome to Suzanne Clothier | RCT</div>
-        <div class="text-sm text-primary uppercase font-semibold">
-          <ul class="flex list-none m-0 p-0">
-            <li><a href="#" class="text-primary inline-block px-3 leading-none border-r-2 border-primary hover:text-primary-light">The Enriched Puppy Protocol</a></li>
-            <li><a href="#" class="text-primary inline-block px-3 leading-none border-r-2 border-primary hover:text-primary-light">FAT</a></li>
-            <li><a href="#" class="text-primary inline-block px-3 leading-none border-r-2 border-primary hover:text-primary-light">CARAT</a></li>
-            <li><a href="#" class="text-primary inline-block pl-3 leading-none hover:text-primary-light">CCC Training</a></li>
-          </ul>
-        </div>
+        <?php echo top_navigation(); ?>
       </div>
     </div>
   </div>
@@ -50,6 +43,17 @@ function site_header_bottom()
     </div>
   </div>
 <?php
+}
+
+function top_navigation()
+{
+  wp_nav_menu(
+    array(
+      'theme_location'  => 'header',
+      'container_class' => 'header-menu text-sm text-primary uppercase font-semibold',
+      'items_wrap'      => '<ul id="%1$s" class="%2$s flex list-none m-0 p-0">%3$s</ul>',
+    )
+  );
 }
 
 function site_navigation()
