@@ -16,7 +16,7 @@
     }
   }
   .rcp_header {
-    @apply text-center font-bold text-4xl mb-4;
+    @apply text-center font-bold text-2xl md:text-3xl lg:text-4xl mb-4;
   }
   #rcp_registration_form {
     @apply p-0;
@@ -30,14 +30,14 @@
       }
     }
     .rcp_user_fieldset {
-      @apply p-6 rounded-xl bg-white shadow-md border border-solid border-gray-200 mb-8;
+      @apply p-4 md:p-6 rounded-xl bg-white shadow-md border border-solid border-gray-200 mb-8;
     }
   }
   .rcp_registration_total {
-    @apply p-6 rounded-xl bg-white shadow-md border border-solid border-gray-200 mb-8;
+    @apply p-4 md:p-6 rounded-xl bg-white shadow-md border border-solid border-gray-200 mb-8;
   }
   .rcp_registration_total_details {
-    @apply text-sm w-full border-collapse;
+    @apply text-sm w-full border-collapse mb-0;
     thead {
       th {
         @apply text-left;
@@ -93,7 +93,7 @@
     @apply text-sm;
   }
   .rcp_gateway_stripe_fields {
-    @apply p-6 rounded-xl bg-white shadow-md border border-solid border-gray-200 mb-8;
+    @apply p-4 md:p-6 rounded-xl bg-white shadow-md border border-solid border-gray-200 mb-8;
     a {
       @apply text-link underline hover:text-link-hover;
     }
@@ -144,6 +144,50 @@
       &:last-child {
         td {
           @apply pb-3;
+        }
+      }
+    }
+  }
+}
+.rcp_form {
+  .rcp-table {
+    @media (max-width: 480px) {
+      th {
+        display: none;
+        //display: table-cell;
+      }
+      tr {
+        td {
+          display: block;
+          text-align: left;
+          padding-left: 50%;
+          //display: table-cell;
+          //padding-left: 1.5rem;
+        }
+      }
+      td {
+        &:before {
+          content: attr(data-th) ': ';
+          font-weight: 700;
+          display: inline-flex;
+          height: 100%;
+          line-height: 100%;
+          width: 100%;
+          margin-left: -100%;
+          white-space: normal;
+          padding-right: 4px;
+          //content: '';
+          //display: none;
+          //margin-left: auto;
+        }
+        &:last-child {
+          text-align: left;
+        }
+      }
+      tbody,
+      tfoot {
+        td {
+          padding-right: 0.75rem;
         }
       }
     }

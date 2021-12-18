@@ -18,7 +18,7 @@ get_header();
 <main class="page-membership-checkout">
 
   <section class="bg-white">
-    <div class="container mx-auto py-20 max-w-2xl">
+    <div class="container mx-auto py-10 md:py-12 lg:py-20 max-w-2xl">
 
       <?php if (have_posts()) : ?>
         <?php
