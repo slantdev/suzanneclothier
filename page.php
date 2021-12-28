@@ -8,6 +8,14 @@ function sc_body_classes($classes)
   return $classes;
 }
 
+$post_id = get_the_ID();
+$thumbnail_full = get_the_post_thumbnail_url($post_id, 'full');
+$thumbnail_medium = get_the_post_thumbnail_url($post_id, 'medium');
+
+if (!$thumbnail_medium) {
+  $thumbnail_medium = get_stylesheet_directory_uri() . '/assets/images/sc-featured-image.png';
+}
+
 $hero_title = get_field('hero_title');
 $hero_description = get_field('hero_description');
 $hero_background = get_field('hero_background');
