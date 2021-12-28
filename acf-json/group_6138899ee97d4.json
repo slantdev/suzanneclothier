@@ -1,7 +1,23 @@
 {
     "key": "group_6138899ee97d4",
-    "title": "Hero Section Settings",
+    "title": "Page Settings",
     "fields": [
+        {
+            "key": "field_61caf9c2ce9cf",
+            "label": "Hero Settings",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
         {
             "key": "field_61388c9a92043",
             "label": "Hero Settings",
@@ -19,6 +35,43 @@
                 "group_61388a5d994e1"
             ],
             "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_61caf9d5ce9d0",
+            "label": "Accordion Settings",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_61caf987d71bc",
+            "label": "Accordion Settings",
+            "name": "accordion_settings",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_619d9531d31cd"
+            ],
+            "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
@@ -56,5 +109,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1638896165
+    "modified": 1640692192
 }

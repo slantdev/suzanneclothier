@@ -22,6 +22,8 @@ if ($background_image_desktop) {
   $hero_image = $background_image_desktop;
 }
 
+
+
 get_header();
 ?>
 
@@ -43,10 +45,12 @@ get_header();
         </div>
       </div>
     </div>
-    <div class="w-full bg-white bg-opacity-50">
-      <div class="container h-12 flex items-center mx-auto max-w-7xl">
-        <div class="breadcrumb -mx-1">
-          <span class="inline-block px-1"><a href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">About Us</span>
+    <div class="w-full bg-white bg-opacity-90 z-10">
+      <div class="container flex items-center max-w-7xl mx-auto">
+        <div class="breadcrumb py-2 -mx-1 text-sm lg:text-base">
+          <span class="inline-block px-1"><a href="/">Home</a></span>
+          <span class="inline-block px-1"> / </span>
+          <span class="font-semibold inline-block px-1"><?php the_title(); ?></span>
         </div>
       </div>
     </div>
@@ -70,67 +74,84 @@ get_header();
         <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
       </div>
       <div class="block lg:flex pt-14 pb-20 gap-12">
-        <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
-          <div class="px-0 lg:px-14">
-            <div class="mb-5 lg:mb-8"><img src="<?php echo $about_image ?>" class="rounded-full mx-auto" /></div>
-            <div>
-              <ul class="list-none flex flex-col gap-4 leading-none">
-                <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
-                  <ion-icon class="text-3xl" name="mail"></ion-icon>
-                  <a href="mailto:<?php echo $email ?>" target="_blank"><?php echo $email ?></a>
-                </li>
-                <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
-                  <ion-icon class="text-3xl" name="logo-linkedin"></ion-icon>
-                  <a href="<?php echo $linkedin_url ?>" target="_blank"><?php echo $linkedin_url ?></a>
-                </li>
-                <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
-                  <ion-icon class="text-3xl" name="call"></ion-icon>
-                  <a href="tel:<?php echo $phone_number ?>" target="_blank"><?php echo $phone_number ?></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="w-full lg:w-1/2">
-          <div class="text-area">
-            <?php echo $about_body_text ?>
-          </div>
-
-          <?php if (have_rows('faqs')) : ?>
-
-            <div class="my-8">
-              <?php while (have_rows('faqs')) : the_row();
-                $faq_title = get_sub_field('faq_title');
-                $faq_content = get_sub_field('faq_content');
-              ?>
-
-                <div class="faq group outline-none accordion-section rounded-3xl border border-gray-200 shadow-lg bg-gray-100 mb-6" tabindex="<?php echo get_row_index(); ?>">
-                  <div class="group bg-white border border-gray-200 -my-px -mx-px rounded-3xl flex justify-between px-6 py-4 items-center text-gray-800 transition ease duration-500 cursor-pointer pr-10 relative">
-                    <div class="font-bold uppercase">
-                      <?php echo $faq_title ?>
-                    </div>
-                    <div class="h-8 w-8 text-primary-light text-lg rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-3 mr-3">
-                      <ion-icon name="chevron-down-outline"></ion-icon>
-                    </div>
-                  </div>
-                  <div class="group-focus:max-h-screen max-h-0 bg-gray-100 px-6 overflow-hidden ease duration-500 text-gray-800 text-justify rounded-b-3xl rounded-l-3xl">
-                    <div class="py-6 text-gray-800 faq-content">
-                      <?php echo $faq_content ?>
-                    </div>
-                  </div>
+        <?php if ($about_image || $email || $linkedin_url || $phone_number) { ?>
+          <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+            <div class="px-0 lg:px-14">
+              <?php if ($about_image) { ?>
+                <div class="mb-5 lg:mb-8"><img src="<?php echo $about_image ?>" class="rounded-full mx-auto" /></div>
+              <?php } ?>
+              <?php if ($email || $linkedin_url || $phone_number) { ?>
+                <div>
+                  <ul class="list-none flex flex-col gap-4 leading-none">
+                    <?php if ($email) { ?>
+                      <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
+                        <ion-icon class="text-3xl" name="mail"></ion-icon>
+                        <a href="mailto:<?php echo $email ?>" target="_blank"><?php echo $email ?></a>
+                      </li>
+                    <?php } ?>
+                    <?php if ($linkedin_url) { ?>
+                      <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
+                        <ion-icon class="text-3xl" name="logo-linkedin"></ion-icon>
+                        <a href="<?php echo $linkedin_url ?>" target="_blank"><?php echo $linkedin_url ?></a>
+                      </li>
+                    <?php } ?>
+                    <?php if ($phone_number) { ?>
+                      <li class="flex items-center gap-4 border-b border-black border-opacity-10 pb-4">
+                        <ion-icon class="text-3xl" name="call"></ion-icon>
+                        <a href="tel:<?php echo $phone_number ?>" target="_blank"><?php echo $phone_number ?></a>
+                      </li>
+                    <?php } ?>
+                  </ul>
                 </div>
-
-              <?php endwhile; ?>
+              <?php } ?>
             </div>
-          <?php endif; ?>
+          </div>
+        <?php } ?>
+        <?php if ($about_image || $email || $linkedin_url || $phone_number) { ?>
+          <div class="w-full lg:w-1/2">
+          <?php } else { ?>
+            <div class="w-full lg:max-w-prose mx-auto">
+            <?php } ?>
+            <div class="text-area">
+              <?php echo $about_body_text ?>
+            </div>
 
-        </div>
+            <?php if (have_rows('faqs')) : ?>
+              <div class="my-8">
+                <?php while (have_rows('faqs')) : the_row();
+                  $faq_title = get_sub_field('faq_title');
+                  $faq_content = get_sub_field('faq_content');
+                ?>
+
+                  <div class="faq group outline-none accordion-section rounded-3xl border border-gray-200 shadow-lg bg-gray-100 mb-6" tabindex="<?php echo get_row_index(); ?>">
+                    <div class="group bg-white border border-gray-200 -my-px -mx-px rounded-3xl flex justify-between px-6 py-4 items-center text-gray-800 transition ease duration-500 cursor-pointer pr-10 relative">
+                      <div class="font-bold uppercase">
+                        <?php echo $faq_title ?>
+                      </div>
+                      <div class="h-8 w-8 text-primary-light text-lg rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-3 mr-3">
+                        <ion-icon name="chevron-down-outline"></ion-icon>
+                      </div>
+                    </div>
+                    <div class="group-focus:max-h-screen max-h-0 bg-gray-100 px-6 overflow-hidden ease duration-500 text-gray-800 text-justify rounded-b-3xl rounded-l-3xl">
+                      <div class="py-6 text-gray-800 faq-content">
+                        <?php echo $faq_content ?>
+                      </div>
+                    </div>
+                  </div>
+
+                <?php endwhile; ?>
+              </div>
+            <?php endif; ?>
+
+            </div>
+          </div>
       </div>
-    </div>
   </section>
 
   <?php
-  get_template_part('template-parts/section-testimonial-slider');
+  if (get_field('show_testimonial')) {
+    get_template_part('template-parts/section-testimonial-slider');
+  }
   ?>
 
 </main>

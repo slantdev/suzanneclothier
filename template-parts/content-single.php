@@ -30,7 +30,7 @@ if (!$thumbnail_medium) {
   </div>
   <?php
   $post_type = get_post_type();
-  echo $post_type;
+  //echo $post_type;
   $post_type_obj = get_post_type_object($post_type);
   //echo $post_type_obj->labels->singular_name;
   ?>
