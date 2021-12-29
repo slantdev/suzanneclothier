@@ -1,0 +1,19 @@
+#about-suzanne .text-area ul,
+#customer-service .text-area ul {
+  .gform_fields {
+    @apply pl-0;
+  }
+}
+.ginput_container.ginput_container_date {
+  @apply flex items-center;
+}
+
+.gform_legacy_markup_wrapper .gform_footer input.button,
+.gform_legacy_markup_wrapper .gform_footer input[type='image'],
+.gform_legacy_markup_wrapper .gform_footer input[type='submit'] {
+  @apply px-5 py-2 text-white bg-primary hover:bg-primary-light;
+}
+.gform_legacy_markup_wrapper .gform_footer a.gform_save_link,
+.gform_legacy_markup_wrapper .gform_page_footer a.gform_save_link {
+  @apply text-sm;
+}
