@@ -1,6 +1,6 @@
 #about-suzanne .text-area ul,
 #customer-service .text-area ul {
-  .gform_fields {
+  &.gform_fields {
     @apply pl-0;
   }
 }
@@ -11,7 +11,7 @@
 .gform_legacy_markup_wrapper .gform_footer input.button,
 .gform_legacy_markup_wrapper .gform_footer input[type='image'],
 .gform_legacy_markup_wrapper .gform_footer input[type='submit'] {
-  @apply px-5 py-2 text-white bg-primary hover:bg-primary-light;
+  @apply px-5 py-2 rounded-full text-white bg-primary hover:bg-primary-light cursor-pointer;
 }
 .gform_legacy_markup_wrapper .gform_footer a.gform_save_link,
 .gform_legacy_markup_wrapper .gform_page_footer a.gform_save_link {

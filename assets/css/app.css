@@ -40028,7 +40028,7 @@ input[type='checkbox']:focus {
 .mec-topsec .mec-event-image {
   }
 
-#about-suzanne .text-area ul .gform_fields, #customer-service .text-area ul .gform_fields {
+#about-suzanne .text-area ul.gform_fields, #customer-service .text-area ul.gform_fields {
     padding-left: 0px;
   }
 
@@ -40038,6 +40038,8 @@ input[type='checkbox']:focus {
 }
 
 .gform_legacy_markup_wrapper .gform_footer input.button, .gform_legacy_markup_wrapper .gform_footer input[type='image'], .gform_legacy_markup_wrapper .gform_footer input[type='submit'] {
+  cursor: pointer;
+  border-radius: 9999px;
   --tw-bg-opacity: 1;
   background-color: rgba(21, 81, 99, var(--tw-bg-opacity));
 }
