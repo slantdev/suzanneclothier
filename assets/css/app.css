@@ -38881,6 +38881,16 @@ input[type='checkbox']:focus {
       opacity: 1;
     }
 
+#header-search {
+  display: none;
+  width: 0px;
+}
+
+#header-search.show {
+    display: block;
+    width: 14rem;
+  }
+
 #rpt_pricr > div {
     display: grid;
     gap: 1.5rem

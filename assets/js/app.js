@@ -8,6 +8,15 @@
 /***/ (() => {
 
 jQuery(document).ready(function ($) {
+  $('#header-search-button').on('click', function () {
+    $('#header-search').toggleClass('show');
+  });
+  $(window).click(function () {
+    $('#header-search').toggleClass('show');
+  });
+  $('#header-search, #header-search-button').click(function (event) {
+    event.stopPropagation();
+  });
   $('.cat-list').on('change', function () {
     $category = this.value;
     $.ajax({

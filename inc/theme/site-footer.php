@@ -64,16 +64,16 @@ function site_footer()
               <div>
                 <form class="flex bg-white shadow-md rounded-full inline-form-pill">
                   <input type="text" class="text-gray-700 w-full px-4 bg-transparent rounded-full focus:outline-none" placeholder="Email">
-                  <button class="py-3 px-4 text-sm rounded-full bg-secondary font-semibold text-primary uppercase hover:bg-opacity-80 whitespace-nowrap">Sign Up</button>
+                  <button class="py-3 px-4 text-sm rounded-full bg-secondary font-semibold text-primary uppercase hover:bg-opacity-80 whitespace-nowrap cursor-pointer">Sign Up</button>
                 </form>
               </div>
             </div>
             <div class="">
               <h4 class="text-xl font-semibold uppercase mb-5 lg:mb-8">QUICK SEARCH</h4>
               <div>
-                <form class="flex bg-white shadow-md rounded-full inline-form-pill">
-                  <input type="text" class="text-gray-700 w-full px-4 bg-transparent rounded-full focus:outline-none" placeholder="Email">
-                  <button class="py-3 px-4 text-sm rounded-full bg-secondary font-semibold text-primary uppercase hover:bg-opacity-80 whitespace-nowrap">Search</button>
+                <form id="searchform" class="flex bg-white shadow-md rounded-full inline-form-pill" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+                  <input type="text" class="text-gray-700 w-full px-4 bg-transparent rounded-full focus:outline-none" name="s" placeholder="Search" value="<?php echo get_search_query(); ?>">
+                  <input class="py-3 px-4 text-sm rounded-full bg-secondary font-semibold text-primary uppercase hover:bg-opacity-80 whitespace-nowrap cursor-pointer" type="submit" value="Search">
                 </form>
               </div>
             </div>

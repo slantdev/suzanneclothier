@@ -78,7 +78,7 @@ function learning_path_item($background, $title, $text, $url)
       $cta_button_text = get_field('cta_button_text');
       $cta_button_url = get_field('cta_button_url');
       ?>
-      <div class="cta-box -mt-24 relative z-20">
+      <div class="cta-box -mt-24 relative z-10">
         <div class="block lg:flex items-center bg-primary text-white rounded-2xl shadow-md px-5 py-5 lg:px-16 lg:py-16">
           <div class="block lg:inline-flex lg:pr-8 mb-4 lg:mb-0">
             <h3 class="text-3xl lg:text-4_25xl font-quincy whitespace-nowrap"><?php echo $cta_title ?></h3>
