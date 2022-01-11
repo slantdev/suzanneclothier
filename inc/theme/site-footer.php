@@ -66,6 +66,12 @@ function site_footer()
                 <div class="footer-newsletter">
                   <?php echo do_shortcode($newsletter_shortcode); ?>
                 </div>
+
+                <form class="flex bg-white shadow-md rounded-full inline-form-pill">
+                  <input type="text" class="text-gray-700 w-full px-4 bg-transparent rounded-full focus:outline-none" placeholder="Email">
+                  <button class="py-3 px-4 text-sm rounded-full bg-secondary font-semibold text-primary uppercase hover:bg-opacity-80 whitespace-nowrap cursor-pointer">Sign Up</button>
+                </form>
+
               </div>
             <?php } ?>
             <div class="">

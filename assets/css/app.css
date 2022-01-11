@@ -37486,6 +37486,83 @@ body {
     text-decoration: underline;
   }
 
+.footer-newsletter .frm_style_formidable-style.with_frm_style .form-field {
+    margin-bottom: 0px;
+  }
+
+.footer-newsletter .frm_form_fields .frm_fields_container {
+    position: relative;
+    display: flex;
+    border-radius: 9999px;
+    --tw-bg-opacity: 1;
+    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+    --tw-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.1), 0 2px 4px 0px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+.footer-newsletter .with_frm_style .frm_top_container .frm_primary_label {
+    display: none;
+  }
+
+.footer-newsletter .with_frm_style input[type='email'] {
+    height: auto;
+    width: 100%;
+    border-radius: 9999px;
+    border-width: 0px;
+    background-color: transparent;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 1.5rem;
+    --tw-text-opacity: 1;
+    color: rgba(64, 64, 64, var(--tw-text-opacity));
+    --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+.footer-newsletter .with_frm_style input[type='email']:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  }
+
+.footer-newsletter .frm_style_formidable-style.with_frm_style.frm_inline_top
+    .frm_submit::before {
+    display: none;
+  }
+
+.footer-newsletter .frm_style_formidable-style.with_frm_style.frm_inline_form
+    .frm_submit
+    button {
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 9999px;
+    --tw-bg-opacity: 1;
+    background-color: rgba(228, 186, 124, var(--tw-bg-opacity));
+  }
+
+.footer-newsletter .frm_style_formidable-style.with_frm_style.frm_inline_form
+    .frm_submit
+    button:hover {
+    --tw-bg-opacity: 0.8;
+  }
+
+.footer-newsletter .frm_style_formidable-style.with_frm_style.frm_inline_form
+    .frm_submit
+    button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    --tw-text-opacity: 1;
+    color: rgba(21, 81, 99, var(--tw-text-opacity));
+  }
+
 /* Default */
 
 [type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select {

@@ -236,3 +236,27 @@ body {
     @apply hover:underline;
   }
 }
+
+.footer-newsletter {
+  .frm_style_formidable-style.with_frm_style .form-field {
+    @apply mb-0;
+  }
+  .frm_form_fields .frm_fields_container {
+    @apply flex bg-white shadow-md rounded-full relative;
+  }
+  .with_frm_style .frm_top_container .frm_primary_label {
+    @apply hidden;
+  }
+  .with_frm_style input[type='email'] {
+    @apply leading-6 h-auto text-gray-700 w-full px-4 bg-transparent border-0 rounded-full shadow-none focus:ring-0 focus:outline-none;
+  }
+  .frm_style_formidable-style.with_frm_style.frm_inline_top
+    .frm_submit::before {
+    @apply hidden;
+  }
+  .frm_style_formidable-style.with_frm_style.frm_inline_form
+    .frm_submit
+    button {
+    @apply py-3 px-4 text-sm rounded-full bg-secondary font-semibold text-primary uppercase hover:bg-opacity-80 whitespace-nowrap cursor-pointer;
+  }
+}
