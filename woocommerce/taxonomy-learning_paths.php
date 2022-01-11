@@ -144,17 +144,22 @@ $intro_text = get_field('intro_text', $queried_object);
     // print_r($categories);
     // echo '</pre>';
 
+    echo '<ul class="flex bg-primary overflow-x-auto items-center justify-start lg:justify-center">';
     if (!empty($categories)) {
-      echo '<ul class="flex bg-primary overflow-x-auto items-center justify-start lg:justify-center">';
       foreach ($categories as $key => $category) {
         echo '<li>';
-        echo '<a href="#' . $category->slug . '" class="block text-white font-bold font-quincy text-xl px-8 py-3 whitespace-nowrap">';
+        echo '<a href="#' . $category->slug . '" class="block text-white font-bold font-quincy text-xl px-6 py-3 whitespace-nowrap">';
         echo $category->name;
         echo '</a>';
         echo '</li>';
       }
-      echo '</ul>';
     }
+    echo '<li>';
+    echo '<a href="#articles" class="block text-white font-bold font-quincy text-xl px-6 py-3 whitespace-nowrap">';
+    echo 'Articles';
+    echo '</a>';
+    echo '</li>';
+    echo '</ul>';
 
     ?>
   </div>
@@ -166,6 +171,7 @@ $intro_text = get_field('intro_text', $queried_object);
 $term_id = $queried_object->term_id;
 $term_slug = $queried_object->slug;
 
+// Product Categories
 $product_cat_args = array(
   'orderby'    => 'name',
   'order'      => 'asc',
@@ -239,6 +245,119 @@ if (!empty($product_categories)) {
       echo '</div>';
       echo '</div>';
     }
+  }
+}
+
+// Articles
+$defaults = array(
+  'fields'                 => 'ids',
+  'update_post_term_cache' => false,
+  'update_post_meta_cache' => false,
+  'cache_results'          => false
+);
+$article = array(
+  'posts_per_page' => -1,
+  'post_type' => 'article',
+  'orderby' => 'date',
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'learning_paths',
+      'field'    => 'slug',
+      'terms'    => $term_slug,
+    ),
+  ),
+);
+$articles_french = array(
+  'posts_per_page' => -1,
+  'post_type' => 'articles_french',
+  'orderby' => 'date',
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'learning_paths',
+      'field'    => 'slug',
+      'terms'    => $term_slug,
+    ),
+  ),
+);
+$article_norway = array(
+  'posts_per_page' => -1,
+  'post_type' => 'article_norway',
+  'orderby' => 'date',
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'learning_paths',
+      'field'    => 'slug',
+      'terms'    => $term_slug,
+    ),
+  ),
+);
+$article_dutch = array(
+  'posts_per_page' => -1,
+  'post_type' => 'article_dutch',
+  'orderby' => 'date',
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'learning_paths',
+      'field'    => 'slug',
+      'terms'    => $term_slug,
+    ),
+  ),
+);
+$article_it = array(
+  'posts_per_page' => -1,
+  'post_type' => 'article_it',
+  'orderby' => 'date',
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'learning_paths',
+      'field'    => 'slug',
+      'terms'    => $term_slug,
+    ),
+  ),
+);
+
+$article_query = get_posts(array_merge($defaults, $article));
+$article_french_query = get_posts(array_merge($defaults, $articles_french));
+$article_norway_query = get_posts(array_merge($defaults, $article_norway));
+$article_dutch_query = get_posts(array_merge($defaults, $article_dutch));
+$article_it_query = get_posts(array_merge($defaults, $article_it));
+
+$post_ids = array_merge($article_query, $article_french_query, $article_norway_query, $article_dutch_query, $article_it_query);
+
+if ($post_ids) {
+  $final_args = array(
+    'post_type' => ['article', 'articles_french', 'article_norway', 'article_dutch', 'article_it'],
+    'post__in'  => $post_ids,
+    'orderby' => 'date',
+  );
+
+  $the_query = new WP_Query($final_args);
+
+  if ($the_query->have_posts()) {
+
+    echo '<div id="articles" class="section-anchor ' . (++$count % 2 ? "" : " bg-secondary-light") . '">';
+    echo '<div class="container">';
+
+    echo '<div class="text-center mb-10 lg:mb-20">
+    <div class="h-10 lg:h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
+    <div class="my-8"><img src="' . get_stylesheet_directory_uri() . '/assets/images/logo-icon.svg" class="w-16 h-auto mx-auto"></div>
+    <h3 class="text-4_25xl my-6 text-primary font-quincy">Articles</h3>
+    <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
+  </div>';
+
+    echo '<div class="blog-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pb-12 gap-8">';
+    while ($the_query->have_posts()) {
+      $the_query->the_post();
+      get_template_part('template-parts/blog-list-item');
+    }
+    echo '</div>';
+
+    echo '<div class="text-center mt-16">
+    <div class="h-10 lg:h-16 w-px bg-primary bg-opacity-50 mx-auto"></div>
+  </div>';
+
+    echo '</div>';
+    echo '</div>';
   }
 }
 
