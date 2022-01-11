@@ -36751,6 +36751,8 @@ body {
 .footer-newsletter .frm_form_fields .frm_fields_container {
     position: relative;
     display: flex;
+    grid-template-columns: none;
+    gap: 0px;
     border-radius: 9999px;
     --tw-bg-opacity: 1;
     background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -36763,6 +36765,7 @@ body {
   }
 
 .footer-newsletter .with_frm_style input[type='email'] {
+    height: 44px;
     height: auto;
     width: 100%;
     border-radius: 9999px;
@@ -36778,6 +36781,8 @@ body {
   }
 
 .footer-newsletter .with_frm_style input[type='email']:focus {
+    --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     outline: 2px solid transparent;
     outline-offset: 2px;
     --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -36796,6 +36801,7 @@ body {
     cursor: pointer;
     white-space: nowrap;
     border-radius: 9999px;
+    border-width: 0px;
     --tw-bg-opacity: 1;
     background-color: rgba(228, 186, 124, var(--tw-bg-opacity));
   }
