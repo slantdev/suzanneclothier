@@ -74,6 +74,25 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_61dce7325b9af",
+            "label": "Newsletter Shortcode",
+            "name": "newsletter_shortcode",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -93,5 +112,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1639856541
+    "modified": 1641867087
 }
