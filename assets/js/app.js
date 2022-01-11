@@ -12,7 +12,9 @@ jQuery(document).ready(function ($) {
     $('#header-search').toggleClass('show');
   });
   $(window).click(function () {
-    $('#header-search').toggleClass('show');
+    if ($("#header-search").hasClass("show")) {
+      $('#header-search').removeClass('show');
+    }
   });
   $('#header-search, #header-search-button').click(function (event) {
     event.stopPropagation();
