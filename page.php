@@ -63,7 +63,6 @@ get_header();
     </div>
     </section>
 
-
     <section class="bg-white">
       <div class="container pt-10 lg:pt-20 pb-14 lg:pb-28 max-w-7xl mx-auto">
         <div class="block lg:flex gap-16">

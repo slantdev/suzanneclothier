@@ -33,6 +33,8 @@ get_header();
             <div class="breadcrumb -mx-1">
               <span class="inline-block px-1"><a href="/">Home</a></span>
               <span class="inline-block px-1"> / </span>
+              <span class="inline-block px-1"><a href="/my-account">Dashboard</a></span>
+              <span class="inline-block px-1"> / </span>
               <span class="font-semibold inline-block px-1"><?php the_title(); ?></span>
             </div>
           </div>

@@ -383,6 +383,7 @@
     .form-row-last {
       @apply float-none;
     }
+
     .woocommerce-billing-fields,
     .woocommerce-shipping-fields,
     .woocommerce-account-fields {
@@ -397,7 +398,7 @@
     .woocommerce-billing-fields__field-wrapper,
     .woocommerce-shipping-fields__field-wrapper,
     .create-account {
-      @apply flex flex-wrap gap-y-5;
+      @apply flex flex-wrap gap-y-4 pt-3;
     }
     .shipping_address {
       @apply mt-2;
@@ -434,10 +435,10 @@
     #shipping_postcode_field {
       @apply pl-4;
     }
-    .checkbox {
+    .form-row label.checkbox {
       @apply inline-flex;
       input[type='checkbox'] {
-        @apply mt-1;
+        @apply inline-block mt-1 mr-0;
       }
       span {
         @apply ml-2;
@@ -480,6 +481,10 @@
       }
       ul.payment_methods {
         @apply border-b border-gray-200;
+        input[type='checkbox'] {
+          @apply inline-block mt-0 mr-1;
+          width: 1rem !important;
+        }
       }
     }
   }

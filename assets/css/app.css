@@ -38569,7 +38569,8 @@ input[type='checkbox']:focus {
 .woocommerce form.checkout .woocommerce-billing-fields__field-wrapper, .woocommerce form.checkout .woocommerce-shipping-fields__field-wrapper, .woocommerce form.checkout .create-account {
       display: flex;
       flex-wrap: wrap;
-      row-gap: 1.25rem;
+      row-gap: 1rem;
+      padding-top: 0.75rem;
     }
 
 .woocommerce form.checkout .shipping_address {
@@ -38606,15 +38607,17 @@ input[type='checkbox']:focus {
       padding-left: 1rem;
     }
 
-.woocommerce form.checkout .checkbox {
+.woocommerce form.checkout .form-row label.checkbox {
       display: inline-flex;
     }
 
-.woocommerce form.checkout .checkbox input[type='checkbox'] {
+.woocommerce form.checkout .form-row label.checkbox input[type='checkbox'] {
         margin-top: 0.25rem;
+        margin-right: 0px;
+        display: inline-block;
       }
 
-.woocommerce form.checkout .checkbox span {
+.woocommerce form.checkout .form-row label.checkbox span {
         margin-left: 0.5rem;
       }
 
@@ -38696,6 +38699,13 @@ input[type='checkbox']:focus {
         --tw-border-opacity: 1;
         border-color: rgba(229, 229, 229, var(--tw-border-opacity));
       }
+
+.woocommerce form.checkout #payment ul.payment_methods input[type='checkbox'] {
+          margin-top: 0px;
+          margin-right: 0.25rem;
+          display: inline-block;
+          width: 1rem !important;
+        }
 
 .woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
     margin-top: 2rem;
@@ -39979,6 +39989,99 @@ input[type='checkbox']:focus {
 #bbpress-forums div.odd, #bbpress-forums ul.odd {
     --tw-bg-opacity: 1;
     background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  }
+
+#bbpress-forums li.bbp-forum-freshness, #bbpress-forums li.bbp-topic-freshness {
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
+
+#bbpress-forums .bbp-forum-info .bbp-forum-title {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      font-weight: 700;
+    }
+
+#bbpress-forums .bbp-forum-info .bbp-forum-content {
+      font-size: .75rem;
+      line-height: 1rem;
+      --tw-text-opacity: 1;
+      color: rgba(82, 82, 82, var(--tw-text-opacity));
+    }
+
+#bbpress-forums p.bbp-topic-meta {
+    font-size: .75rem;
+    line-height: 1rem;
+  }
+
+#bbpress-forums .bbp-body li.bbp-forum-reply-count, #bbpress-forums .bbp-body li.bbp-forum-topic-count, #bbpress-forums .bbp-body li.bbp-topic-reply-count, #bbpress-forums .bbp-body li.bbp-topic-voice-count {
+      font-size: .75rem;
+      line-height: 1rem;
+    }
+
+#bbpress-forums .subscription-toggle {
+    margin-bottom: 0.25rem;
+    display: inline-block;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgba(104, 139, 138, var(--tw-text-opacity));
+  }
+
+#bbpress-forums .subscription-toggle:hover {
+    --tw-text-opacity: 1;
+    color: rgba(160, 176, 132, var(--tw-text-opacity));
+  }
+
+#bbpress-forums li.bbp-topic-title .bbp-topic-permalink {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      font-weight: 700;
+    }
+
+#bbpress-forums fieldset.bbp-form input[type='text'], #bbpress-forums fieldset.bbp-form select {
+    height: 2.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+#bbpress-forums #bbp_topic_submit {
+    border-radius: 9999px;
+    --tw-bg-opacity: 1;
+    background-color: rgba(21, 81, 99, var(--tw-bg-opacity));
+  }
+
+#bbpress-forums #bbp_topic_submit:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(36, 137, 168, var(--tw-bg-opacity));
+  }
+
+#bbpress-forums #bbp_topic_submit {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    --tw-text-opacity: 1;
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+#bbpress-forums div.bbp-submit-wrapper {
+    float: none;
+  }
+
+#bbpress-forums fieldset.bbp-form {
+    padding-bottom: 1.5rem;
+  }
+
+#bbpress-forums fieldset.bbp-form label {
+    margin-bottom: 0.25rem;
   }
 
 .mec-reg-btn.mec-frontbox {

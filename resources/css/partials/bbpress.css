@@ -45,4 +45,51 @@
     /* background-color: #fbfbfb; */
     @apply bg-white;
   }
+  li.bbp-forum-freshness,
+  li.bbp-topic-freshness {
+    @apply text-sm;
+  }
+  .bbp-forum-info {
+    .bbp-forum-title {
+      @apply text-xl font-bold;
+    }
+    .bbp-forum-content {
+      @apply text-xs text-gray-600;
+    }
+  }
+  p.bbp-topic-meta {
+    @apply text-xs;
+  }
+  .bbp-body {
+    li.bbp-forum-reply-count,
+    li.bbp-forum-topic-count,
+    li.bbp-topic-reply-count,
+    li.bbp-topic-voice-count {
+      @apply text-xs;
+    }
+  }
+  .subscription-toggle {
+    @apply text-link text-sm hover:text-link-hover inline-block mb-1;
+  }
+  li.bbp-topic-title {
+    .bbp-topic-permalink {
+      @apply text-xl font-bold;
+    }
+  }
+  fieldset.bbp-form input[type='text'],
+  fieldset.bbp-form select {
+    @apply h-10 px-2 py-2;
+  }
+  #bbp_topic_submit {
+    @apply bg-primary px-5 py-2 rounded-full text-white transition hover:bg-primary-light;
+  }
+  div.bbp-submit-wrapper {
+    @apply float-none;
+  }
+  fieldset.bbp-form {
+    @apply pb-6;
+  }
+  fieldset.bbp-form label {
+    @apply mb-1;
+  }
 }
