@@ -38974,6 +38974,29 @@ input[type='checkbox']:focus {
     width: 14rem;
   }
 
+.lp-help.ubermenu-tab .ubermenu-tab-content-panel {
+    position: relative;
+    border-width: 0px;
+  }
+
+.lp-help .ubermenu-item-layout-image_above > .ubermenu-image {
+    margin-bottom: 0px;
+  }
+
+.lp-help .ubermenu-target-with-image > .ubermenu-target-text {
+    position: absolute;
+    bottom: 1rem;
+    display: block;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    padding-right: 3rem;
+    padding-left: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    --tw-text-opacity: 1;
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+  }
+
 #rpt_pricr > div {
     display: grid;
     gap: 1.5rem
