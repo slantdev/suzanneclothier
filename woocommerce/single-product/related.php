@@ -20,9 +20,16 @@ if (!defined('ABSPATH')) {
   exit;
 }
 
+$paddings = 'pt-12 lg:pt-20';
+global $product;
+$upsells = $product->get_upsells();
+if ($upsells) {
+  $paddings = 'pt-0 lg:pt-0';
+}
+
 if ($related_products) : ?>
 
-  <section class="related-products pt-12 lg:pt-20 pb-12 lg:pb-24 bg-secondary-light">
+  <section class="related-products pb-12 lg:pb-24 bg-secondary-light <?php echo $paddings ?>">
     <div class="container">
 
       <?php

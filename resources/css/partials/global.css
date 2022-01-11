@@ -250,6 +250,11 @@ body {
   .with_frm_style .frm_checkbox input[type='checkbox'] {
     @apply mt-px;
   }
+  .with_frm_style .vertical_radio .frm_checkbox,
+  .with_frm_style .vertical_radio .frm_radio,
+  .vertical_radio .frm_catlevel_1 {
+    @apply mt-1;
+  }
   .frm_form_fields .frm_fields_container {
     @apply block gap-0 grid-cols-none;
   }

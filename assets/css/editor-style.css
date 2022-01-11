@@ -36764,6 +36764,10 @@ body {
     margin-top: 1px;
   }
 
+.footer-newsletter .with_frm_style .vertical_radio .frm_checkbox, .footer-newsletter .with_frm_style .vertical_radio .frm_radio, .footer-newsletter .vertical_radio .frm_catlevel_1 {
+    margin-top: 0.25rem;
+  }
+
 .footer-newsletter .frm_form_fields .frm_fields_container {
     display: block;
     grid-template-columns: none;
