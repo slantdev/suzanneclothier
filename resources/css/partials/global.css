@@ -241,15 +241,29 @@ body {
   .frm_style_formidable-style.with_frm_style .form-field {
     @apply mb-0;
   }
+  .with_frm_style .vertical_radio .frm_checkbox label,
+  .with_frm_style .vertical_radio .frm_radio label {
+    @apply flex pl-0 text-white;
+    text-indent: 0px;
+  }
+  .with_frm_style .frm_radio input[type='radio'],
+  .with_frm_style .frm_checkbox input[type='checkbox'] {
+    @apply mt-px;
+  }
   .frm_form_fields .frm_fields_container {
-    @apply flex bg-white shadow-md rounded-full relative gap-0 grid-cols-none;
+    @apply block gap-0 grid-cols-none;
   }
   .with_frm_style .frm_top_container .frm_primary_label {
     @apply hidden;
   }
   .with_frm_style input[type='email'] {
     height: 44px;
-    @apply leading-6 h-auto text-gray-700 w-full px-4 bg-transparent border-0 rounded-full shadow-none focus:ring-0 focus:outline-none focus:shadow-none;
+    @apply leading-6 h-auto text-gray-700 w-full px-4 bg-white border-0 rounded-full shadow-none focus:ring-0 focus:outline-none focus:shadow-none;
+  }
+  .frm_style_formidable-style.with_frm_style
+    .form-field
+    input:not([type='file']):focus {
+    @apply shadow-none;
   }
   .frm_style_formidable-style.with_frm_style.frm_inline_top
     .frm_submit::before {
@@ -258,6 +272,9 @@ body {
   .frm_style_formidable-style.with_frm_style.frm_inline_form
     .frm_submit
     button {
-    @apply py-3 px-4 text-sm border-0 rounded-full bg-secondary font-semibold text-primary uppercase hover:bg-opacity-80 whitespace-nowrap cursor-pointer;
+    @apply py-3 px-4 text-sm border-0 rounded-full bg-secondary font-semibold shadow-none text-primary uppercase hover:bg-opacity-80 whitespace-nowrap cursor-pointer;
+  }
+  .frm_style_formidable-style.with_frm_style .frm_submit button {
+    @apply py-3 px-4 text-sm border-0 rounded-full bg-secondary font-semibold shadow-none text-primary uppercase hover:bg-opacity-80 whitespace-nowrap cursor-pointer;
   }
 }
