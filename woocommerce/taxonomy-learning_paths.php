@@ -105,6 +105,7 @@ $intro_text = get_field('intro_text', $queried_object);
     $term_id = $queried_object->term_id;
     $term_slug = $queried_object->slug;
 
+    // Product Categories Args
     $params = array(
       'posts_per_page' => 1000,
       'post_type' => 'product',
@@ -144,6 +145,82 @@ $intro_text = get_field('intro_text', $queried_object);
     // print_r($categories);
     // echo '</pre>';
 
+    // Articles Args
+    $defaults = array(
+      'fields'                 => 'ids',
+      'update_post_term_cache' => false,
+      'update_post_meta_cache' => false,
+      'cache_results'          => false
+    );
+    $article = array(
+      'posts_per_page' => -1,
+      'post_type' => 'article',
+      'orderby' => 'date',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'learning_paths',
+          'field'    => 'slug',
+          'terms'    => $term_slug,
+        ),
+      ),
+    );
+    $articles_french = array(
+      'posts_per_page' => -1,
+      'post_type' => 'articles_french',
+      'orderby' => 'date',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'learning_paths',
+          'field'    => 'slug',
+          'terms'    => $term_slug,
+        ),
+      ),
+    );
+    $article_norway = array(
+      'posts_per_page' => -1,
+      'post_type' => 'article_norway',
+      'orderby' => 'date',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'learning_paths',
+          'field'    => 'slug',
+          'terms'    => $term_slug,
+        ),
+      ),
+    );
+    $article_dutch = array(
+      'posts_per_page' => -1,
+      'post_type' => 'article_dutch',
+      'orderby' => 'date',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'learning_paths',
+          'field'    => 'slug',
+          'terms'    => $term_slug,
+        ),
+      ),
+    );
+    $article_it = array(
+      'posts_per_page' => -1,
+      'post_type' => 'article_it',
+      'orderby' => 'date',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'learning_paths',
+          'field'    => 'slug',
+          'terms'    => $term_slug,
+        ),
+      ),
+    );
+
+    $article_query = get_posts(array_merge($defaults, $article));
+    $article_french_query = get_posts(array_merge($defaults, $articles_french));
+    $article_norway_query = get_posts(array_merge($defaults, $article_norway));
+    $article_dutch_query = get_posts(array_merge($defaults, $article_dutch));
+    $article_it_query = get_posts(array_merge($defaults, $article_it));
+
+    $articles = array_merge($article_query, $article_french_query, $article_norway_query, $article_dutch_query, $article_it_query);
+
     echo '<ul class="flex bg-primary overflow-x-auto items-center justify-start lg:justify-center">';
     if (!empty($categories)) {
       foreach ($categories as $key => $category) {
@@ -154,13 +231,14 @@ $intro_text = get_field('intro_text', $queried_object);
         echo '</li>';
       }
     }
-    echo '<li>';
-    echo '<a href="#articles" class="block text-white font-bold font-quincy text-xl px-6 py-3 whitespace-nowrap">';
-    echo 'Articles';
-    echo '</a>';
-    echo '</li>';
-    echo '</ul>';
-
+    if (!empty($articles)) {
+      echo '<li>';
+      echo '<a href="#articles" class="block text-white font-bold font-quincy text-xl px-6 py-3 whitespace-nowrap">';
+      echo 'Articles';
+      echo '</a>';
+      echo '</li>';
+      echo '</ul>';
+    }
     ?>
   </div>
 
@@ -249,85 +327,10 @@ if (!empty($product_categories)) {
 }
 
 // Articles
-$defaults = array(
-  'fields'                 => 'ids',
-  'update_post_term_cache' => false,
-  'update_post_meta_cache' => false,
-  'cache_results'          => false
-);
-$article = array(
-  'posts_per_page' => -1,
-  'post_type' => 'article',
-  'orderby' => 'date',
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'learning_paths',
-      'field'    => 'slug',
-      'terms'    => $term_slug,
-    ),
-  ),
-);
-$articles_french = array(
-  'posts_per_page' => -1,
-  'post_type' => 'articles_french',
-  'orderby' => 'date',
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'learning_paths',
-      'field'    => 'slug',
-      'terms'    => $term_slug,
-    ),
-  ),
-);
-$article_norway = array(
-  'posts_per_page' => -1,
-  'post_type' => 'article_norway',
-  'orderby' => 'date',
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'learning_paths',
-      'field'    => 'slug',
-      'terms'    => $term_slug,
-    ),
-  ),
-);
-$article_dutch = array(
-  'posts_per_page' => -1,
-  'post_type' => 'article_dutch',
-  'orderby' => 'date',
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'learning_paths',
-      'field'    => 'slug',
-      'terms'    => $term_slug,
-    ),
-  ),
-);
-$article_it = array(
-  'posts_per_page' => -1,
-  'post_type' => 'article_it',
-  'orderby' => 'date',
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'learning_paths',
-      'field'    => 'slug',
-      'terms'    => $term_slug,
-    ),
-  ),
-);
-
-$article_query = get_posts(array_merge($defaults, $article));
-$article_french_query = get_posts(array_merge($defaults, $articles_french));
-$article_norway_query = get_posts(array_merge($defaults, $article_norway));
-$article_dutch_query = get_posts(array_merge($defaults, $article_dutch));
-$article_it_query = get_posts(array_merge($defaults, $article_it));
-
-$post_ids = array_merge($article_query, $article_french_query, $article_norway_query, $article_dutch_query, $article_it_query);
-
-if ($post_ids) {
+if (!empty($articles)) {
   $final_args = array(
     'post_type' => ['article', 'articles_french', 'article_norway', 'article_dutch', 'article_it'],
-    'post__in'  => $post_ids,
+    'post__in'  => $articles,
     'orderby' => 'date',
   );
 
