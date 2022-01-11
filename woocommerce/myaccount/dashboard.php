@@ -31,12 +31,17 @@ $allowed_html = array(
 if (rcp_user_has_active_membership()) {
 
   // Courses
+  $courses_description = get_field('courses_description', 'option');
   echo '<div id="courses" class="section-anchor mb-24">';
 
   echo '<div class="text-center mb-10">
     <h3 class="text-4_25xl my-6 text-primary font-quincy">Courses</h3>
     <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
   </div>';
+
+  if ($courses_description) {
+    echo '<div class="text-center text-sm max-w-prose mx-auto mb-10">' . $courses_description . '</div>';
+  }
 
   $args = array(
     'posts_per_page' => -1,
@@ -68,8 +73,6 @@ if (rcp_user_has_active_membership()) {
 
   if ($wc_query->have_posts()) {
 
-    echo '<div class="text-center text-sm max-w-prose mx-auto mb-10">' . term_description('54', 'product_cat') . '</div>';
-
     woocommerce_product_loop_start();
 
     while ($wc_query->have_posts()) {
@@ -87,13 +90,12 @@ if (rcp_user_has_active_membership()) {
   }
   wp_reset_postdata();
 
-
   echo '</div>';
 
-  // Member Videos
+  // Member Video Library
+  $member_video_library_description = get_field('member_video_library_description', 'option');
   echo '<div id="video-library" class="section-anchor">';
   echo '<div class="container px-0 lg:px-4">';
-
 
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
   $args = array(
@@ -113,6 +115,11 @@ if (rcp_user_has_active_membership()) {
       <h3 class="text-4_25xl my-6 text-primary font-quincy">Member Video Library</h3>
       <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
     </div>';
+
+    if ($member_video_library_description) {
+      echo '<div class="text-center text-sm max-w-prose mx-auto mb-10">' . $member_video_library_description . '</div>';
+    }
+
     echo '<div class="blog-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 pb-12 gap-8">';
     while ($posts_query->have_posts()) {
       $posts_query->the_post();
@@ -125,6 +132,7 @@ if (rcp_user_has_active_membership()) {
   echo '</div>';
 
   // Articles
+  $member_articles_description = get_field('member_articles_description', 'option');
   echo '<div id="articles" class="section-anchor">';
   echo '<div class="container px-0 lg:px-4">';
 
@@ -133,6 +141,9 @@ if (rcp_user_has_active_membership()) {
     <div class="w-14 h-1 my-6 bg-secondary mx-auto"></div>
   </div>';
 
+  if ($member_articles_description) {
+    echo '<div class="text-center text-sm max-w-prose mx-auto mb-10">' . $member_articles_description . '</div>';
+  }
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
   $args = array(
     'post_type' => 'post',

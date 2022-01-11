@@ -3,6 +3,79 @@
     "title": "Site Settings",
     "fields": [
         {
+            "key": "field_61dd8873b2c6c",
+            "label": "Dashboard",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_61dd88deb2c6d",
+            "label": "Courses Description",
+            "name": "courses_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_61dd88fbb2c6e",
+            "label": "Member Video Library Description",
+            "name": "member_video_library_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_61dd8916b2c6f",
+            "label": "Member Articles Description",
+            "name": "member_articles_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
             "key": "field_61be38b817f68",
             "label": "Footer",
             "name": "",
@@ -112,5 +185,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1641867087
+    "modified": 1641908781
 }

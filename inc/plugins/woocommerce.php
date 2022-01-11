@@ -378,12 +378,14 @@ function sc_add_my_account_link($items)
 {
   $new_items = array();
 
-  $new_items['#courses'] = 'Courses';
-  $new_items['#video-library'] = 'Video Library';
-  $new_items['#articles'] = 'Articles';
-  $new_items['community'] = 'Community';
-  $new_items['my-membership'] = 'My Membership';
-  $new_items['coupon'] = 'Coupon';
+  if (rcp_user_has_active_membership()) {
+    $new_items['#courses'] = 'Courses';
+    $new_items['#video-library'] = 'Video Library';
+    $new_items['#articles'] = 'Articles';
+    $new_items['community'] = 'Community';
+    $new_items['my-membership'] = 'My Membership';
+    $new_items['coupon'] = 'Coupon';
+  }
 
 
   return sc_insert_after_helper($items, $new_items, 'dashboard');
