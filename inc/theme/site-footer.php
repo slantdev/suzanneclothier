@@ -7,6 +7,7 @@ function site_footer()
   $logo_description = get_field('logo_description', 'option');
   $mailing_address = get_field('mailing_address', 'option');
   $phone = get_field('phone', 'option');
+  $newsletter_shortcode = get_field('newsletter_shortcode', 'option');
 ?>
   <footer>
     <div class="bg-primary py-16 lg:py-24">
@@ -59,15 +60,14 @@ function site_footer()
             ?>
           </div>
           <div class="px-4 lg:px-10">
-            <div class="mb-14">
-              <h4 class="text-xl font-semibold uppercase mb-5 lg:mb-8">NEWSLETTER SIGN UP</h4>
-              <div>
-                <form class="flex bg-white shadow-md rounded-full inline-form-pill">
-                  <input type="text" class="text-gray-700 w-full px-4 bg-transparent rounded-full focus:outline-none" placeholder="Email">
-                  <button class="py-3 px-4 text-sm rounded-full bg-secondary font-semibold text-primary uppercase hover:bg-opacity-80 whitespace-nowrap cursor-pointer">Sign Up</button>
-                </form>
+            <?php if ($newsletter_shortcode) { ?>
+              <div class="mb-14">
+                <h4 class="text-xl font-semibold uppercase mb-5 lg:mb-8">NEWSLETTER SIGN UP</h4>
+                <div class="footer-newsletter">
+                  <?php echo do_shortcode($newsletter_shortcode); ?>
+                </div>
               </div>
-            </div>
+            <?php } ?>
             <div class="">
               <h4 class="text-xl font-semibold uppercase mb-5 lg:mb-8">QUICK SEARCH</h4>
               <div>
