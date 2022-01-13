@@ -59,6 +59,9 @@ function sc_pathmenu_func($atts)
 
   if (!empty($categories)) {
     $output .=  '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-4 w-full">';
+  }
+
+  if (!empty($categories)) {
     foreach ($categories as $key => $category) {
 
       $output .= '<div class="">';
@@ -111,10 +114,128 @@ function sc_pathmenu_func($atts)
 
       $output .= '</div>';
     }
-    $output .=  '</div>';
+
+    wp_reset_postdata();
   }
 
-  wp_reset_postdata();
+
+
+  // Articles Args
+  $defaults = array(
+    'fields'                 => 'ids',
+    'update_post_term_cache' => false,
+    'update_post_meta_cache' => false,
+    'cache_results'          => false
+  );
+  $article = array(
+    'posts_per_page' => -1,
+    'post_type' => 'article',
+    'orderby' => 'date',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'learning_paths',
+        'field'    => 'slug',
+        'terms'    => $term_slug,
+      ),
+    ),
+  );
+  $articles_french = array(
+    'posts_per_page' => -1,
+    'post_type' => 'articles_french',
+    'orderby' => 'date',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'learning_paths',
+        'field'    => 'slug',
+        'terms'    => $term_slug,
+      ),
+    ),
+  );
+  $article_norway = array(
+    'posts_per_page' => -1,
+    'post_type' => 'article_norway',
+    'orderby' => 'date',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'learning_paths',
+        'field'    => 'slug',
+        'terms'    => $term_slug,
+      ),
+    ),
+  );
+  $article_dutch = array(
+    'posts_per_page' => -1,
+    'post_type' => 'article_dutch',
+    'orderby' => 'date',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'learning_paths',
+        'field'    => 'slug',
+        'terms'    => $term_slug,
+      ),
+    ),
+  );
+  $article_it = array(
+    'posts_per_page' => -1,
+    'post_type' => 'article_it',
+    'orderby' => 'date',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'learning_paths',
+        'field'    => 'slug',
+        'terms'    => $term_slug,
+      ),
+    ),
+  );
+
+  $article_query = get_posts(array_merge($defaults, $article));
+  $article_french_query = get_posts(array_merge($defaults, $articles_french));
+  $article_norway_query = get_posts(array_merge($defaults, $article_norway));
+  $article_dutch_query = get_posts(array_merge($defaults, $article_dutch));
+  $article_it_query = get_posts(array_merge($defaults, $article_it));
+
+  $articles = array_merge($article_query, $article_french_query, $article_norway_query, $article_dutch_query, $article_it_query);
+
+  if (!empty($articles)) {
+
+    $final_args = array(
+      'post_type' => ['article', 'articles_french', 'article_norway', 'article_dutch', 'article_it'],
+      'post__in'  => $articles,
+      'posts_per_page' => 5,
+      'orderby' => 'date',
+    );
+
+    $the_query = new WP_Query($final_args);
+
+    $output .= '<div class="">';
+    $output .= '<h5 class="border-b border-gray-300 px-1 pt-2 pb-3 font-bold">Articles</h5>';
+
+    if ($the_query->have_posts()) {
+
+      $output .= '<ul class="py-2">';
+      while ($the_query->have_posts()) {
+        $the_query->the_post();
+        $output .= '<li>';
+        $output .= '<a href="' . get_the_permalink() . '" class="block text-sm text-gray-600 py-2 px-1  hover:bg-secondary">';
+        $output .= get_the_title();
+        $output .= '</a>';
+        $output .= '</li>';
+      }
+      $output .= '</ul>';
+
+      $output .= '<a class="text-xs px-1 mt-1 text-secondary-dark hover:text-secondary flex gap-1" href="/articles-in-english"><ion-icon name="arrow-forward-circle-outline" class="text-base"></ion-icon> <span class="inline-block">VIEW ALL</span></a>';
+    }
+
+    $output .= '</div>';
+
+    wp_reset_postdata();
+  }
+
+
+
+  if (!empty($categories)) {
+    $output .=  '</div>';
+  }
 
   return $output;
 }
