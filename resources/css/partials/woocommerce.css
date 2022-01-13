@@ -318,9 +318,15 @@
         .coupon {
           @apply float-none flex;
           .input-text {
-            @apply float-none w-48 mr-2;
-            @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50;
+            @apply float-none w-56 mr-0 pl-6 pr-8 py-3 bg-gray-50;
+            @apply block w-full rounded-l-full rounded-r-none border-gray-300 focus:border-gray-300 focus:ring-0;
           }
+          .button {
+            @apply -ml-8 py-3;
+          }
+        }
+        .button {
+          @apply py-3;
         }
       }
     }
