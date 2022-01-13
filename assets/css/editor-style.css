@@ -36879,6 +36879,15 @@ body {
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
+.search-results .md\:aspect-none > img {
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+  }
+
 .block-editor__typewriter {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }

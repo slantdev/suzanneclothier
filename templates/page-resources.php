@@ -190,13 +190,10 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
           </div>
 
           <div class="max-w-sm mx-auto my-12">
-            <?php
-            // $args = array(
-            //   'exclude' => array(get_category_by_slug('videos')->term_id, get_category_by_slug('uncategorized')->term_id)
-            // );
-            $categories = get_categories_for_post_type($post_type, 'category');
+            <!-- <?php
+                  $categories = get_categories_for_post_type($post_type, 'category');
 
-            ?>
+                  ?>
             <form class="flex bg-gray-50 shadow-md rounded-full">
               <select class="article-cat-list w-full py-3 px-6 bg-transparent rounded-full border-0 focus:outline-none focus:ring-0">
                 <option value="">All</option>
@@ -206,6 +203,10 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
                   </option>
                 <?php endforeach; ?>
               </select>
+            </form> -->
+            <form id="article-searchform" class="flex border border-gray-100 bg-white shadow-md rounded-full inline-form-pill" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+              <input type="text" class="text-gray-700 w-full px-4 py-3 bg-transparent rounded-full focus:outline-none" name="s" placeholder="Search Here" value="<?php echo get_search_query(); ?>">
+              <input class="py-3 px-5 text-sm rounded-full bg-primary font-semibold text-white uppercase hover:bg-opacity-80 whitespace-nowrap cursor-pointer" type="submit" value="Search">
             </form>
           </div>
         <?php } ?>

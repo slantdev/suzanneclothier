@@ -111,9 +111,9 @@ if (!$thumbnail_medium) {
           ?>
           <div class="mb-12">
             <h4 class="text-primary mb-4 text-3xl font-sans">Search the site</h4>
-            <form class="flex bg-gray-50 shadow-md rounded-full inline-form-pill">
-              <input type="text" class="w-full px-6 bg-transparent rounded-full focus:outline-none">
-              <button class="py-3 px-5 text-sm rounded-full bg-primary font-semibold text-white uppercase">Search</button>
+            <form id="sidebar-searchform" class="flex border border-gray-100 bg-white shadow-md rounded-full inline-form-pill" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+              <input type="text" class="text-gray-700 w-full px-4 py-3 bg-transparent rounded-full focus:outline-none" name="s" placeholder="Search Here" value="<?php echo get_search_query(); ?>">
+              <input class="py-3 px-5 text-sm rounded-full bg-primary font-semibold text-white uppercase hover:bg-opacity-80 whitespace-nowrap cursor-pointer" type="submit" value="Search">
             </form>
           </div>
           <div>
