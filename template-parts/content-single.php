@@ -41,7 +41,7 @@ if (!$thumbnail_medium) {
         <?php
         if ($post_type == 'post') {
           echo '<span class="inline-block px-1"> / </span>';
-          echo '<span class="inline-block px-1"><a href="/resources">Blog</a></span>';
+          echo '<span class="inline-block px-1"><a href="/blog">Blog</a></span>';
         }
         if ($post_type == 'article') {
           echo '<span class="inline-block px-1"> / </span>';

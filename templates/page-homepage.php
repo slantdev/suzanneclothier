@@ -301,7 +301,7 @@ function learning_path_item($background, $title, $text, $url)
           }
           wp_reset_postdata();
           ?>
-          <div class="bg-secondary-light py-1 px-4 text-right mt-4 lg:mt-8 mb-12 lg:mb-0"><a href="/resources" class="font-semibold text-primary text-sm">VIEW ALL &raquo;</a></div>
+          <div class="bg-secondary-light py-1 px-4 text-right mt-4 lg:mt-8 mb-12 lg:mb-0"><a href="/blog" class="font-semibold text-primary text-sm">VIEW ALL &raquo;</a></div>
         </div>
 
         <div class="w-full lg:w-2/5 flex flex-col lg:pl-12">
