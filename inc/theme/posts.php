@@ -34,6 +34,7 @@ function filter_blog()
     'posts_per_page' => -1,
     'category_name' => $catSlug,
     'orderby' => 'menu_order',
+    'post_status' => 'publish',
     'order' => 'desc',
   ]);
   $response = '';
@@ -62,6 +63,7 @@ function filter_article()
     'posts_per_page' => -1,
     'category_name' => $catSlug,
     'orderby' => 'menu_order',
+    'post_status' => 'publish',
     'order' => 'desc',
   ]);
   $response = '';
