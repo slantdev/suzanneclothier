@@ -14,17 +14,29 @@ $hero_title = get_field('hero_title');
 $hero_description = get_field('hero_description');
 $hero_background = get_field('hero_background');
 $background_image_desktop = $hero_background['background_image_desktop'];
-$background_image_mobile = $hero_background['background_image_mobile'];
+//$background_image_mobile = $hero_background['background_image_mobile'];
 $background_overlay = $hero_background['background_overlay'];
+$text_color = $hero_background['text_color'];
 
 $hero_image = '';
 if ($background_image_desktop) {
   $hero_image = $background_image_desktop;
 }
 
-
+if ($text_color == 'light') {
+  $headline_color = 'text-white';
+  $description_color = 'text-white';
+} else {
+  $headline_color = 'text-primary';
+  $description_color = 'text-gray-700';
+};
 
 get_header();
+
+global $post;
+
+$parentId = $post->post_parent;
+$linkToParent = get_permalink($parentId);
 ?>
 
 <main class="page-about">
@@ -36,9 +48,9 @@ get_header();
     <div class="container pt-32 pb-8 z-10 mx-auto max-w-7xl">
       <div class="block lg:flex">
         <div class="w-full lg:w-2/5 pb-20">
-          <h2 class="text-5xl lg:text-6xl font-quincy text-primary mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
+          <h2 class="text-5xl lg:text-6xl font-quincy mb-5 <?php echo $headline_color ?>"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
           <?php if ($hero_description) {
-            echo '<div>';
+            echo '<div class="' . $description_color . '">';
             echo $hero_description;
             echo '</div>';
           } ?>
@@ -49,6 +61,10 @@ get_header();
       <div class="container flex items-center max-w-7xl mx-auto">
         <div class="breadcrumb py-2 -mx-1 text-sm lg:text-base">
           <span class="inline-block px-1"><a href="/">Home</a></span>
+          <?php if ($parentId) { ?>
+            <span class="inline-block px-1"> / </span>
+            <span class="inline-block px-1"><a href="<?php echo $linkToParent ?>"><?php echo get_the_title($parentId) ?></a></span>
+          <?php } ?>
           <span class="inline-block px-1"> / </span>
           <span class="font-semibold inline-block px-1"><?php the_title(); ?></span>
         </div>
