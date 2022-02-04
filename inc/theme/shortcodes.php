@@ -43,19 +43,44 @@ function sc_pathmenu_func($atts)
 
   wp_reset_postdata();
 
-  $slug = array_column($categories, 'slug');
+  //$slug = array_column($categories, 'slug');
+  //array_multisort($slug, SORT_ASC, $categories);
 
-  array_multisort($slug, SORT_ASC, $categories);
+  $product_cat = get_terms(array(
+    'taxonomy' => 'product_cat',
+    'hide_empty' => true,
+    'orderby' => 'menu_order',
+    'exclude' => 16
+  ));
+
+
+  $order = array();
+  foreach ($product_cat as $cat) {
+    $order[] = $cat->term_id;
+  }
+
+  //var_dump($order);
+
+  uksort($categories, function ($a, $b) use ($order) {
+    foreach ($order as $value) {
+      if ($a == $value) {
+        return 0;
+        break;
+      }
+      if ($b == $value) {
+        return 1;
+        break;
+      }
+    }
+  });
+
+  //var_dump($categories);
 
   $output = '';
 
   // $output .= '<pre><small>';
   // $output .= print_r($categories, true);
   // $output .= '</small></pre>';
-
-  // $output .= '<pre>';
-  // $output .= print_r($categories['name']);
-  // $output .= '</pre>';
 
   if (!empty($categories)) {
     $output .=  '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-4 w-full">';

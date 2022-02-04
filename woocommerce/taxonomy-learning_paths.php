@@ -109,7 +109,7 @@ $intro_text = get_field('intro_text', $queried_object);
     $params = array(
       'posts_per_page' => 1000,
       'post_type' => 'product',
-      'orderby' => 'name',
+      //'orderby' => 'name',
       'tax_query' => array(
         array(
           'taxonomy' => 'learning_paths',
@@ -137,9 +137,36 @@ $intro_text = get_field('intro_text', $queried_object);
       }
     }
 
-    $slug = array_column($categories, 'slug');
+    //$slug = array_column($categories, 'slug');
 
-    array_multisort($slug, SORT_ASC, $categories);
+    //array_multisort($slug, SORT_ASC, $categories);
+
+    $product_cat = get_terms(array(
+      'taxonomy' => 'product_cat',
+      'hide_empty' => true,
+      'orderby' => 'menu_order',
+      'exclude' => 16
+    ));
+
+
+    $order = array();
+    foreach ($product_cat as $cat) {
+      $order[] = $cat->term_id;
+    }
+    //var_dump($order);
+
+    uksort($categories, function ($a, $b) use ($order) {
+      foreach ($order as $value) {
+        if ($a == $value) {
+          return 0;
+          break;
+        }
+        if ($b == $value) {
+          return 1;
+          break;
+        }
+      }
+    });
 
     // echo '<pre>';
     // print_r($categories);
@@ -251,7 +278,7 @@ $term_slug = $queried_object->slug;
 
 // Product Categories
 $product_cat_args = array(
-  'orderby'    => 'name',
+  'orderby'    => 'menu_order',
   'order'      => 'asc',
   'hide_empty' => true,
   'exclude'    => 16
