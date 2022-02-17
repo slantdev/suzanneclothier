@@ -38045,6 +38045,40 @@ input[type='checkbox']:focus {
         color: rgba(245, 158, 11, var(--tw-text-opacity));
       }
 
+.woocommerce .product-category {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    list-style-type: none;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    --tw-bg-opacity: 1;
+    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+    padding: 1rem;
+    --tw-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.1), 0 2px 4px 0px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+.woocommerce .product-category > a {
+      display: block;
+    }
+
+.woocommerce .product-category > a > img {
+        margin-bottom: 1rem;
+        border-radius: 0.75rem;
+      }
+
+.woocommerce .product-category > a .woocommerce-loop-category__title {
+        margin-bottom: 1rem;
+        font-size: .875rem;
+        line-height: 1.25rem;
+        font-weight: 600;
+      }
+
+.woocommerce .product-category > a .woocommerce-loop-category__title mark {
+          background-color: transparent;
+        }
+
 .woocommerce nav.woocommerce-pagination {
     margin-top: 3rem;
     display: flex;
@@ -40199,6 +40233,10 @@ input[type='checkbox']:focus {
 .mec-single-event .mec-booking-button:hover {
       background-color: rgba(36, 137, 168, 1) !important;
     }
+
+.mec-wrap .mec-totalcal-box .mec-totalcal-view span.mec-totalcal-yearlyview {
+  display: none;
+}
 
 .post-type-archive-mec-events h1 {
     margin-top: 1.5rem;

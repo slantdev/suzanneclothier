@@ -19,6 +19,9 @@
     }
   }
 }
+.mec-wrap .mec-totalcal-box .mec-totalcal-view span.mec-totalcal-yearlyview {
+  @apply hidden;
+}
 
 .post-type-archive-mec-events {
   h1 {

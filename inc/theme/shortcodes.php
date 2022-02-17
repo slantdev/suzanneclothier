@@ -264,3 +264,33 @@ function sc_pathmenu_func($atts)
 
   return $output;
 }
+
+add_shortcode('membership_buttons', 'mobile_membership_buttons');
+function mobile_membership_buttons()
+{
+  $output = '';
+  $output .= '<ul class="flex justify-center py-4 border-b border-gray-300 border-solid">';
+
+  if (!is_user_logged_in()) {
+    $output .= '<li class="px-1"><a href="/membership" class="block"><span class="text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 inline-block bg-primary text-white">Become a Member</span></a></li>';
+    $output .= '<li class="px-1">
+      <a href="/my-account" class="block">
+        <span class="inline-block text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 bg-secondary text-primary">Member Login</span>
+      </a>
+    </li>';
+  } else {
+    if (function_exists('rcp_user_has_active_membership')) {
+      if (!rcp_user_has_active_membership()) {
+        $output .= '<li class="px-1"><a href="/membership" class="inline-block text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 bg-primary text-white">Become a Member</a></li>';
+      }
+    }
+    $output .= '<li class="px-1 leading-none">
+      <a href="/my-account" class="block">
+        <span class="inline-block text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 bg-secondary text-primary">My Account</span>
+      </a>
+    </li>';
+  }
+  $output .= '</ul>';
+
+  return $output;
+}

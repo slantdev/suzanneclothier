@@ -95,6 +95,23 @@
     }
   }
 
+  .product-category {
+    @apply list-none flex flex-col w-full h-full bg-white rounded-xl shadow-md p-4;
+    > a {
+      @apply block;
+      > img {
+        @apply rounded-xl mb-4;
+      }
+
+      .woocommerce-loop-category__title {
+        @apply text-sm font-semibold mb-4;
+        mark {
+          @apply bg-transparent;
+        }
+      }
+    }
+  }
+
   nav.woocommerce-pagination {
     @apply flex justify-center mt-12;
     ul.page-numbers {
