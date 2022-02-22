@@ -114,6 +114,19 @@ if ($background_image_desktop) {
       }
       ?>
 
+      <?php
+      $below_title = get_field('below_title');
+      $below_description = get_field('below_description');
+      ?>
+      <?php if ($below_description) { ?>
+        <div class="max-w-lg text-center mt-8 mb-8 md:mb-12 mx-auto">
+          <h3 class="text-2xl font-bold mb-4"><?php echo $below_title ?></h3>
+          <div>
+            <?php echo $below_description ?>
+          </div>
+        </div>
+      <?php } ?>
+
       <?php if (have_rows('faqs')) : ?>
         <div class="max-w-3xl mx-auto my-8 xl:my-12">
           <?php while (have_rows('faqs')) : the_row();

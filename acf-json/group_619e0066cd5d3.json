@@ -130,6 +130,60 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_6214410fb245f",
+            "label": "Below Pricing Table",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6214411cb2460",
+            "label": "Title",
+            "name": "below_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62144125b2461",
+            "label": "Description",
+            "name": "below_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
         }
     ],
     "location": [
@@ -151,5 +205,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1639805857
+    "modified": 1645494605
 }
