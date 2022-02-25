@@ -117,6 +117,7 @@ if ($background_image_desktop) {
       <?php
       $below_title = get_field('below_title');
       $below_description = get_field('below_description');
+      $below_button = get_field('below_button');
       ?>
       <?php if ($below_description) { ?>
         <div class="max-w-lg text-center mt-8 mb-8 md:mb-12 mx-auto">
@@ -124,6 +125,9 @@ if ($background_image_desktop) {
           <div>
             <?php echo $below_description ?>
           </div>
+          <?php if ($below_button) { ?>
+            <div class="my-4"><a href="<?php echo $below_button['button_url'] ?>" class="font-bold whitespace-nowrap rounded-full px-8 py-4 inline-block bg-primary text-white transition duration-200 hover:bg-primary-light"><?php echo $below_button['button_text'] ?></a></div>
+          <?php } ?>
         </div>
       <?php } ?>
 
