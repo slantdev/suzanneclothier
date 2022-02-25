@@ -126,7 +126,7 @@ if ($background_image_desktop) {
             <?php echo $below_description ?>
           </div>
           <?php if ($below_button) { ?>
-            <div class="my-4"><a href="<?php echo $below_button['button_url'] ?>" class="font-bold whitespace-nowrap rounded-full px-8 py-4 inline-block bg-primary text-white transition duration-200 hover:bg-primary-light"><?php echo $below_button['button_text'] ?></a></div>
+            <div class="my-4"><a href="<?php echo $below_button['button_link'] ?>" class="font-bold whitespace-nowrap rounded-full px-8 py-4 inline-block bg-primary text-white transition duration-200 hover:bg-primary-light"><?php echo $below_button['button_text'] ?></a></div>
           <?php } ?>
         </div>
       <?php } ?>
