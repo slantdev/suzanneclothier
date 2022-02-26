@@ -72,10 +72,10 @@ function sc_add_discounted_price()
   if (!rcp_user_has_active_membership()) {
     $this_product = wc_get_product(get_the_ID());
     $this_price = $this_product->get_price();
-    $silver_disc_percent = 5 / 100;
+    $silver_disc_percent = 10 / 100;
     $silver_disc_amount = $this_price * $silver_disc_percent;
     $silver_disc_price = $this_price - $silver_disc_amount;
-    $gold_disc_percent = 10 / 100;
+    $gold_disc_percent = 15 / 100;
     $gold_disc_amount = $this_price * $gold_disc_percent;
     $gold_disc_price = $this_price - $gold_disc_amount;
 
@@ -110,7 +110,7 @@ function sc_add_discounted_price()
   if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
     $this_product = wc_get_product(get_the_ID());
     $this_price = $this_product->get_price();
-    $gold_disc_percent = 10 / 100;
+    $gold_disc_percent = 15 / 100;
     $gold_disc_amount = $this_price * $gold_disc_percent;
     $gold_disc_price = $this_price - $gold_disc_amount;
 
