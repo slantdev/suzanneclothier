@@ -12,7 +12,7 @@ module.exports = {
     ],
     options: {
       safelist: {
-        standard: [/^has-/, /^align/, /^wp-/]
+        standard: [/^has-/, /^align/, /^wp-/, /^\-?m(\w?)-/, /^p(\w?)-/,]
       }
     }
   },
