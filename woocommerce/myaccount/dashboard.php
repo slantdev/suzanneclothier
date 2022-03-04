@@ -30,6 +30,15 @@ $allowed_html = array(
 
 if (rcp_user_has_active_membership()) {
 
+  $rcp_customer_membership = rcp_get_customer_membership_level_ids();
+  $included_for_member = '';
+
+  if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
+    $included_for_member_value = '1';
+  } else if (in_array(2, $rcp_customer_membership) || in_array(4, $rcp_customer_membership)) {
+    $included_for_member_value = '2';
+  }
+
   // Courses
   $courses_description = get_field('courses_description', 'option');
   echo '<div id="courses" class="section-anchor mb-24">';
@@ -56,17 +65,11 @@ if (rcp_user_has_active_membership()) {
       ),
     ),
     'meta_query'  => array(
-      'relation'    => 'OR',
       array(
         'key'    => 'included_for_member',
-        'value'    => '1',
+        'value'    => $included_for_member_value,
         'compare'  => 'LIKE'
       ),
-      array(
-        'key'    => 'included_for_member',
-        'value'    => '2',
-        'compare'  => 'LIKE'
-      )
     )
   );
   $wc_query = new WP_Query($args);
