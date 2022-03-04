@@ -28,16 +28,15 @@ $allowed_html = array(
   ),
 );
 
+$rcp_customer_membership = rcp_get_customer_membership_level_ids();
+$included_for_member = '';
+if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
+  $included_for_member_value = '1';
+} else if (in_array(2, $rcp_customer_membership) || in_array(4, $rcp_customer_membership)) {
+  $included_for_member_value = '2';
+}
+
 if (rcp_user_has_active_membership()) {
-
-  $rcp_customer_membership = rcp_get_customer_membership_level_ids();
-  $included_for_member = '';
-
-  if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
-    $included_for_member_value = '1';
-  } else if (in_array(2, $rcp_customer_membership) || in_array(4, $rcp_customer_membership)) {
-    $included_for_member_value = '2';
-  }
 
   // Courses
   $courses_description = get_field('courses_description', 'option');
@@ -105,11 +104,16 @@ if (rcp_user_has_active_membership()) {
     'post_type' => 'member_video_library',
     'posts_per_page' => -1,
     'paged' => $paged,
-    //'meta_key'       => '_is_paid',
-    //'meta_value'     => 1,
     'post_status'    => 'publish',
     'posts_per_page' => -1,
-    'fields'         => 'ids'
+    'fields'         => 'ids',
+    'meta_query'  => array(
+      array(
+        'key'    => 'included_for_member',
+        'value'    => $included_for_member_value,
+        'compare'  => 'LIKE'
+      ),
+    )
   );
   $posts_query = new WP_Query($args);
 
@@ -156,7 +160,7 @@ if (rcp_user_has_active_membership()) {
     'meta_value'     => 1,
     'post_status'    => 'publish',
     'posts_per_page' => -1,
-    'fields'         => 'ids'
+    'fields'         => 'ids',
   );
   $posts_query = new WP_Query($args);
 
