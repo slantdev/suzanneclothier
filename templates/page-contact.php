@@ -17,7 +17,12 @@ $hero_background = get_field('hero_background');
 $background_image_desktop = $hero_background['background_image_desktop'];
 $background_image_mobile = $hero_background['background_image_mobile'];
 $background_overlay = $hero_background['background_overlay'];
-
+$text_color = $hero_background['text_color'];
+if ($text_color == 'dark') {
+  $text_color = 'text-primary';
+} else {
+  $text_color = 'text-white';
+};
 $hero_image = '';
 if ($background_image_desktop) {
   $hero_image = $background_image_desktop;
@@ -36,9 +41,9 @@ get_header();
     <div class="container pt-32 pb-8 z-10 mx-auto max-w-7xl">
       <div class="block lg:flex">
         <div class="w-full lg:w-2/5 pb-20">
-          <h2 class="text-5xl lg:text-6xl font-quincy text-white mb-5"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
+          <h2 class="text-5xl lg:text-6xl font-quincy mb-5 <?php echo $text_color ?>"><?php echo ($hero_title) ? $hero_title : get_the_title() ?></h2>
           <?php if ($hero_description) {
-            echo '<div class="text-white">';
+            echo '<div class="' . $text_color . '">';
             echo $hero_description;
             echo '</div>';
           } ?>
@@ -47,7 +52,7 @@ get_header();
     </div>
     <div class="w-full bg-white bg-opacity-50 z-10">
       <div class="container h-12 flex items-center mx-auto max-w-7xl">
-        <div class="breadcrumb -mx-1 text-white">
+        <div class="breadcrumb -mx-1 <?php echo $text_color ?>">
           <span class="inline-block px-1"><a class="hover:text-white" href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Contact Us</span>
         </div>
       </div>
