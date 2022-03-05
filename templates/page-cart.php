@@ -44,7 +44,7 @@ get_header();
   </div>
 </section>
 <section>
-  <div class="container mx-auto my-12">
+  <div class="container mx-auto mb-12">
 
     <?php if (have_posts()) : ?>
       <?php
