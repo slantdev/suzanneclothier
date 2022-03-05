@@ -18,6 +18,32 @@
 
 defined('ABSPATH') || exit;
 
+add_filter('body_class', 'my_body_classes');
+function my_body_classes($classes)
+{
+  $classes[] = 'header-semi-transparent';
+  return $classes;
+}
+
+$shop_page_id = get_option('woocommerce_shop_page_id');
+
+$hero_title = get_field('hero_title', $shop_page_id);
+$hero_description = get_field('hero_description', $shop_page_id);
+$hero_background = get_field('hero_background', $shop_page_id);
+$background_image_desktop = $hero_background['background_image_desktop'];
+$background_image_mobile = $hero_background['background_image_mobile'];
+$background_overlay = $hero_background['background_overlay'];
+$text_color = $hero_background['text_color'];
+if ($text_color == 'dark') {
+  $text_color = 'text-primary';
+} else {
+  $text_color = 'text-white';
+};
+$hero_image = '';
+if ($background_image_desktop) {
+  $hero_image = $background_image_desktop;
+}
+
 get_header('shop');
 
 /**
@@ -30,32 +56,31 @@ get_header('shop');
 do_action('woocommerce_before_main_content');
 
 ?>
-
-<header class="woocommerce-products-header hero flex flex-col items-center bg-cover bg-center bg-primary bg-opacity-30">
-  <div class="container pt-32 pb-8 z-10 mx-auto max-w-7xl">
+HELLO
+<section class="hero flex flex-col items-center" style="background-image: url(<?php echo $hero_image ?>">
+  <?php if ($background_overlay) {
+    echo '<div class="absolute inset-0" style="background-color: ' . $background_overlay . '"></div>';
+  } ?>
+  <div class="container pt-32 pb-8 z-10 mx-auto">
     <div class="block lg:flex">
-      <div class="w-full lg:w-2/5 pb-20 text-white">
-        <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-          <h1 class="woocommerce-products-header__title page-title text-5xl lg:text-6xl font-sans mb-5 text-primary"><?php woocommerce_page_title(); ?></h1>
-        <?php endif; ?>
-        <?php
-        /**
-         * Hook: woocommerce_archive_description.
-         *
-         * @hooked woocommerce_taxonomy_archive_description - 10
-         * @hooked woocommerce_product_archive_description - 10
-         */
-        do_action('woocommerce_archive_description');
-        ?>
+      <div class="w-full lg:w-2/5 pb-20">
+        <h2 class="text-5xl lg:text-6xl font-quincy mb-5 <?php echo $text_color ?>"><?php echo ($hero_title) ? $hero_title : woocommerce_page_title() ?></h2>
+        <?php if ($hero_description) {
+          echo '<div class="' . $text_color . '">';
+          echo $hero_description;
+          echo '</div>';
+        } ?>
       </div>
     </div>
   </div>
-  <div class="w-full bg-white bg-opacity-90 z-10">
-    <div class="container h-12 flex items-center">
-      <?php woocommerce_breadcrumb(); ?>
+  <div class="w-full bg-white bg-opacity-50 z-10">
+    <div class="container h-12 flex items-center mx-auto">
+      <div class="breadcrumb -mx-1 <?php echo $text_color ?>">
+        <span class="inline-block px-1"><a class="hover:text-white" href="/">Home</a></span><span class="inline-block px-1"> / </span><span class="font-semibold inline-block px-1">Shop</span>
+      </div>
     </div>
   </div>
-</header>
+</section>
 
 <div class="pt-20 pb-24 bg-secondary-light">
   <div class="container">

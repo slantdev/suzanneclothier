@@ -30,10 +30,13 @@ $allowed_html = array(
 
 $rcp_customer_membership = rcp_get_customer_membership_level_ids();
 $included_for_member = '';
+$rcp_user_role = '';
 if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
   $included_for_member_value = '1';
+  $rcp_user_role = 'silver_member';
 } else if (in_array(2, $rcp_customer_membership) || in_array(4, $rcp_customer_membership)) {
   $included_for_member_value = '2';
+  $rcp_user_role = 'gold_member';
 }
 
 if (rcp_user_has_active_membership()) {
@@ -107,15 +110,34 @@ if (rcp_user_has_active_membership()) {
     'post_status'    => 'publish',
     'posts_per_page' => -1,
     'fields'         => 'ids',
-    'meta_query'  => array(
+    'meta_query' => array(
+      'relation' => 'OR',
       array(
-        'key'    => 'included_for_member',
-        'value'    => $included_for_member_value,
-        'compare'  => 'LIKE'
+        'key'     => 'rcp_user_level',
+        'compare' => 'LIKE',
+        'value'   => $rcp_user_role,
       ),
-    )
+      array(
+        'key'     => 'rcp_user_level',
+        'compare' => 'NOT EXISTS',
+      ),
+    ),
   );
   $posts_query = new WP_Query($args);
+
+  // echo '<div class="text-sm">';
+  // echo '<pre>';
+  // print_r($posts_query);
+  // echo '</pre>';
+  // echo '</div>';
+
+  // $user_level = get_user_meta(get_current_user_id());
+
+  // echo '<div class="text-sm">';
+  // echo '<pre>';
+  // print_r($posts_query);
+  // echo '</pre>';
+  // echo '</div>';
 
   if ($posts_query->have_posts()) {
     echo '<div class="text-center mb-10">
