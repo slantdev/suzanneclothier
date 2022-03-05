@@ -56,7 +56,7 @@ get_header('shop');
 do_action('woocommerce_before_main_content');
 
 ?>
-HELLO
+
 <section class="hero flex flex-col items-center" style="background-image: url(<?php echo $hero_image ?>">
   <?php if ($background_overlay) {
     echo '<div class="absolute inset-0" style="background-color: ' . $background_overlay . '"></div>';
