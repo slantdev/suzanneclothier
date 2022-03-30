@@ -52,7 +52,7 @@ function sc_add_rcp_member_coupon_code()
     $silver_member = get_field('silver_member_coupon', 'option');
     $silver_code = $silver_member['silver_member_coupon_code'];
     $silver_discount = $silver_member['silver_member_discount'];
-    $gold_member = get_field('silver_member_coupon', 'option');
+    $gold_member = get_field('gold_member_coupon', 'option');
     $gold_code = $gold_member['gold_member_coupon_code'];
     $gold_discount = $gold_member['gold_member_discount'];
 
