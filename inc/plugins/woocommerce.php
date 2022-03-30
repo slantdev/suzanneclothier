@@ -45,20 +45,28 @@ function sc_add_rcp_member_coupon_code()
   if ($product_type == 'external') {
     $included_for_member = get_field('included_for_member');
     $rcp_customer_membership = rcp_get_customer_membership_level_ids();
-    $silver_code = get_field('silver_member_coupon_code', 'option');
-    $gold_code = get_field('gold_member_coupon_code', 'option');
+    // $silver_code = get_field('silver_member_coupon_code', 'option');
+    // $silver_discount = get_field('silver_member_discount', 'option');
+    // $gold_code = get_field('gold_member_coupon_code', 'option');
+    // $gold_discount = get_field('gold_member_discount', 'option');
+    $silver_member = get_field('silver_member_coupon', 'option');
+    $silver_code = $silver_member['silver_member_coupon_code'];
+    $silver_discount = $silver_member['silver_member_discount'];
+    $gold_member = get_field('silver_member_coupon', 'option');
+    $gold_code = $gold_member['gold_member_coupon_code'];
+    $gold_discount = $gold_member['gold_member_discount'];
 
     if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
       if (in_array(1, $included_for_member)) {
         echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your <a href="/my-account">Silver Member Library</a>. </div>';
       } else {
-        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Silver Member, please use <strong>' . $silver_code . '</strong> coupon code to get 5% discount upon checkout</div>';
+        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Silver Member, please use <strong>' . $silver_code . '</strong> coupon code to get ' . $silver_discount . ' discount upon checkout</div>';
       }
     } else if (in_array(2, $rcp_customer_membership) || in_array(4, $rcp_customer_membership)) {
       if (in_array(2, $included_for_member)) {
         echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your <a href="/my-account">Gold Member Library</a>. </div>';
       } else {
-        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Gold Member, please use <strong>' . $gold_code . '</strong> coupon code to get 5% discount upon checkout</div>';
+        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Gold Member, please use <strong>' . $gold_code . '</strong> coupon code to get ' . $gold_discount . ' discount upon checkout</div>';
       }
     }
   }
@@ -424,10 +432,10 @@ function sc_my_coupon_endpoint_content()
 
   if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
     $member_level = 'Silver Member';
-    $coupon_code = get_field('silver_member_coupon_code', 'option');
+    $coupon_code = get_field('silver_member_coupon', 'option')['silver_member_coupon_code'];
   } else if (in_array(2, $rcp_customer_membership) || in_array(4, $rcp_customer_membership)) {
     $member_level = 'Gold Member';
-    $coupon_code = get_field('gold_member_coupon_code', 'option');
+    $coupon_code = get_field('gold_member_coupon', 'option')['gold_member_coupon_code'];
   }
   echo '<h3 class="text-2xl font-bold mt-4 mb-8">' . $member_level . ' Coupon Code</h3>';
   echo '<div>';
