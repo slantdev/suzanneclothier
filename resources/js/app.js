@@ -2,6 +2,7 @@ jQuery(document).ready(function ($) {
 
   $('#header-search-button').on('click', function () {
     $('#header-search').toggleClass('show');
+    $("#searchform-input").focus();
   });
   $(window).click(function () {
     if ($("#header-search").hasClass("show")) {

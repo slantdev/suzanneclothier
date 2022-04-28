@@ -163,7 +163,7 @@
 #header-search {
   @apply w-0 hidden;
   &.show {
-    @apply w-56 block;
+    @apply block w-screen max-w-md md:w-56;
   }
 }
 

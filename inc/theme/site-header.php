@@ -121,13 +121,13 @@ function site_header_icon_links()
         <ion-icon name="person-circle-outline" class="text-2xl leading-none"></ion-icon>
       </a>
     </li>
-    <li class="relative">
-      <button id="header-search-button" class="hidden lg:inline-flex p-1" type="button">
+    <li class="lg:relative">
+      <button id="header-search-button" class="inline-flex p-1" type="button">
         <ion-icon name="search" class="text-2xl leading-none"></ion-icon>
       </button>
-      <div id="header-search" class="absolute transition duration-300 right-0 -top-1.5" style="z-index: 100;">
+      <div id="header-search" class="absolute transition duration-300 right-0 px-2 top-2 lg:-top-1.5 lg:px-0" style="z-index: 100;">
         <form id="header-searchform" class="flex bg-white border border-gray-100 shadow-lg rounded-full inline-form-pill" method="get" action="<?php echo esc_url(home_url('/')); ?>">
-          <input type="text" class="text-gray-700 w-full py-3 px-4 bg-transparent rounded-full focus:outline-none" name="s" placeholder="Search" value="<?php echo get_search_query(); ?>">
+          <input id="searchform-input" type="text" class="text-gray-700 w-full py-3 px-4 bg-transparent rounded-full focus:outline-none" name="s" placeholder="Search" value="<?php echo get_search_query(); ?>">
           <button class="flex-none mt-1 mr-1 w-10 h-10 flex items-center justify-center text-sm rounded-full bg-secondary font-semibold text-primary uppercase hover:bg-opacity-80 whitespace-nowrap cursor-pointer" type="submit">
             <ion-icon name="search" class="text-xl text-white leading-none"></ion-icon>
           </button>
