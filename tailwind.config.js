@@ -9,6 +9,7 @@ module.exports = {
     content: [
       './*.php',
       './*/*.php',
+      './*/*/*.php',
     ],
     options: {
       safelist: {
