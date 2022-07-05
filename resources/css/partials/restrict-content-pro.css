@@ -149,7 +149,13 @@
     }
   }
 }
+.rcp_subscription_fieldset {
+  margin-top: 20px !important;
+}
 .rcp_form {
+  p {
+    @apply mb-4;
+  }
   .rcp-table {
     @media (max-width: 480px) {
       th {
@@ -192,4 +198,31 @@
       }
     }
   }
+  fieldset {
+    margin-bottom: 20px !important;
+    label {
+      font-family: sans-serif;
+      margin-bottom: 2px;
+    }
+    > legend {
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+      @apply mb-3;
+    }
+  }
+}
+.rcp_submit {
+  background-color: rgba(21, 81, 99, 1);
+  border-radius: 9999px;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.5rem 1.25rem;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+.rcp_submit:hover {
+  background-color: rgba(36, 137, 168, 1);
 }
