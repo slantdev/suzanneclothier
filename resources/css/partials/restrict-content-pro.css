@@ -156,7 +156,7 @@
 }
 .rcp_discounts_fieldset {
   .rcp_button {
-    @apply px-8 py-2 rounded-full text-sm font-medium bg-gray-400;
+    @apply px-8 py-2 rounded-full text-sm font-medium bg-gray-200 hover:bg-gray-100 mt-2;
   }
 }
 .rcp_form {
