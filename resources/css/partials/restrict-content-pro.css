@@ -149,8 +149,15 @@
     }
   }
 }
-.rcp_subscription_fieldset {
+.rcp_subscription_fieldset,
+.rcp_discounts_fieldset {
   margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+.rcp_discounts_fieldset {
+  .rcp_button {
+    @apply px-8 py-2 rounded-full text-sm font-medium bg-gray-400;
+  }
 }
 .rcp_form {
   p {
@@ -199,7 +206,6 @@
     }
   }
   fieldset {
-    margin-bottom: 20px !important;
     label {
       font-family: sans-serif;
       margin-bottom: 2px;
@@ -212,6 +218,7 @@
     }
   }
 }
+
 .rcp_submit {
   background-color: rgba(21, 81, 99, 1);
   border-radius: 9999px;
