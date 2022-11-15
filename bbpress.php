@@ -45,9 +45,9 @@ get_header();
         <div class="container py-8">
 
           <article id="post-<?php the_ID(); ?>" <?php post_class('font-sans'); ?>>
-
-            <?php the_content(); ?>
-
+            <?php if (rcp_user_has_paid_membership()) : ?>
+              <?php the_content(); ?>
+            <?php endif; ?>
           </article>
 
         </div>
