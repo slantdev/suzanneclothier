@@ -44,6 +44,7 @@ function sc_add_rcp_member_coupon_code()
 
   if ($product_type == 'external') {
     $included_for_member = get_field('included_for_member');
+    $exclude_discount_for_member = get_field('exclude_discount_for_member');
     $rcp_customer_membership = rcp_get_customer_membership_level_ids();
     // $silver_code = get_field('silver_member_coupon_code', 'option');
     // $silver_discount = get_field('silver_member_discount', 'option');
@@ -60,13 +61,17 @@ function sc_add_rcp_member_coupon_code()
       if (in_array(1, $included_for_member)) {
         echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your <a href="/my-account">Silver Member Library</a>. </div>';
       } else {
-        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Silver Member, please use <strong>' . $silver_code . '</strong> coupon code to get ' . $silver_discount . ' discount upon checkout</div>';
+        if (!$exclude_discount_for_member) {
+          echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Silver Member, please use <strong>' . $silver_code . '</strong> coupon code to get ' . $silver_discount . ' discount upon checkout</div>';
+        }
       }
     } else if (in_array(2, $rcp_customer_membership) || in_array(4, $rcp_customer_membership)) {
       if (in_array(2, $included_for_member)) {
         echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your <a href="/my-account">Gold Member Library</a>. </div>';
       } else {
-        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Gold Member, please use <strong>' . $gold_code . '</strong> coupon code to get ' . $gold_discount . ' discount upon checkout</div>';
+        if (!$exclude_discount_for_member) {
+          echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Gold Member, please use <strong>' . $gold_code . '</strong> coupon code to get ' . $gold_discount . ' discount upon checkout</div>';
+        }
       }
     }
   }
@@ -77,17 +82,19 @@ function sc_add_rcp_member_coupon_code()
 add_action('woocommerce_single_product_summary', 'sc_add_discounted_price', 35);
 function sc_add_discounted_price()
 {
-  if (!rcp_user_has_active_membership()) {
-    $this_product = wc_get_product(get_the_ID());
-    $this_price = (float)$this_product->get_price();
-    $silver_disc_percent = 10 / 100;
-    $silver_disc_amount = $this_price * $silver_disc_percent;
-    $silver_disc_price = $this_price - $silver_disc_amount;
-    $gold_disc_percent = 15 / 100;
-    $gold_disc_amount = $this_price * $gold_disc_percent;
-    $gold_disc_price = $this_price - $gold_disc_amount;
+  $exclude_discount_for_member = get_field('exclude_discount_for_member');
+  if (!$exclude_discount_for_member) {
+    if (!rcp_user_has_active_membership()) {
+      $this_product = wc_get_product(get_the_ID());
+      $this_price = (float)$this_product->get_price();
+      $silver_disc_percent = 10 / 100;
+      $silver_disc_amount = $this_price * $silver_disc_percent;
+      $silver_disc_price = $this_price - $silver_disc_amount;
+      $gold_disc_percent = 15 / 100;
+      $gold_disc_amount = $this_price * $gold_disc_percent;
+      $gold_disc_price = $this_price - $gold_disc_amount;
 
-    echo '<div class="pt-12 mt-12 border-t border-solid border-gray-300">
+      echo '<div class="pt-12 mt-12 border-t border-solid border-gray-300">
     <div class="member-price-compare flex gap-4">
       <div class="inline-flex bg-gray-100 border border-solid border-gray-200 rounded-lg shadow-md">
         <div class="py-6 px-6 text-left">
@@ -113,16 +120,16 @@ function sc_add_discounted_price()
       </div>
     </div>
     </div>';
-  }
-  $rcp_customer_membership = rcp_get_customer_membership_level_ids();
-  if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
-    $this_product = wc_get_product(get_the_ID());
-    $this_price = (float)$this_product->get_price();
-    $gold_disc_percent = 15 / 100;
-    $gold_disc_amount = $this_price * $gold_disc_percent;
-    $gold_disc_price = $this_price - $gold_disc_amount;
+    }
+    $rcp_customer_membership = rcp_get_customer_membership_level_ids();
+    if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
+      $this_product = wc_get_product(get_the_ID());
+      $this_price = (float)$this_product->get_price();
+      $gold_disc_percent = 15 / 100;
+      $gold_disc_amount = $this_price * $gold_disc_percent;
+      $gold_disc_price = $this_price - $gold_disc_amount;
 
-    echo '<div class="pt-12 mt-12 border-t border-solid border-gray-300">
+      echo '<div class="pt-12 mt-12 border-t border-solid border-gray-300">
     <div class="member-price-compare flex gap-4">
       <a href="/membership/gold-membership/" class="inline-flex bg-gray-100 border border-solid border-gray-200 rounded-lg shadow-md">
         <div class="py-6 px-6 text-left">
@@ -133,6 +140,7 @@ function sc_add_discounted_price()
       </a>
     </div>
     </div>';
+    }
   }
 }
 
