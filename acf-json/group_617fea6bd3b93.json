@@ -1,6 +1,6 @@
 {
     "key": "group_617fea6bd3b93",
-    "title": "Included For Member Settings",
+    "title": "For Member Settings",
     "fields": [
         {
             "key": "field_617fea88b3a8c",
@@ -31,7 +31,7 @@
             "label": "Exclude Discount for Member",
             "name": "exclude_discount_for_member",
             "type": "true_false",
-            "instructions": "Set to \"Yes\" to exclude this product from membership discount",
+            "instructions": "Set to \"Yes\" to exclude this product from membership discounts.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -58,10 +58,10 @@
     "menu_order": 0,
     "position": "normal",
     "style": "default",
-    "label_placement": "left",
+    "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1671159813
+    "modified": 1671241149
 }
