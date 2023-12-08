@@ -177,7 +177,6 @@ function learning_path_item($background, $title, $text, $url)
     </div>
   </section>
 
-
   <section>
     <?php if (have_rows('slides', 'option')) : ?>
       <div id="featured-courses" class="swiper">
@@ -316,9 +315,24 @@ function learning_path_item($background, $title, $text, $url)
           </div>
 
           <?php
+          $today = date('Ymd');
           $args = array(
             'post_type' => 'mec-events',
             'posts_per_page' => 4,
+            'meta_query' => array(
+              array(
+                'key' => 'mec_start_date',
+                'value' => $today,
+                'type' => 'DATE',
+                'compare' => '>='
+              ),
+            ),
+            'orderby' => array(
+              'mec_start_date' => 'ASC',
+            ),
+            // 'meta_key' => 'mec_start_date',
+            // 'orderby' => 'meta_value_num',
+            //'order' => 'ASC',
           );
           $posts_query = new WP_Query($args);
 
@@ -356,7 +370,7 @@ function learning_path_item($background, $title, $text, $url)
             echo '</div>';
           } else {
             ?>
-            <div class="text-2xl lg:text-3xl">Sorry, there's no post in this category.</div>
+            <div class="text-lg">Sorry, there's no post in this category.</div>
           <?php
           }
           wp_reset_postdata();
