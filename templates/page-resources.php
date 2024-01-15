@@ -190,7 +190,7 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
               <li><a class="<?php echo $link_class_italian ?> whitespace-nowrap" href="/articles-in-italian">Articles in Italian</a></li>
               <li><a class="<?php echo $link_class_norway ?> whitespace-nowrap" href="/articles-in-norwegian">Articles in Norwegian</a></li>
               <li><a class="<?php echo $link_class_french ?> whitespace-nowrap" href="/articles-in-french">Articles in French</a></li>
-              <li><a class="<?php echo $link_class_french ?> whitespace-nowrap" href="/articles-in-spanish">Articles in Spanish</a></li>
+              <li><a class="<?php echo $link_class_spanish ?> whitespace-nowrap" href="/articles-in-spanish">Articles in Spanish</a></li>
             </ul>
           </div>
 
