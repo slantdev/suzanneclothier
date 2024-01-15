@@ -212,19 +212,32 @@ function sc_pathmenu_func($atts)
       ),
     ),
   );
+  $article_spanish = array(
+    'posts_per_page' => -1,
+    'post_type' => 'article_spanish',
+    'orderby' => 'date',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'learning_paths',
+        'field'    => 'slug',
+        'terms'    => $term_slug,
+      ),
+    ),
+  );
 
   $article_query = get_posts(array_merge($defaults, $article));
   $article_french_query = get_posts(array_merge($defaults, $articles_french));
   $article_norway_query = get_posts(array_merge($defaults, $article_norway));
   $article_dutch_query = get_posts(array_merge($defaults, $article_dutch));
   $article_it_query = get_posts(array_merge($defaults, $article_it));
+  $article_spanish_query = get_posts(array_merge($defaults, $article_spanish));
 
-  $articles = array_merge($article_query, $article_french_query, $article_norway_query, $article_dutch_query, $article_it_query);
+  $articles = array_merge($article_query, $article_french_query, $article_norway_query, $article_dutch_query, $article_it_query, $article_spanish_query);
 
   if (!empty($articles)) {
 
     $final_args = array(
-      'post_type' => ['article', 'articles_french', 'article_norway', 'article_dutch', 'article_it'],
+      'post_type' => ['article', 'articles_french', 'article_norway', 'article_dutch', 'article_it', 'article_spanish'],
       'post__in'  => $articles,
       'posts_per_page' => 5,
       'orderby' => 'date',
@@ -293,4 +306,15 @@ function mobile_membership_buttons()
   $output .= '</ul>';
 
   return $output;
+}
+
+//add_shortcode('mobile_header_menu', 'mobile_header_menu_function');
+function mobile_header_menu_function()
+{
+  return wp_nav_menu(
+    array(
+      'theme_location' => 'header',
+      'container_class' => 'mobile_header_menu'
+    )
+  );
 }

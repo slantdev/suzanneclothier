@@ -21,7 +21,8 @@
                 "articles_french",
                 "article_norway",
                 "article_dutch",
-                "article_it"
+                "article_it",
+                "articles_spanish"
             ],
             "taxonomy": "",
             "filters": [
@@ -77,6 +78,13 @@
                 "operator": "==",
                 "value": "article_it"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "articles_spanish"
+            }
         ]
     ],
     "menu_order": 0,
@@ -87,5 +95,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637315335
+    "modified": 1705346840
 }

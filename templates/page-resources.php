@@ -163,6 +163,7 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
             $link_class_norway = 'text-link hover:text-link-hover';
             $link_class_dutch = 'text-link hover:text-link-hover';
             $link_class_italian = 'text-link hover:text-link-hover';
+            $link_class_spanish = 'text-link hover:text-link-hover';
 
             if ($post_type == 'article') {
               $link_class_english = 'font-bold';
@@ -179,6 +180,9 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
             if ($post_type == 'article_it') {
               $link_class_italian = 'font-bold';
             }
+            if ($post_type == 'article_spanish') {
+              $link_class_spanish = 'font-bold';
+            }
             ?>
             <ul class="flex justify-start lg:justify-center gap-y-4 gap-x-8 text-sm lg:text-base lg:gap-x-12 xl:gap-x-16 border-t border-b py-6 border-solid border-gray-200 overflow-x-auto">
               <li><a class="<?php echo $link_class_english ?> whitespace-nowrap" href="/articles-in-english">Articles in English</a></li>
@@ -186,6 +190,7 @@ function get_categories_for_post_type($post_type = 'post', $taxonomy = '')
               <li><a class="<?php echo $link_class_italian ?> whitespace-nowrap" href="/articles-in-italian">Articles in Italian</a></li>
               <li><a class="<?php echo $link_class_norway ?> whitespace-nowrap" href="/articles-in-norwegian">Articles in Norwegian</a></li>
               <li><a class="<?php echo $link_class_french ?> whitespace-nowrap" href="/articles-in-french">Articles in French</a></li>
+              <li><a class="<?php echo $link_class_french ?> whitespace-nowrap" href="/articles-in-spanish">Articles in Spanish</a></li>
             </ul>
           </div>
 
