@@ -35,115 +35,6 @@ add_action('woocommerce_single_product_summary', 'woocommerce_template_single_pr
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 add_action('woocommerce_before_single_product_summary', 'woocommerce_template_single_meta', 25);
 
-//* Add Member Coupon Code
-add_action('woocommerce_single_product_summary', 'sc_add_rcp_member_coupon_code', 25);
-function sc_add_rcp_member_coupon_code()
-{
-  global $product;
-  $product_type = $product->get_type();
-
-  if ($product_type == 'external') {
-    $included_for_member = get_field('included_for_member');
-    $exclude_discount_for_member = get_field('exclude_discount_for_member');
-    $rcp_customer_membership = rcp_get_customer_membership_level_ids();
-    // $silver_code = get_field('silver_member_coupon_code', 'option');
-    // $silver_discount = get_field('silver_member_discount', 'option');
-    // $gold_code = get_field('gold_member_coupon_code', 'option');
-    // $gold_discount = get_field('gold_member_discount', 'option');
-    $silver_member = get_field('silver_member_coupon', 'option');
-    $silver_code = $silver_member['silver_member_coupon_code'];
-    $silver_discount = $silver_member['silver_member_discount'];
-    $gold_member = get_field('gold_member_coupon', 'option');
-    $gold_code = $gold_member['gold_member_coupon_code'];
-    $gold_discount = $gold_member['gold_member_discount'];
-
-    if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
-      if (in_array(1, $included_for_member)) {
-        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your <a href="/my-account">Silver Member Library</a>. </div>';
-      } else {
-        if (!$exclude_discount_for_member) {
-          echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Silver Member, please use <strong>' . $silver_code . '</strong> coupon code to get ' . $silver_discount . ' discount upon checkout</div>';
-        }
-      }
-    } else if (in_array(2, $rcp_customer_membership) || in_array(4, $rcp_customer_membership)) {
-      if (in_array(2, $included_for_member)) {
-        echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">This product is included in your <a href="/my-account">Gold Member Library</a>. </div>';
-      } else {
-        if (!$exclude_discount_for_member) {
-          echo '<div class="p-4 bg-primary-lighter my-4 text-sm rounded-md">As a Gold Member, please use <strong>' . $gold_code . '</strong> coupon code to get ' . $gold_discount . ' discount upon checkout</div>';
-        }
-      }
-    }
-  }
-}
-
-//* Add Discounted Price Info for Member
-//* Shown to non member only
-add_action('woocommerce_single_product_summary', 'sc_add_discounted_price', 35);
-function sc_add_discounted_price()
-{
-  $exclude_discount_for_member = get_field('exclude_discount_for_member');
-  if (!$exclude_discount_for_member) {
-    if (!rcp_user_has_active_membership()) {
-      $this_product = wc_get_product(get_the_ID());
-      $this_price = (float)$this_product->get_price();
-      $silver_disc_percent = 10 / 100;
-      $silver_disc_amount = $this_price * $silver_disc_percent;
-      $silver_disc_price = $this_price - $silver_disc_amount;
-      $gold_disc_percent = 15 / 100;
-      $gold_disc_amount = $this_price * $gold_disc_percent;
-      $gold_disc_price = $this_price - $gold_disc_amount;
-
-      echo '<div class="pt-12 mt-12 border-t border-solid border-gray-300">
-    <div class="member-price-compare flex gap-4">
-      <div class="inline-flex bg-gray-100 border border-solid border-gray-200 rounded-lg shadow-md">
-        <div class="py-6 px-6 text-left">
-          <div class="font-quincy text-primary font-bold text-2xl">Silver</div>
-          <div class="mt-2 mb-4 bg-secondary w-8 h-1"></div>
-          <div class="text-3xl font-semibold">$' . number_format((float)$silver_disc_price, 2, '.', '') . '</div>
-        </div>
-        <div>
-          <a href="/membership/silver-membership/" class="flex py-4 px-8 h-full w-full rounded-lg font-quincy bg-primary-lighter text-primary no-underline items-center text-2xl hover:no-underline"><span class="text-primary">Signup <br>& Save</span>
-          </a>
-        </div>
-      </div>
-      <div class="inline-flex bg-gray-100 border border-solid border-gray-200 rounded-lg shadow-md">
-        <div class="py-6 px-6 text-left">
-          <div class="font-quincy text-primary font-bold text-2xl">Gold</div>
-          <div class="mt-2 mb-4 bg-secondary w-8 h-1"></div>
-          <div class="text-3xl font-semibold">$' . number_format((float)$gold_disc_price, 2, '.', '') . '</div>
-        </div>
-        <div>
-          <a href="/membership/gold-membership/" class="flex py-4 px-8 h-full w-full rounded-lg font-quincy bg-secondary text-primary items-center text-2xl"><span class="text-primary">Signup <br>& Save</span>
-          </a>
-        </div>
-      </div>
-    </div>
-    </div>';
-    }
-    $rcp_customer_membership = rcp_get_customer_membership_level_ids();
-    if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
-      $this_product = wc_get_product(get_the_ID());
-      $this_price = (float)$this_product->get_price();
-      $gold_disc_percent = 15 / 100;
-      $gold_disc_amount = $this_price * $gold_disc_percent;
-      $gold_disc_price = $this_price - $gold_disc_amount;
-
-      echo '<div class="pt-12 mt-12 border-t border-solid border-gray-300">
-    <div class="member-price-compare flex gap-4">
-      <a href="/membership/gold-membership/" class="inline-flex bg-gray-100 border border-solid border-gray-200 rounded-lg shadow-md">
-        <div class="py-6 px-6 text-left">
-          <div class="font-quincy text-primary font-bold text-2xl">Gold Member Price</div>
-          <div class="mt-2 mb-4 bg-secondary w-8 h-1"></div>
-          <div class="text-3xl font-semibold text-black">$' . number_format((float)$gold_disc_price, 2, '.', '') . '</div>
-        </div>
-      </a>
-    </div>
-    </div>';
-    }
-  }
-}
-
 //* Make External Product Buy Now button open in new tab
 // This will take care of the Buy Product button below the external product on the Shop page.
 add_filter('woocommerce_loop_add_to_cart_link', 'sc_external_add_product_link', 10, 2);
@@ -368,12 +259,12 @@ function sc_remove_my_account_links($menu_links)
 add_action('init', 'sc_add_my_account_endpoint');
 function sc_add_my_account_endpoint()
 {
-  add_rewrite_endpoint('#courses', EP_ROOT | EP_PAGES, false);
-  add_rewrite_endpoint('#video-library', EP_ROOT | EP_PAGES, false);
-  add_rewrite_endpoint('#articles', EP_ROOT | EP_PAGES, false);
+  // add_rewrite_endpoint('#courses', EP_ROOT | EP_PAGES, false);
+  // add_rewrite_endpoint('#video-library', EP_ROOT | EP_PAGES, false);
+  // add_rewrite_endpoint('#articles', EP_ROOT | EP_PAGES, false);
   add_rewrite_endpoint('community', EP_ROOT | EP_PAGES, false);
-  add_rewrite_endpoint('my-membership', EP_ROOT | EP_PAGES);
-  add_rewrite_endpoint('coupon', EP_ROOT | EP_PAGES);
+  //add_rewrite_endpoint('my-membership', EP_ROOT | EP_PAGES);
+  //add_rewrite_endpoint('coupon', EP_ROOT | EP_PAGES);
 }
 
 function sc_insert_after_helper($items, $new_items, $after)
@@ -389,83 +280,20 @@ function sc_insert_after_helper($items, $new_items, $after)
   return $array;
 }
 
-add_filter('woocommerce_account_menu_items', 'sc_add_my_account_link');
-function sc_add_my_account_link($items)
-{
-  $new_items = array();
-
-  if (rcp_user_has_active_membership()) {
-    $new_items['#courses'] = 'Courses';
-    $new_items['#video-library'] = 'Video Library';
-    $new_items['#articles'] = 'Articles';
-    $new_items['community'] = 'Community';
-    $new_items['my-membership'] = 'My Membership';
-    $new_items['coupon'] = 'Coupon';
-  }
-
-
-  return sc_insert_after_helper($items, $new_items, 'dashboard');
-}
-
 add_filter('woocommerce_get_endpoint_url', 'sc_hook_endpoint', 10, 4);
 function sc_hook_endpoint($url, $endpoint, $value, $permalink)
 {
-  if ($endpoint === '#courses') {
-    $url = site_url() . '/my-account/#courses';
-  }
-  if ($endpoint === '#video-library') {
-    $url = site_url() . '/my-account/#video-library';
-  }
-  if ($endpoint === '#articles') {
-    $url = site_url() . '/my-account/#articles';
-  }
+  // if ($endpoint === '#courses') {
+  //   $url = site_url() . '/my-account/#courses';
+  // }
+  // if ($endpoint === '#video-library') {
+  //   $url = site_url() . '/my-account/#video-library';
+  // }
+  // if ($endpoint === '#articles') {
+  //   $url = site_url() . '/my-account/#articles';
+  // }
   if ($endpoint === 'community') {
     $url = site_url() . '/community';
   }
   return $url;
-}
-
-add_action('woocommerce_account_my-membership_endpoint', 'sc_my_membership_endpoint_content');
-function sc_my_membership_endpoint_content()
-{
-  echo do_shortcode('[subscription_details]');
-}
-
-add_action('woocommerce_account_coupon_endpoint', 'sc_my_coupon_endpoint_content');
-function sc_my_coupon_endpoint_content()
-{
-  $rcp_customer_membership = rcp_get_customer_membership_level_ids();
-  $coupon_code = '';
-  $member_level = '';
-
-  if (in_array(1, $rcp_customer_membership) || in_array(3, $rcp_customer_membership)) {
-    $member_level = 'Silver Member';
-    $coupon_code = get_field('silver_member_coupon', 'option')['silver_member_coupon_code'];
-  } else if (in_array(2, $rcp_customer_membership) || in_array(4, $rcp_customer_membership)) {
-    $member_level = 'Gold Member';
-    $coupon_code = get_field('gold_member_coupon', 'option')['gold_member_coupon_code'];
-  }
-  echo '<h3 class="text-2xl font-bold mt-4 mb-8">' . $member_level . ' Coupon Code</h3>';
-  echo '<div>';
-  echo '<input type="text" value="' . $coupon_code . '" id="copyText" readonly>';
-  echo '<div class="copyTooltip">';
-  echo '<button onclick="copyFunction()" onmouseout="outFunc()"><span class="copyTooltipText" id="copyTooltip">Copy to clipboard</span><ion-icon name="clipboard-outline"></ion-icon></button>';
-  echo '</div>';
-  echo '</div>';
-  echo '<script>';
-  echo 'function copyFunction() {
-    var copyText = document.getElementById("copyText");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(copyText.value);
-
-    var copyTooltip = document.getElementById("copyTooltip");
-    copyTooltip.innerHTML = "Copied: " + copyText.value;
-  }
-
-  function outFunc() {
-    var copyTooltip = document.getElementById("copyTooltip");
-    copyTooltip.innerHTML = "Copy to clipboard";
-  }';
-  echo '</script>';
 }

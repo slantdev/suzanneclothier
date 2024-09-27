@@ -86,26 +86,11 @@ function primary_menu_a_atts($atts)
 function site_header_buttons()
 { ?>
   <ul class="hidden xl:flex lg:border-r lg:border-primary-light lg:pr-2 lg:mr-2">
-    <?php if (!is_user_logged_in()) { ?>
-      <li class="px-1"><a href="/membership" class="block"><span class="text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 inline-block bg-primary text-white">Become a Member</span></a></li>
-      <li class="px-1">
-        <a href="/my-account" class="block">
-          <span class="inline-block text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 bg-secondary text-primary">Member Login</span>
-        </a>
-      </li>
-
-    <?php } else { ?>
-      <?php if (function_exists('rcp_user_has_active_membership')) {
-        if (!rcp_user_has_active_membership()) {
-          echo '<li class="px-1"><a href="/membership" class="inline-block text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 bg-primary text-white">Become a Member</a></li>';
-        }
-      } ?>
-      <li class="px-1 leading-none">
-        <a href="/my-account" class="block">
-          <span class="inline-block text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 bg-secondary text-primary">My Account</span>
-        </a>
-      </li>
-    <?php } ?>
+    <li class="px-1 leading-none">
+      <a href="/my-account" class="block">
+        <span class="inline-block text-sm font-semibold whitespace-nowrap rounded-full px-4 py-3 bg-secondary text-primary">My Account</span>
+      </a>
+    </li>
   </ul>
 <?php
 }

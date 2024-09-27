@@ -16,6 +16,6 @@ require get_template_directory() . '/inc/theme/shortcodes.php';
 
 require get_template_directory() . '/inc/plugins/acf.php';
 require get_template_directory() . '/inc/plugins/woocommerce.php';
-require get_template_directory() . '/inc/plugins/restrict-content-pro.php';
+//require get_template_directory() . '/inc/plugins/restrict-content-pro.php';
 
-require get_template_directory() . '/inc/functionality/membership.php';
+//require get_template_directory() . '/inc/functionality/membership.php';
