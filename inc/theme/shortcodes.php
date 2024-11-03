@@ -282,6 +282,9 @@ add_shortcode('membership_buttons', 'mobile_membership_buttons');
 function mobile_membership_buttons()
 {
   $output = '';
+  return $output;
+
+
   $output .= '<ul class="flex justify-center py-4 border-b border-gray-300 border-solid">';
 
   if (!is_user_logged_in()) {
