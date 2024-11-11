@@ -113,7 +113,7 @@ $hero_overlay = get_field('hero_overlay', $queried_object);
       $learning_paths = get_the_terms($post_id, 'learning_paths');
       if (!is_wp_error($learning_paths) && $learning_paths) {
         foreach ($learning_paths as $learning_path) {
-          if (!isset($categories[$product_cat->term_id])) {
+          if (!isset($filters[$learning_path->term_id])) {
             $filters[$learning_path->term_id] = $learning_path;
           }
         }
