@@ -13,9 +13,9 @@ function sc_body_classes($classes)
 $hero_title = get_field('hero_title');
 $hero_description = get_field('hero_description');
 $hero_background = get_field('hero_background');
-$background_image_desktop = $hero_background['background_image_desktop'];
-$background_image_mobile = $hero_background['background_image_mobile'];
-$background_overlay = $hero_background['background_overlay'];
+$background_image_desktop = $hero_background['background_image_desktop'] ?? '';
+$background_image_mobile = $hero_background['background_image_mobile'] ?? '';
+$background_overlay = $hero_background['background_overlay'] ?? '';
 
 $hero_image = '';
 if ($background_image_desktop) {

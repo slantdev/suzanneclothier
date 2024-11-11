@@ -30,10 +30,10 @@ $shop_page_id = get_option('woocommerce_shop_page_id');
 $hero_title = get_field('hero_title', $shop_page_id);
 $hero_description = get_field('hero_description', $shop_page_id);
 $hero_background = get_field('hero_background', $shop_page_id);
-$background_image_desktop = $hero_background['background_image_desktop'];
-$background_image_mobile = $hero_background['background_image_mobile'];
-$background_overlay = $hero_background['background_overlay'];
-$text_color = $hero_background['text_color'];
+$background_image_desktop = $hero_background['background_image_desktop'] ?? '';
+$background_image_mobile = $hero_background['background_image_mobile'] ?? '';
+$background_overlay = $hero_background['background_overlay'] ?? '';
+$text_color = $hero_background['text_color'] ?? '';
 if ($text_color == 'dark') {
   $text_color = 'text-primary';
 } else {
