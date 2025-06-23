@@ -11,9 +11,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see         https://docs.woocommerce.com/document/template-structure/
+ * @see         https://woocommerce.com/document/template-structure/
  * @package     WooCommerce\Templates
- * @version     3.3.0
+ * @version     9.2.0
  */
 
 if (!defined('ABSPATH')) {
@@ -21,6 +21,23 @@ if (!defined('ABSPATH')) {
 }
 
 global $product;
+
+$aria_describedby = isset($args['aria-describedby_text']) ? sprintf('aria-describedby="woocommerce_loop_add_to_cart_link_describedby_%s"', esc_attr($product->get_id())) : '';
+
+echo apply_filters(
+  'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
+  sprintf(
+    '<a href="%s" %s data-quantity="%s" class="%s" %s>%s</a>',
+    esc_url($product->add_to_cart_url()),
+    $aria_describedby,
+    esc_attr(isset($args['quantity']) ? $args['quantity'] : 1),
+    esc_attr(isset($args['class']) ? $args['class'] : 'button'),
+    isset($args['attributes']) ? wc_implode_html_attributes($args['attributes']) : '',
+    esc_html($product->add_to_cart_text())
+  ),
+  $product,
+  $args
+);
 
 $product_type = get_the_terms(get_the_ID(), 'product_type')[0]->slug;
 
@@ -31,18 +48,10 @@ if ($product_type == 'external') {
     esc_attr(isset($args['class']) ? $args['class'] : 'button'),
     'View More'
   );
-} else {
-  echo apply_filters(
-    'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
-    sprintf(
-      '<a href="%s" data-quantity="%s" class="%s" %s>%s</a>',
-      esc_url($product->add_to_cart_url()),
-      esc_attr(isset($args['quantity']) ? $args['quantity'] : 1),
-      esc_attr(isset($args['class']) ? $args['class'] : 'button'),
-      isset($args['attributes']) ? wc_implode_html_attributes($args['attributes']) : '',
-      esc_html($product->add_to_cart_text())
-    ),
-    $product,
-    $args
-  );
-}
+} else { ?>
+  <?php if (isset($args['aria-describedby_text'])) : ?>
+    <span id="woocommerce_loop_add_to_cart_link_describedby_<?php echo esc_attr($product->get_id()); ?>" class="screen-reader-text">
+      <?php echo esc_html($args['aria-describedby_text']); ?>
+    </span>
+  <?php endif; ?>
+<?php } ?>

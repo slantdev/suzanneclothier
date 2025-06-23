@@ -11,9 +11,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see https://docs.woocommerce.com/document/template-structure/
+ * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 4.4.0
+ * @version 9.6.0
  */
 
 defined('ABSPATH') || exit;
@@ -29,7 +29,8 @@ if ($cross_sells) : ?>
       <h3 class="mb-4 font-semibold text-xl"><?php echo esc_html($heading); ?></h3>
     <?php endif; ?>
 
-    <!-- <?php woocommerce_product_loop_start(); ?> -->
+    <?php // woocommerce_product_loop_start(); 
+    ?>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <?php foreach ($cross_sells as $cross_sell) : ?>
@@ -45,7 +46,8 @@ if ($cross_sells) : ?>
       <?php endforeach; ?>
     </div>
 
-    <!-- <?php woocommerce_product_loop_end(); ?> -->
+    <?php // woocommerce_product_loop_end(); 
+    ?>
 
   </div>
 <?php

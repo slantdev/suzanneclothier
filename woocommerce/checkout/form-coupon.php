@@ -3,9 +3,17 @@
 /**
  * Checkout coupon form
  *
- * @see https://docs.woocommerce.com/document/template-structure/
+ * This template can be overridden by copying it to yourtheme/woocommerce/checkout/form-coupon.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
+ *
+ * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 7.0.1
+ * @version 9.8.0
  */
 
 defined('ABSPATH') || exit;
@@ -16,7 +24,17 @@ if (!wc_coupons_enabled()) { // @codingStandardsIgnoreLine.
 
 ?>
 <div class="woocommerce-form-coupon-toggle">
-  <?php wc_print_notice(apply_filters('woocommerce_checkout_coupon_message', esc_html__('Have a coupon?', 'woocommerce') . ' <a href="#" class="showcoupon">' . esc_html__('Click here to enter your code', 'woocommerce') . '</a>'), 'notice'); ?>
+  <?php
+  /**
+   * Filter checkout coupon message.
+   *
+   * @param string $message coupon message.
+   * @return string Filtered message.
+   *
+   * @since 1.0.0
+   */
+  wc_print_notice(apply_filters('woocommerce_checkout_coupon_message', esc_html__('Have a coupon?', 'woocommerce') . ' <a href="#" role="button" aria-label="' . esc_attr__('Enter your coupon code', 'woocommerce') . '" aria-controls="woocommerce-checkout-form-coupon" aria-expanded="false" class="showcoupon">' . esc_html__('Click here to enter your code', 'woocommerce') . '</a>'), 'notice');
+  ?>
 </div>
 
 <form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
