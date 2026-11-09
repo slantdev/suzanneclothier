@@ -19,6 +19,11 @@ $background_image_desktop = $hero_background['background_image_desktop'] ?? '';
 $background_image_mobile = $hero_background['background_image_mobile'] ?? '';
 $background_overlay = $hero_background['background_overlay'] ?? '';
 
+$hero_image = '';
+if ($background_image_desktop) {
+  $hero_image = $background_image_desktop;
+}
+
 global $post;
 
 $parentId = $post->post_parent;
@@ -28,7 +33,7 @@ $linkToParent = get_permalink($parentId);
 <main class="page-membership-checkout">
 
   <?php if ($hero_image) { ?>
-    <section class="hero flex flex-col items-center" style="background-image: url(<?php echo $hero_image ?>">
+    <section class="hero flex flex-col items-center" style="background-image: url(<?php echo $hero_image ?>)">
     <?php } else { ?>
       <section class="hero flex flex-col items-center bg-cover bg-center bg-primary bg-opacity-30">
       <?php } ?>
